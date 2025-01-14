@@ -3,9 +3,9 @@ import p5 from 'p5';
 const exampleSketch = (p: typeof p5) => {
   let lastMouseX = 0;
   let lastMouseY = 0;
-  let currentSize = 50; // Initial size of the circle
+  let currentSize = 100; // Initial size of the circle
   let sizeSpeed = 0.1; // Speed of size change (default)
-  let maxSize = 200; // Maximum size of the circle
+  let maxSize = 500; // Maximum size of the circle
   let minSize = 20;  // Minimum size of the circle
 
   p.setup = () => {
@@ -43,6 +43,10 @@ const exampleSketch = (p: typeof p5) => {
 
     // Draw the circle with the smooth size transition
     p.ellipse(p.mouseX, p.mouseY, currentSize, currentSize);
+    p.ellipse(p.mouseX +10, p.mouseY +10, currentSize +10, currentSize +10);
+    p.ellipse(p.mouseX -10, p.mouseY -10, currentSize -10, currentSize -10);
+    p.ellipse(p.mouseX -5, p.mouseY -5, currentSize -5, currentSize -5);
+    p.ellipse(p.mouseX +5, p.mouseY +5, currentSize +5, currentSize +5);
   };
 };
 

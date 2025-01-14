@@ -1,23 +1,34 @@
-import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button} from "@nextui-org/react";
+import { useRef, useState } from "react";
+import { Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button } from "@nextui-org/react";
+import { FaPause } from "react-icons/fa";
+import { FaPlay } from "react-icons/fa";
 
-export const RevivalLogo = () => {
-  return (
-    <svg fill="none" height="36" viewBox="0 0 32 32" width="36">
-      <path
-        clipRule="evenodd"
-        d="M17.6482 10.1305L15.8785 7.02583L7.02979 22.5499H10.5278L17.6482 10.1305ZM19.8798 14.0457L18.11 17.1983L19.394 19.4511H16.8453L15.1056 22.5499H24.7272L19.8798 14.0457Z"
-        fill="currentColor"
-        fillRule="evenodd"
-      />
-    </svg>
-  );
-};
 
 export default function NavBar() {
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const handlePlayPause = () => {
+    if (audioRef.current) {
+      if (audioRef.current.paused) {
+        audioRef.current.play();
+        setIsPlaying(true);
+      } else {
+        audioRef.current.pause();
+        setIsPlaying(false);
+      }
+    }
+  };
+
   return (
-    <Navbar className="w-screen	">
-      <NavbarBrand className="gap-10 w-screen ">
-        
+    <Navbar className="w-screen">
+      <NavbarItem>
+        <audio ref={audioRef} src="/music/song.mp3" />
+        <Button onClick={handlePlayPause} className="w-10 h-10 flex justify-center items-center transition-none">
+        {isPlaying ? <FaPause /> : <FaPlay />}
+        </Button>
+      </NavbarItem>
+      <NavbarBrand className="gap-10 w-screen">
         <p className="font-badeen text-5xl"> Revival Records</p>
       </NavbarBrand>
       <NavbarContent className="hidden sm:flex gap-10 pl-10" justify="end">
@@ -38,7 +49,7 @@ export default function NavBar() {
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
-       
+        {/* Add any additional content if needed */}
       </NavbarContent>
     </Navbar>
   );
