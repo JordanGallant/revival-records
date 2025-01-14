@@ -33,12 +33,12 @@ const exampleSketch = (p: typeof p5) => {
     lastMouseY = p.mouseY;
 
     // Change the color based on the mouseX position
-    let red = p.map(p.mouseX, 0, p.width, 0, 255);
-    let green = p.map(p.mouseY, 0, p.height, 255, 0);
-    let blue = p.map(p.mouseX, 0, p.width, 0, 255);
+    let red = p.map(p.mouseX, 0, p.width, 50, 255);
+    let green = p.map(p.mouseY, 0, p.height, 100, 150);
+    let blue = p.map(p.mouseX, 0, p.width, 0, 50);
 
     // Set 10% opacity (alpha = 25) for the circle so it blends with the background
-    p.fill(red, green, blue, 100); // Increase opacity for more visibility in the blend
+    p.fill(red, green, blue, 150); // Increase opacity for more visibility in the blend
     p.noStroke();
 
     // Draw the circle with the smooth size transition
