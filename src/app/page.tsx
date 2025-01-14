@@ -1,7 +1,8 @@
 "use client";
 import NavBar from "./_components/navbar";
 import dynamic from 'next/dynamic';
-import exampleSketch from '../app/sketches/exampleSketch';
+import exampleSketch from './sketches/exampleSketch';
+
 
 const P5Wrapper = dynamic(() => import('../app/_components/P5Wrapper'), { ssr: false });
 export default function Home() {
