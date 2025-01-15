@@ -1,13 +1,22 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button } from "@nextui-org/react";
 import { FaPause } from "react-icons/fa";
 import { FaPlay } from "react-icons/fa";
 import { FaSoundcloud } from "react-icons/fa";
 
-
 export default function NavBar() {
+  // List of songs (change the paths to your actual song files)
+  const songs = [
+    "/music/song1.mp3",
+    "/music/song2.mp3",
+    "/music/song3.mp3",
+    "/music/song4.mp3",
+    "/music/song5.mp3",
+  ];
+
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [currentSongIndex, setCurrentSongIndex] = useState(0);
 
   const handlePlayPause = () => {
     if (audioRef.current) {
@@ -21,24 +30,33 @@ export default function NavBar() {
     }
   };
 
-  // Function to handle replay
-  const handleReplay = () => {
-    if (audioRef.current) {
-      audioRef.current.currentTime = 0; // Reset audio to the start
-      audioRef.current.play(); // Play the audio again
-      setIsPlaying(true); // Set isPlaying to true
-    }
+  // Function to handle replay and move to the next song when the current one ends
+  const handleSongEnd = () => {
+    const nextSongIndex = (currentSongIndex + 1) % songs.length; // Loop to the next song
+    setCurrentSongIndex(nextSongIndex); // Update the song index to the next song
   };
+
+  // Automatically trigger play for the next song when current one ends
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.play();
+      setIsPlaying(true);
+    }
+  }, [currentSongIndex]); // Effect runs when the song changes
 
   return (
     <Navbar className="w-screen">
       <NavbarItem>
         <audio
           ref={audioRef}
-          src="/music/song.mp3"
-          onEnded={handleReplay} // This will trigger replay when the audio ends
+          src={songs[currentSongIndex]} // Set the src to the current song
+          onEnded={handleSongEnd} // Automatically move to the next song
         />
-        <Button onClick={handlePlayPause} className="w-10 h-10 flex justify-center items-center transition-none">
+        <Button
+          onClick={handlePlayPause}
+          id="play"
+          className="w-10 h-10 flex justify-center items-center transition-none"
+        >
           {isPlaying ? <FaPause /> : <FaPlay />}
         </Button>
       </NavbarItem>
@@ -47,9 +65,9 @@ export default function NavBar() {
       </NavbarBrand>
       <NavbarContent className="hidden sm:flex gap-10 pl-10" justify="end">
         <NavbarItem>
-          <Link color="foreground" href="#">
-            Blog
-          </Link>
+        <Link href="/blog">
+        <a>Blog</a>
+        </Link>
         </NavbarItem>
         <NavbarItem isActive>
           <Link aria-current="page" href="#">
@@ -63,7 +81,7 @@ export default function NavBar() {
         </NavbarItem>
         <NavbarItem>
           <Link color="foreground" href="https://soundcloud.com/jgsleepwithme">
-          <FaSoundcloud className="w-10 h-10"/>
+            <FaSoundcloud className="w-10 h-10" />
           </Link>
         </NavbarItem>
       </NavbarContent>

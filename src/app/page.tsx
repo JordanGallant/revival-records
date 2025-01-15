@@ -3,6 +3,7 @@ import NavBar from "./_components/navbar";
 import dynamic from "next/dynamic";
 import exampleSketch from "./sketches/exampleSketch";
 import ThreeDee from "./_components/object";
+import Link from 'next/link';
 
 
  
