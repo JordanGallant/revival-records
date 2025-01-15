@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button } from "@nextui-org/react";
 import { FaPause } from "react-icons/fa";
 import { FaPlay } from "react-icons/fa";
+import { FaSoundcloud } from "react-icons/fa";
 
 
 export default function NavBar() {
@@ -20,12 +21,25 @@ export default function NavBar() {
     }
   };
 
+  // Function to handle replay
+  const handleReplay = () => {
+    if (audioRef.current) {
+      audioRef.current.currentTime = 0; // Reset audio to the start
+      audioRef.current.play(); // Play the audio again
+      setIsPlaying(true); // Set isPlaying to true
+    }
+  };
+
   return (
     <Navbar className="w-screen">
       <NavbarItem>
-        <audio ref={audioRef} src="/music/song.mp3" />
+        <audio
+          ref={audioRef}
+          src="/music/song.mp3"
+          onEnded={handleReplay} // This will trigger replay when the audio ends
+        />
         <Button onClick={handlePlayPause} className="w-10 h-10 flex justify-center items-center transition-none">
-        {isPlaying ? <FaPause /> : <FaPlay />}
+          {isPlaying ? <FaPause /> : <FaPlay />}
         </Button>
       </NavbarItem>
       <NavbarBrand className="gap-10 w-screen">
@@ -45,6 +59,11 @@ export default function NavBar() {
         <NavbarItem>
           <Link color="foreground" href="#">
             Events
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link color="foreground" href="https://soundcloud.com/jgsleepwithme">
+          <FaSoundcloud className="w-10 h-10"/>
           </Link>
         </NavbarItem>
       </NavbarContent>

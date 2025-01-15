@@ -1,14 +1,18 @@
 "use client";
 
 import * as THREE from "three";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+
+
 
 const ThreeScene: React.FC = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const [invertRotation, setInvertRotation] = useState(false); // State to track rotation inversion
 
   useEffect(() => {
     let camera: THREE.PerspectiveCamera;
     let renderer: THREE.WebGLRenderer;
+    let face: THREE.Mesh;
 
     function init() {
       if (!containerRef.current) return;
@@ -23,7 +27,7 @@ const ThreeScene: React.FC = () => {
       );
 
       renderer = new THREE.WebGLRenderer({
-        alpha: true, // Enable transparency
+        alpha: true, // Enable transparency for the background
       });
 
       renderer.setClearColor(0x000000, 0); // Set transparent background
@@ -36,43 +40,67 @@ const ThreeScene: React.FC = () => {
       renderer.domElement.style.top = "0";
       containerRef.current.appendChild(renderer.domElement);
 
-      const shape: THREE.Mesh[] = [];
+      // Add an environment map for reflections
+      const cubeTextureLoader = new THREE.CubeTextureLoader();
+      const environmentMap = cubeTextureLoader.load([
+        "/textures/eyeball.jpg", // Replace with your texture paths
+        "/textures/moon.jpg",
+        "/textures/py.jpg",
+        "/textures/ny.jpg",
+        "/textures/pz.jpg",
+        "/textures/nz.jpg",
+      ]);
 
-      const geometry = new THREE.IcosahedronGeometry(2, 0);
-      const material = new THREE.MeshLambertMaterial({
-        color: 0x0064ff,
-        emissive: 0x1111111,
+      scene.environment = environmentMap;
+
+      // Load moon texture
+      const textureLoader = new THREE.TextureLoader();
+      const moonTexture = textureLoader.load("/textures/moon.jpg"); // Replace with your moon texture path
+
+      // Create the face (metallic sphere with moon texture)
+      const faceGeometry = new THREE.SphereGeometry(3, 32, 32);
+      const faceMaterial = new THREE.MeshPhysicalMaterial({
+        envMap: environmentMap, // Use the environment map for reflections
+        map: moonTexture, // Apply the moon texture
       });
+      face = new THREE.Mesh(faceGeometry, faceMaterial);
+      scene.add(face);
 
-      const geometryFrame = new THREE.IcosahedronGeometry(4, 0);
-      const materialFrame = new THREE.MeshBasicMaterial({
-        wireframe: true,
-        transparent: true,
-        opacity: 0.1,
-        color: 0xffffff,
-      });
-
-      shape[0] = new THREE.Mesh(geometryFrame, materialFrame);
-      shape[0].position.set(3, 5, 0);
-
-      shape[1] = new THREE.Mesh(geometry, material);
-      shape[1].position.set(3, 5, 0);
-
-      scene.add(shape[0]);
-      scene.add(shape[1]);
-
-      const pointLight = new THREE.PointLight(0x888888);
-      pointLight.position.set(1, 100, 500);
+      // Lighting
+      const pointLight = new THREE.PointLight(0xffffff, 1.5);
+      pointLight.position.set(10, 10, 10);
       scene.add(pointLight);
 
-      camera.position.set(3, 5.5, 10); // x y z
+      const directionalLight = new THREE.DirectionalLight(0xffffff, 1.2);
+      directionalLight.position.set(-10, 10, 10);
+      scene.add(directionalLight);
+
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+      scene.add(ambientLight);
+
+      camera.position.set(0, 0, 10);
+
+      
+    
 
       function render() {
         requestAnimationFrame(render);
-        shape[0].rotation.x -= 0.005;
-        shape[0].rotation.y -= 0.005;
-        shape[1].rotation.x += 0.02;
-        shape[1].rotation.y += 0.02;
+
+       
+
+        // Rotate the face in the opposite direction if inversion is active
+        if (invertRotation) {
+          face.rotation.x -= 0.02; // Inverse rotation on X-axis
+          face.rotation.y -= 0.02; // Inverse rotation on Y-axis
+        } 
+        
+        
+        else {
+          face.rotation.x += 0.02; // Normal rotation on X-axis
+          face.rotation.y += 0.02; // Normal rotation on Y-axis
+        }
+
+        // Render the scene
         renderer.render(scene, camera);
       }
 
@@ -101,7 +129,7 @@ const ThreeScene: React.FC = () => {
     }
 
     init();
-  }, []);
+  }, [invertRotation]);
 
   return <div ref={containerRef} style={{ width: "100%", height: "100vh" }} />;
 };

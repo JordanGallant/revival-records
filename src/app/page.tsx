@@ -20,8 +20,8 @@ export default function Home() {
       </div>
 
       {/* 3D Object */}
-      <div className="absolute inset-0 flex items-center justify-center z-10">
-        <div className="w-3/4 h-1/2 sm:w-2/3 sm:h-2/3 md:w-1/2 md:h-3/4 flex items-center justify-center ">
+      <div className="absolute inset-0 flex items-center justify-center z-10 ">
+        <div className="w-3/4 h-1/2 sm:w-2/3 sm:h-2/3 md:w-1/2 md:h-3/4 flex items-center justify-center pt-10">
           <ThreeDee />
         </div>
       </div>

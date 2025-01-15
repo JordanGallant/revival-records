@@ -17,7 +17,7 @@ const exampleSketch = (p: typeof p5) => {
 
   p.draw = () => {
     // Background with a low opacity to allow blending with previous frames
-    p.background(200, 200, 200, 10); // The last argument controls the transparency of the background
+    p.background(200, 200, 200, 7.5); // The last argument controls the transparency of the background
 
     // Calculate the mouse speed (distance between current and previous position)
     let mouseSpeed = p.dist(p.mouseX, p.mouseY, lastMouseX, lastMouseY);
@@ -47,6 +47,8 @@ const exampleSketch = (p: typeof p5) => {
     p.ellipse(p.mouseX -10, p.mouseY -10, currentSize -10, currentSize -10);
     p.ellipse(p.mouseX -5, p.mouseY -5, currentSize -5, currentSize -5);
     p.ellipse(p.mouseX +5, p.mouseY +5, currentSize +5, currentSize +5);
+    p.ellipse(p.mouseX -2.5, p.mouseY -2.5, currentSize -2.5, currentSize -2.5);
+    p.ellipse(p.mouseX +2.5, p.mouseY +2.5, currentSize +2.5, currentSize +2.5);
   };
 };
 
