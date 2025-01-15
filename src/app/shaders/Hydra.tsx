@@ -13,14 +13,13 @@ export default function Hydra() {
         detectAudio: false,
       });
 
-      // Hydra's functions (e.g., osc, noise) are globally available now
-      osc(10, 0.1, 1.5) // Oscillator for wave-like visuals
-        .rotate(() => Math.sin(time * 0.1) * 0.1) // Dynamic rotation
-        .color(0.5, 0.3, 0.8) // Apply color
-        .modulate(noise(2).scale(1.5)) // Add noise modulation
-        .out(); // Output to canvas
+      osc(10, 0.1, 1.5) 
+        .rotate(() => Math.sin(time * 0.1) * 0.1) 
+        .color(0.5, 0.3, 0.8) 
+        .modulate(noise(2).scale(1.5)) 
+        .out(); 
     }
   }, []);
 
-  return <canvas ref={canvasRef} className="w-full h-full" />;
+  return <canvas ref={canvasRef} className="w-full h-[300vh]" />;
 }

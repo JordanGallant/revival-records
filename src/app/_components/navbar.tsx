@@ -4,11 +4,17 @@ import { FaPause } from "react-icons/fa";
 import { FaPlay } from "react-icons/fa";
 import { FaSoundcloud } from "react-icons/fa";
 
-export default function NavBar() {
+interface NavBarProps {
+  className?: string;
+}
+
+const NavBar: React.FC<NavBarProps> = ({ className }) => {
+
+
   // List of songs (change the paths to your actual song files)
   const songs = [
-    "/music/song1.mp3",
-    "/music/song2.mp3",
+   // "/music/song1.mp3",
+   // "/music/song2.mp3",
     "/music/song3.mp3",
     "/music/song4.mp3",
     "/music/song5.mp3",
@@ -28,7 +34,7 @@ export default function NavBar() {
         setIsPlaying(false);
       }
     }
-  };
+  };  
 
   // Function to handle replay and move to the next song when the current one ends
   const handleSongEnd = () => {
@@ -45,7 +51,7 @@ export default function NavBar() {
   }, [currentSongIndex]); // Effect runs when the song changes
 
   return (
-    <Navbar className="w-screen">
+    <Navbar className="w-screen bg-opacity-75 bg-white">
       <NavbarItem>
         <audio
           ref={audioRef}
@@ -57,7 +63,7 @@ export default function NavBar() {
           id="play"
           className="w-10 h-10 flex justify-center items-center transition-none"
         >
-          {isPlaying ? <FaPlay /> : <FaPause />}
+          {isPlaying ? <FaPause /> : <FaPlay />}
         </Button>
       </NavbarItem>
       <NavbarBrand className="gap-10 w-screen">
@@ -66,7 +72,7 @@ export default function NavBar() {
       <NavbarContent className="hidden sm:flex gap-10 pl-10" justify="end">
         <NavbarItem>
         <Link href="/blog">
-        <a>Blog</a>
+        <a >Blog</a>
         </Link>
         </NavbarItem>
         <NavbarItem isActive>
@@ -91,3 +97,6 @@ export default function NavBar() {
     </Navbar>
   );
 }
+
+
+export default NavBar;
