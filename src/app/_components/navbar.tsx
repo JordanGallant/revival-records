@@ -57,7 +57,7 @@ export default function NavBar() {
           id="play"
           className="w-10 h-10 flex justify-center items-center transition-none"
         >
-          {isPlaying ? <FaPause /> : <FaPlay />}
+          {isPlaying ? <FaPlay /> : <FaPause />}
         </Button>
       </NavbarItem>
       <NavbarBrand className="gap-10 w-screen">
