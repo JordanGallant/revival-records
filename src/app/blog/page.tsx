@@ -19,7 +19,7 @@ const Blog: React.FC = () => {
         <HydraCanvas />
 
        
-        <div className="absolute top-[10%] left-10 flex flex-col items-center justify-start z-30 bg-stone-200 bg-opacity-5 w-[calc(100%-5rem)] min-h-[200vh] group hover:bg-opacity-20 rounded-lg">
+        <div className="absolute top-[10%] left-10 flex flex-col items-center justify-start z-30 bg-stone-200 bg-opacity-10 w-[calc(100%-5rem)] min-h-[200vh] group hover:bg-opacity-50 rounded-lg">
   
   <div className="absolute top-[2.5%] h-96 w-full flex flex-col md:flex-row justify-between rounded-lg mx-5">
     <div className="h-full w-full md:w-1/3 outline outline-1 rounded-lg mb-4 md:mb-0 mx-5"></div>

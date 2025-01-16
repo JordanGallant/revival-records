@@ -76,7 +76,7 @@ const NavBar: React.FC<NavBarProps> = ({ className }) => {
         </Link>
         </NavbarItem>
         <NavbarItem isActive>
-          <Link aria-current="page" href="#">
+          <Link aria-current="page" href="/music">
             Music
           </Link>
         </NavbarItem>
