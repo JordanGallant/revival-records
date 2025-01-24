@@ -3,16 +3,20 @@ import p5 from 'p5';
 const exampleSketch = (p: typeof p5) => {
   let lastMouseX = 0;
   let lastMouseY = 0;
-  let currentSize = 100; // Initial size of the circle
-  let sizeSpeed = 0.1; // Speed of size change (default)
-  let maxSize = 500; // Maximum size of the circle
-  let minSize = 20;  // Minimum size of the circle
+  let currentSize = 100;
+  let sizeSpeed = 0.1; 
+  let maxSize = 500; 
+  let minSize = 20;  
 
   p.setup = () => {
-    p.createCanvas(1600, 800); // Larger canvas for bigger circle
+    p.createCanvas(p.windowWidth, p.windowHeight); 
     lastMouseX = p.mouseX;
     lastMouseY = p.mouseY;
-    p.frameRate(30); // Set frame rate for smoother blending
+    p.frameRate(30); 
+  };
+
+  p.windowResized = () => {
+    p.resizeCanvas(p.windowWidth, p.windowHeight); 
   };
 
   p.draw = () => {

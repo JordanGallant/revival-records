@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import Video from "../shaders/Video";
 import NavBar from '../_components/navbar';
 
-const Blog: React.FC = () => {
+const Music: React.FC = () => {
   return (
     <>
       
@@ -14,17 +14,16 @@ const Blog: React.FC = () => {
 
       
       <div className="relative z-0 min-h-[100vh]">
-        
-        
         <Video />
-
-    
-  
-</div>
-
         
+        
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center z-30 bg-stone-200 bg-opacity-10 w-[90%]  h-2/3 group hover:bg-opacity-50 rounded-lg">
+          <h1 className="font-badeen text-5xl bg-opacity-75"> The Revival Playlist</h1>
+          
+        </div>
+      </div>
     </>
   );
 };
 
-export default Blog;
+export default Music;

@@ -19,7 +19,7 @@ const P5Wrapper: React.FC<P5WrapperProps> = ({ sketch }) => {
     }
   }, [sketch]);
 
-  return <div ref={sketchRef}></div>;
+  return <div ref={sketchRef}   ></div>;
 };
 
 export default P5Wrapper;

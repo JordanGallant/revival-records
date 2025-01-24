@@ -81,8 +81,13 @@ const NavBar: React.FC<NavBarProps> = ({ className }) => {
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="#">
+          <Link color="foreground" href="/listen">
             Events
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link color="foreground" href="#">
+            About
           </Link>
         </NavbarItem>
         <NavbarItem>

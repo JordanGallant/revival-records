@@ -44,11 +44,7 @@ const ThreeScene: React.FC = () => {
       const cubeTextureLoader = new THREE.CubeTextureLoader();
       const environmentMap = cubeTextureLoader.load([
         "/textures/eyeball.jpg", // Replace with your texture paths
-        "/textures/moon.jpg",
-        "/textures/py.jpg",
-        "/textures/ny.jpg",
-        "/textures/pz.jpg",
-        "/textures/nz.jpg",
+        "/textures/moon.jpg"
       ]);
 
       scene.environment = environmentMap;

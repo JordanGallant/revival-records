@@ -22,6 +22,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/sketches/exampleSketch.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/sketches/exampleSketch.ts", "src/app/shaderPark/spCode.sp", "src/app/_components/audioVisualizer.js"],
   "exclude": ["node_modules"]
 }
