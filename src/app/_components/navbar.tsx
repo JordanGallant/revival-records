@@ -67,7 +67,9 @@ const NavBar: React.FC<NavBarProps> = ({ className }) => {
         </Button>
       </NavbarItem>
       <NavbarBrand className="gap-10 w-screen">
+        <Link href="/">
         <p className="font-badeen text-5xl"> Revival Records</p>
+        </Link>
       </NavbarBrand>
       <NavbarContent className="hidden sm:flex gap-10 pl-10" justify="end">
         <NavbarItem>
@@ -81,7 +83,7 @@ const NavBar: React.FC<NavBarProps> = ({ className }) => {
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="/about">
+          <Link color="foreground" href="/events">
             Events
           </Link>
         </NavbarItem>
