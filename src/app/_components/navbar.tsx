@@ -13,8 +13,8 @@ const NavBar: React.FC<NavBarProps> = ({ className }) => {
 
   // List of songs (change the paths to your actual song files)
   const songs = [
-   // "/music/song1.mp3",
-   // "/music/song2.mp3",
+    "/music/song1.mp3",
+    "/music/song2.mp3",
     "/music/song3.mp3",
     "/music/song4.mp3",
     "/music/song5.mp3",
@@ -81,12 +81,12 @@ const NavBar: React.FC<NavBarProps> = ({ className }) => {
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="/listen">
+          <Link color="foreground" href="/about">
             Events
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="#">
+          <Link color="foreground" href="/about">
             About
           </Link>
         </NavbarItem>

@@ -22,6 +22,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/sketches/exampleSketch.ts", "src/app/shaderPark/spCode.sp", "src/app/_components/audioVisualizer.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/sketches/exampleSketch.ts", "src/app/shaderPark/spCode.sp", "src/app/_components/audioVisualizer.js", "src/app/sketches/shaderPark.js", "src/app/listen/page.jsx", "src/app/_components/shaderParkWrapper.jsx"],
   "exclude": ["node_modules"]
 }

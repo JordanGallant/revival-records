@@ -2,7 +2,7 @@
 import React from 'react';
 import dynamic from "next/dynamic";
 import NavBar from '../_components/navbar';
-import AudioVisualizer from '../_components/threeAudio';
+import AudioVisualizer from '../_components/audioVisaulizer';
 
 
 
@@ -11,8 +11,12 @@ const Listen: React.FC = () => {
     <>
       <div className="absolute top-0 left-0 w-full z-20">
         <NavBar />
-        Hello
+        
       </div>
+
+      <AudioVisualizer/>
+
+
     </>
   );
 };
