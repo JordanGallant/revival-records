@@ -7,7 +7,7 @@ const Listen: React.FC = () => {
       <>
         <div className="absolute top-0 left-0 w-full z-20">
           <NavBar />
-          Hello
+          Hell
         </div>
 
   
