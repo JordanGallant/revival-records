@@ -1,7 +1,8 @@
 "use client";
 import React from 'react';
-import dynamic from "next/dynamic";
+
 import NavBar from '../_components/navbar';
+import HydraCanvas from "../shaders/dance";
 const Listen: React.FC = () => {
     return (
       <>
@@ -9,7 +10,12 @@ const Listen: React.FC = () => {
           <NavBar />
           Hello
         </div>
-
+        <div className="relative z-0 min-h-[100vh]">
+                
+                
+                <HydraCanvas />
+        
+        </div>
   
       </>
     );
