@@ -16,6 +16,10 @@ const Listen: React.FC = () => {
                 <HydraCanvas />
         
         </div>
+        <div className="relative z-0 min-h-96 w-full flex justify-center items-center text-9xl font-badeen tracking-[0.2em]">
+
+          <h1>NO EVENTS YET</h1>
+        </div>
   
       </>
     );
