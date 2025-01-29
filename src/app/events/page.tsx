@@ -2,7 +2,11 @@
 import React from 'react';
 
 import NavBar from '../_components/navbar';
+<<<<<<< HEAD
 import HydraCanvas from "../shaders/Dance";
+=======
+import HydraCanvas from "../shaders/dance";
+>>>>>>> 063aa60d1f3afcfd0b194e1a6b73b55a8950d1ed
 const Listen: React.FC = () => {
     return (
       <>
