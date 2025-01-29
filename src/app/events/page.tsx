@@ -1,9 +1,8 @@
 "use client";
 import React from 'react';
-
 import NavBar from '../_components/navbar';
 import HydraCanvas from "../shaders/Dance";
-const Listen: React.FC = () => {
+const Events: React.FC = () => {
     return (
       <>
         <div className="absolute top-0 left-0 w-full z-20">
@@ -25,4 +24,4 @@ const Listen: React.FC = () => {
     );
   };
   
-  export default Listen;
+  export default Events;
