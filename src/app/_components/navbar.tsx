@@ -61,33 +61,33 @@ const NavBar: React.FC<NavBarProps> = ({ className }) => {
         <Button
           onClick={handlePlayPause}
           id="play"
-          className="w-10 h-10 flex justify-center items-center transition-none"
+          className="w-10 h-10 flex justify-center items-center transition-none text-black"
         >
           {isPlaying ? <FaPause /> : <FaPlay />}
         </Button>
       </NavbarItem>
-      <NavbarBrand className="gap-10 w-screen">
+      <NavbarBrand className="gap-10 w-screen text-black">
         <Link href="/">
         <p className="font-badeen text-5xl"> Revival Records</p>
         </Link>
       </NavbarBrand>
-      <NavbarContent className="hidden sm:flex gap-10 pl-10" justify="end">
+      <NavbarContent className="hidden sm:flex gap-10 pl-10 text-black" justify="end">
         <NavbarItem>
         <Link href="/blog">
         <a >Blog</a>
         </Link>
         </NavbarItem>
-        <NavbarItem isActive>
+        <NavbarItem isActive className="text-black">
           <Link aria-current="page" href="/music">
             Music
           </Link>
         </NavbarItem>
-        <NavbarItem>
+        <NavbarItem className="text-black">
           <Link color="foreground" href="/events">
             Events
           </Link>
         </NavbarItem>
-        <NavbarItem>
+        <NavbarItem className="text-black">
           <Link color="foreground" href="/about">
             About
           </Link>
