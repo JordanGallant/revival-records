@@ -1,8 +1,11 @@
 "use client";
 import React from 'react';
-import dynamic from "next/dynamic";
-import Video from "../shaders/Video";
 import NavBar from '../_components/navbar';
+import dynamic from "next/dynamic";
+
+const Video = dynamic(() => import("../shaders/Video"), {
+  ssr: false,
+});
 
 const Music: React.FC = () => {
   return (

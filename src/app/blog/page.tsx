@@ -1,8 +1,11 @@
 "use client";
 import React from 'react';
-import dynamic from "next/dynamic";
-import HydraCanvas from "../shaders/Hydra";
 import NavBar from '../_components/navbar';
+import dynamic from "next/dynamic";
+
+const HydraCanvas = dynamic(() => import("../shaders/Hydra"), {
+  ssr: false,
+});
 
 const Blog: React.FC = () => {
   return (
