@@ -11,7 +11,7 @@ interface NavBarProps {
 const NavBar: React.FC<NavBarProps> = ({ className }) => {
 
 
-  
+  // List of songs (change the paths to your actual song files)
   const songs = [
     "/music/song1.mp3",
     "/music/song2.mp3",
@@ -36,27 +36,27 @@ const NavBar: React.FC<NavBarProps> = ({ className }) => {
     }
   };  
 
-  
+  // Function to handle replay and move to the next song when the current one ends
   const handleSongEnd = () => {
-    const nextSongIndex = (currentSongIndex + 1) % songs.length; 
-    setCurrentSongIndex(nextSongIndex); 
+    const nextSongIndex = (currentSongIndex + 1) % songs.length; // Loop to the next song
+    setCurrentSongIndex(nextSongIndex); // Update the song index to the next song
   };
 
-  
+  // Automatically trigger play for the next song when current one ends
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.play();
       setIsPlaying(true);
     }
-  }, [currentSongIndex]); 
+  }, [currentSongIndex]); // Effect runs when the song changes
 
   return (
     <Navbar className="w-screen bg-opacity-75 bg-white">
       <NavbarItem>
         <audio
           ref={audioRef}
-          src={songs[currentSongIndex]} 
-          onEnded={handleSongEnd} 
+          src={songs[currentSongIndex]} // Set the src to the current song
+          onEnded={handleSongEnd} // Automatically move to the next song
         />
         <Button
           onClick={handlePlayPause}
