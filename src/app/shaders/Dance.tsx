@@ -12,8 +12,9 @@ export default function Hydra() {
         canvas: canvasRef.current,
         detectAudio: false,
       });
-
+      // @ts-ignore
       s0.initVideo('https://upload.wikimedia.org/wikipedia/commons/d/d0/Serpentine_Dance_%281895%29_-_yt.webm')
+      // @ts-ignore
       src(s0).out()
     }
   }, []);

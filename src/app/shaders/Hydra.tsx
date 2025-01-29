@@ -12,11 +12,15 @@ export default function Hydra() {
         canvas: canvasRef.current,
         detectAudio: false,
       });
-
+      // @ts-ignore
       osc(10, 0.1, 1.5) 
+      // @ts-ignore
         .rotate(() => Math.sin(time * 0.1) * 0.1) 
+        // @ts-ignore
         .color(0.5, 0.3, 0.8) 
+        // @ts-ignore
         .modulate(noise(2).scale(1.5)) 
+        // @ts-ignore
         .out(); 
     }
   }, []);
