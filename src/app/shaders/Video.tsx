@@ -19,5 +19,5 @@ export default function Hydra() {
     }
   }, []);
 
-  return <canvas ref={canvasRef} className="w-full h-full" />;
+  return <canvas ref={canvasRef} className="w-full h-screen" />;
 }
