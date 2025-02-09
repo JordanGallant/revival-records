@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const api = "http://localhost:3000/playlist/tracks";
+const api = "https://revival-rest-api.onrender.com/playlist/tracks";
 
 interface Track {
   name: string;

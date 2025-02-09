@@ -8,7 +8,7 @@ const app = express();
 app.use(cors());
 
 
-PORT =3000;
+PORT =3001;
 
 const TOKEN_URL = "https://accounts.spotify.com/api/token";
 const PLAYLIST_URL = "https://api.spotify.com/v1/playlists/3S2dYhSHn5IIqQrGFXDf2W";
