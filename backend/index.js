@@ -1,68 +1,50 @@
-const axios = require("axios");
-const qs = require("qs");
-require("dotenv").config();
-const express = require("express");
-const cors = require("cors");
+import { S3Client, ListObjectsV2Command } from "@aws-sdk/client-s3";
 
-const app = express();
-app.use(cors());
+// Configure AWS S3 client
+const s3Client = new S3Client({
+  region: process.env.AWS_REGION || "us-east-1",
+  credentials: {
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+  },
+});
 
-
-PORT =3001;
-
-const TOKEN_URL = "https://accounts.spotify.com/api/token";
-const PLAYLIST_URL = "https://api.spotify.com/v1/playlists/3S2dYhSHn5IIqQrGFXDf2W";
-
-const getSpotifyToken = async () => {
-  try {
-    const response = await axios.post(
-      TOKEN_URL,
-      qs.stringify({
-        grant_type: "client_credentials",
-        client_id: process.env.CLIENT_ID,
-        client_secret: process.env.CLIENT_SECRET,
-      }),
-      {
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      }
-    );
-
-    return response.data.access_token;
-  } catch (error) {
-    console.error(
-      "Error fetching token:",
-      error.response ? error.response.data : error.message
-    );
+export default async function handler(req, res) {
+  // Only allow GET requests
+  if (req.method !== 'GET') {
+    return res.status(405).json({ message: 'Method not allowed' });
   }
-};
 
-app.get("/playlist/tracks", async (req, res) => {
-    const token = await getSpotifyToken();
-    if (!token) return res.status(500).json({ error: "Failed to retrieve access token" });
+  const bucketName = process.env.S3_BUCKET_NAME || "revival-records";
   
-    try {
-      const response = await axios.get(PLAYLIST_URL, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-  
-      const tracks = response.data.tracks.items.map((item) => ({
-        name: item.track.name,
-        artist: item.track.artists.map((artist) => artist.name).join(", "),
-        album: item.track.album.name,
-        popularity: item.track.popularity,
-        duration_ms: item.track.duration_ms,
-        spotify_url: item.track.external_urls.spotify,
-        cover_images: item.track.album.images[1],
-      }));
-  
-      res.json({ tracks });
-    } catch (error) {
-      console.error("Error fetching playlist data:", error.response?.data || error.message);
-      res.status(500).json({ error: "Failed to fetch playlist tracks" });
+  try {
+    // Optional: Filter by file type using prefix/suffix
+    const params = {
+      Bucket: bucketName,
+      MaxKeys: 1000, // Adjust based on your needs
+    };
+    
+    // Add optional filters
+    if (req.query.prefix) {
+      params.Prefix = req.query.prefix;
     }
-  });
-  
-  app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-
+    
+    const command = new ListObjectsV2Command(params);
+    const data = await s3Client.send(command);
+    
+    // Extract filenames and filter for audio files
+    const audioFiles = data.Contents
+      .map(item => item.Key)
+      .filter(filename => 
+        /\.(mp3|wav|ogg|flac|m4a)$/i.test(filename)
+      );
+    
+    return res.status(200).json({ songs: audioFiles });
+  } catch (error) {
+    console.error('Error fetching songs from S3:', error);
+    return res.status(500).json({ 
+      message: 'Error fetching songs',
+      error: error.message 
+    });
+  }
+}
