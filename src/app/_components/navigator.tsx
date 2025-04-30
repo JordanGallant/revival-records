@@ -24,6 +24,17 @@ interface NavBarProps {
 // Store bucket URL in environment variable
 const S3_BUCKET_URL = process.env.NEXT_PUBLIC_S3_BUCKET_URL || "https://revival-records.s3.amazonaws.com";
 
+// Check if CORS is supported on the bucket
+const checkCorsSupport = async (url: string) => {
+  try {
+    const response = await fetch(url, { method: 'HEAD' });
+    return response.ok;
+  } catch (error) {
+    console.error("CORS check failed:", error);
+    return false;
+  }
+};
+
 const Navigator: React.FC<NavBarProps> = ({ className }) => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -44,13 +55,6 @@ const Navigator: React.FC<NavBarProps> = ({ className }) => {
     fetchSongsList();
   }, []);
 
-  // Helper function to get a proxied S3 URL
-  const getProxiedUrl = (s3Path: string): string => {
-    const originalUrl = `${S3_BUCKET_URL}/${s3Path}`;
-    const encodedUrl = encodeURIComponent(originalUrl);
-    return `/api/proxy?url=${encodedUrl}`;
-  };
-
   // Function to fetch songs list from the API
   const fetchSongsList = async () => {
     try {
@@ -70,12 +74,15 @@ const Navigator: React.FC<NavBarProps> = ({ className }) => {
         // Start with a random song if none is playing
         if (!currentSongUrl) {
           const randomIndex = Math.floor(Math.random() * data.songs.length);
+          // Replace spaces with %20 and other special characters properly
           const songPath = data.songs[randomIndex];
+          const songUrl = `${S3_BUCKET_URL}/${songPath}`;
           
-          // Use the proxy instead of direct S3 URL
-          const proxyUrl = getProxiedUrl(songPath);
+          // Check if the URL is accessible before setting it
+          const corsSupported = await checkCorsSupport(songUrl);
+          console.log(`CORS support for ${songUrl}: ${corsSupported}`);
           
-          setCurrentSongUrl(proxyUrl);
+          setCurrentSongUrl(songUrl);
           setCurrentSongTitle(extractSongTitle(data.songs[randomIndex]));
         }
       } else {
@@ -133,17 +140,20 @@ const Navigator: React.FC<NavBarProps> = ({ className }) => {
     if (isShuffleMode) {
       // In shuffle mode, try to play songs that haven't been played yet
       const unplayedSongs = songsList.filter(song => {
-        // Get the proxied URL to track played songs
-        const proxyUrl = getProxiedUrl(song);
-        return !playedSongs.has(proxyUrl);
+        // Use consistent URL encoding by replacing spaces with +
+        const songPath = song.split(' ').join('+');
+        const songUrl = `${S3_BUCKET_URL}/${songPath}`;
+        return !playedSongs.has(songUrl);
       });
       
       // If all songs have been played, reset the played songs tracking
       if (unplayedSongs.length === 0) {
         setPlayedSongs(new Set([currentSongUrl!]));
         const remainingSongs = songsList.filter(song => {
-          const proxyUrl = getProxiedUrl(song);
-          return proxyUrl !== currentSongUrl;
+          // Use consistent URL encoding
+          const songPath = song.split(' ').join('+');
+          const songUrl = `${S3_BUCKET_URL}/${songPath}`;
+          return songUrl !== currentSongUrl;
         });
         nextSongFilename = remainingSongs[Math.floor(Math.random() * remainingSongs.length)];
       } else {
@@ -151,17 +161,26 @@ const Navigator: React.FC<NavBarProps> = ({ className }) => {
       }
     } else {
       // In sequential mode, find the current song's index and play the next one
-      // Extract the original filename from the proxy URL
-      const currentUrlParams = new URLSearchParams(
-        currentSongUrl?.split('?')[1] || ''
-      );
-      const encodedOriginalUrl = currentUrlParams.get('url') || '';
-      const originalUrl = decodeURIComponent(encodedOriginalUrl);
-      const currentFilename = originalUrl.replace(`${S3_BUCKET_URL}/`, "");
+      const currentFilename = currentSongUrl?.replace(`${S3_BUCKET_URL}/`, "");
+      let currentIndex = -1;
       
-      let currentIndex = songsList.findIndex(song => song === currentFilename);
+      // Find the current song in the list (accounting for various encoding methods)
+      for (let i = 0; i < songsList.length; i++) {
+        const songPath = songsList[i].split(' ').join('+');
+        
+        // Try multiple matching methods to be thorough
+        if (
+          songPath === currentFilename || 
+          encodeURI(songsList[i]) === currentFilename || 
+          songsList[i] === decodeURIComponent(currentFilename || "") ||
+          songsList[i].split(' ').join('+') === currentFilename
+        ) {
+          currentIndex = i;
+          break;
+        }
+      }
       
-      // If we couldn't find it, use a fallback
+      // If we still couldn't find it, use a fallback
       if (currentIndex === -1) {
         console.warn("Couldn't find current song in list, defaulting to first song");
         currentIndex = 0;
@@ -171,16 +190,16 @@ const Navigator: React.FC<NavBarProps> = ({ className }) => {
       nextSongFilename = songsList[nextIndex];
     }
     
-    // Use the proxy URL
-    const proxyUrl = getProxiedUrl(nextSongFilename);
+    const nextSongPath = nextSongFilename.split(' ').join('+');
+    const nextSongUrl = `${S3_BUCKET_URL}/${nextSongPath}`;
     
-    console.log("Playing next song:", nextSongFilename);
+    console.log("Playing next song:", nextSongUrl);
     
-    setCurrentSongUrl(proxyUrl);
+    setCurrentSongUrl(nextSongUrl);
     setCurrentSongTitle(extractSongTitle(nextSongFilename));
     
     // Add to played songs
-    setPlayedSongs(prev => new Set([...prev, proxyUrl]));
+    setPlayedSongs(prev => new Set([...prev, nextSongUrl]));
   };
 
   // Handle song end - play the next song
@@ -226,6 +245,21 @@ const Navigator: React.FC<NavBarProps> = ({ className }) => {
       message: errorMsg
     });
     
+    // For MEDIA_ERR_SRC_NOT_SUPPORTED (error code 4)
+    if (errorCode === 4) {
+      // Check if we can access the file directly via fetch
+      fetch(audioElement.src, { method: 'HEAD' })
+        .then(response => {
+          console.log(`File accessibility check: ${response.status} ${response.statusText}`);
+          if (!response.ok) {
+            console.error("File is not accessible. Check S3 bucket permissions and CORS settings.");
+          }
+        })
+        .catch(error => {
+          console.error("Cannot access file due to CORS or network issue:", error);
+        });
+    }
+    
     // Try playing the next song if there was an error after a short delay
     setTimeout(playNextSong, 3000);
   };
@@ -244,6 +278,7 @@ const Navigator: React.FC<NavBarProps> = ({ className }) => {
               onCanPlay={handleCanPlay}
               onError={handleError}
               preload="auto"
+              crossOrigin="anonymous"
             />
           )}
           
@@ -295,6 +330,7 @@ const Navigator: React.FC<NavBarProps> = ({ className }) => {
             onCanPlay={handleCanPlay}
             onError={handleError}
             preload="auto"
+            crossOrigin="anonymous"
           />
         )}
         
