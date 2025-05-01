@@ -71,7 +71,7 @@ const Navigator: React.FC<NavBarProps> = ({ className }) => {
         setSongsList(data.songs);
         setIsPlaylistLoaded(true);
 
-        // Start with a random song if none is playing
+        // Start with a random song if none is playing, but don't autoplay
         if (!currentSongUrl) {
           const randomIndex = Math.floor(Math.random() * data.songs.length);
           // Replace spaces with %20 and other special characters properly
@@ -84,6 +84,7 @@ const Navigator: React.FC<NavBarProps> = ({ className }) => {
           
           setCurrentSongUrl(songUrl);
           setCurrentSongTitle(extractSongTitle(data.songs[randomIndex]));
+          // Note: We're not setting isPlaying to true here to prevent autoplay
         }
       } else {
         setFetchError("No songs found in the bucket");
@@ -200,10 +201,14 @@ const Navigator: React.FC<NavBarProps> = ({ className }) => {
     
     // Add to played songs
     setPlayedSongs(prev => new Set([...prev, nextSongUrl]));
+    
+    // We're no longer automatically playing when changing songs
+    setIsPlaying(false);
   };
 
-  // Handle song end - play the next song
+  // Handle song end - load the next song but don't play automatically
   const handleSongEnd = () => {
+    setIsPlaying(false);
     playNextSong();
   };
 
@@ -214,18 +219,17 @@ const Navigator: React.FC<NavBarProps> = ({ className }) => {
 
   // Handle force next - user clicked next button
   const handleForceNext = () => {
+    if (isPlaying) {
+      audioRef.current?.pause();
+    }
+    setIsPlaying(false);
     playNextSong();
   };
 
-  // Handle loading events
+  // Handle loading events - no longer auto playing
   const handleCanPlay = () => {
     setIsLoading(false);
-    if (isPlaying && audioRef.current) {
-      audioRef.current.play().catch(error => {
-        console.error("Auto-play failed:", error);
-        setIsPlaying(false);
-      });
-    }
+    // Removed the auto-play code that was here
   };
 
   // Handle errors loading audio from S3
@@ -260,8 +264,10 @@ const Navigator: React.FC<NavBarProps> = ({ className }) => {
         });
     }
     
-    // Try playing the next song if there was an error after a short delay
-    setTimeout(playNextSong, 3000);
+    // Try loading the next song if there was an error after a short delay, but don't autoplay
+    setTimeout(() => {
+      playNextSong();
+    }, 3000);
   };
 
   const menuItems = ["Blog", "Music", "About", "Events"];
@@ -279,6 +285,7 @@ const Navigator: React.FC<NavBarProps> = ({ className }) => {
               onError={handleError}
               preload="auto"
               crossOrigin="anonymous"
+              // Adding autoplay={false} explicitly, though not needed as default is false
             />
           )}
           
@@ -331,6 +338,7 @@ const Navigator: React.FC<NavBarProps> = ({ className }) => {
             onError={handleError}
             preload="auto"
             crossOrigin="anonymous"
+            // Adding autoplay={false} explicitly, though not needed as default is false
           />
         )}
         
