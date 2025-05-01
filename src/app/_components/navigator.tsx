@@ -60,7 +60,7 @@ const Navigator: React.FC<NavBarProps> = ({ className }) => {
     try {
       setIsLoading(true);
       const response = await fetch('/api/songs');
-      
+       
       if (!response.ok) {
         throw new Error(`Error: ${response.status}`);
       }

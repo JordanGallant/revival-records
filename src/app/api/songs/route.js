@@ -1,5 +1,7 @@
 import { S3Client, ListObjectsV2Command } from "@aws-sdk/client-s3"; // official s3 sdk
 
+
+//dynamically get the names for all the songs
 export async function GET(req) {
   try {
     const awsRegion = process.env.AWS_REGION;
@@ -19,7 +21,7 @@ export async function GET(req) {
         { status: 500 }
       );
     }
-
+    //auth 
     const s3Client = new S3Client({
       region: awsRegion,
       credentials: {
@@ -35,7 +37,7 @@ export async function GET(req) {
 
     const command = new ListObjectsV2Command(params);
     const data = await s3Client.send(command);
-
+    //mapp data -> song name
     const audioFiles = (data.Contents || [])
       .map(item => item.Key)
       .filter(key => /\.(mp3|wav|ogg|flac|m4a)$/i.test(key));
