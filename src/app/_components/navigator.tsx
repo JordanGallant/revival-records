@@ -273,21 +273,22 @@ const Navigator: React.FC<NavBarProps> = ({ className }) => {
   const menuItems = ["Blog", "Music", "About", "Events"];
 
   return (
+    <>
+    {currentSongUrl && (
+    <audio
+      ref={audioRef}
+      src={currentSongUrl}
+      onEnded={handleSongEnd}
+      onCanPlay={handleCanPlay}
+      onError={handleError}
+      preload="auto"
+      crossOrigin="anonymous"
+    />
+  )}
+    
     <Navbar isBordered isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen}>
       <NavbarContent className="sm:hidden" justify="start">
         <NavbarItem className="flex flex-row items-center gap-1">
-          {currentSongUrl && (
-            <audio
-              ref={audioRef}
-              src={currentSongUrl}
-              onEnded={handleSongEnd}
-              onCanPlay={handleCanPlay}
-              onError={handleError}
-              preload="auto"
-              crossOrigin="anonymous"
-              // Adding autoplay={false} explicitly, though not needed as default is false
-            />
-          )}
           
           <Tooltip content={isPlaying ? "Pause" : "Play"}>
             <Button
@@ -327,20 +328,7 @@ const Navigator: React.FC<NavBarProps> = ({ className }) => {
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         />
       </NavbarContent>
-      
       <NavbarItem className="hidden sm:flex flex-row items-center gap-1">
-        {currentSongUrl && (
-          <audio
-            ref={audioRef}
-            src={currentSongUrl}
-            onEnded={handleSongEnd}
-            onCanPlay={handleCanPlay}
-            onError={handleError}
-            preload="auto"
-            crossOrigin="anonymous"
-            // Adding autoplay={false} explicitly, though not needed as default is false
-          />
-        )}
         
         <div className="flex flex-row items-center">
           <Tooltip content={isPlaying ? "Pause" : "Play"}>
@@ -451,6 +439,7 @@ const Navigator: React.FC<NavBarProps> = ({ className }) => {
         ))}
       </NavbarMenu>
     </Navbar>
+    </>
   );
 };
 
