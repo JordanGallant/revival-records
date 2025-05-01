@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Revival Records",
   description: "Music Evolves with Culture",
+  icons: {
+    icon:"/favicon.ico"
+  }
 };
 
 export default function RootLayout({
