@@ -42,7 +42,6 @@ const Navigator: React.FC<NavBarProps> = ({ className }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [currentSongUrl, setCurrentSongUrl] = useState<string | null>(null);
   const [currentSongTitle, setCurrentSongTitle] = useState<string>("");
-  const [currentArtist, setCurrentArtist] = useState<string>(""); // how tf we getting artists?
   const [isShuffleMode, setIsShuffleMode] = useState(false);
   const [playedSongs, setPlayedSongs] = useState<Set<string>>(new Set());
   
