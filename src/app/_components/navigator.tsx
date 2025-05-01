@@ -202,14 +202,14 @@ const Navigator: React.FC<NavBarProps> = ({ className }) => {
     // Add to played songs
     setPlayedSongs(prev => new Set([...prev, nextSongUrl]));
     
-    // We're no longer automatically playing when changing songs
-    setIsPlaying(false);
+    // Keep the isPlaying state as is - we'll play the new song when it's loaded
+    // if we were previously playing
   };
 
-  // Handle song end - load the next song but don't play automatically
+  // Handle song end - load the next song and continue playing automatically
   const handleSongEnd = () => {
-    setIsPlaying(false);
     playNextSong();
+    // Don't set isPlaying to false here since we want to continue playing
   };
 
   // Toggle shuffle mode
@@ -219,17 +219,38 @@ const Navigator: React.FC<NavBarProps> = ({ className }) => {
 
   // Handle force next - user clicked next button
   const handleForceNext = () => {
+    // Keep track of whether we were playing
+    const wasPlaying = isPlaying;
+    
     if (isPlaying) {
       audioRef.current?.pause();
     }
-    setIsPlaying(false);
+    
+    // We're going to maintain the playing state when manually skipping
+    // instead of setting isPlaying to false
     playNextSong();
+    
+    // If we were playing before, we'll try to keep playing
+    if (wasPlaying) {
+      setIsPlaying(true);
+    }
   };
 
-  // Handle loading events - no longer auto playing
+  // Handle loading events - auto play if we were previously playing
   const handleCanPlay = () => {
     setIsLoading(false);
-    // Removed the auto-play code that was here
+    
+    // Auto-play the song if we were previously playing
+    if (isPlaying && audioRef.current) {
+      const playPromise = audioRef.current.play();
+      
+      if (playPromise !== undefined) {
+        playPromise.catch(error => {
+          console.error("Auto-play failed:", error);
+          setIsPlaying(false);
+        });
+      }
+    }
   };
 
   // Handle errors loading audio from S3
@@ -264,9 +285,14 @@ const Navigator: React.FC<NavBarProps> = ({ className }) => {
         });
     }
     
-    // Try loading the next song if there was an error after a short delay, but don't autoplay
+    // Try loading the next song if there was an error after a short delay
+    // Maintain the playing state if we were previously playing
+    const wasPlaying = isPlaying;
     setTimeout(() => {
       playNextSong();
+      if (wasPlaying) {
+        setIsPlaying(true);
+      }
     }, 3000);
   };
 
