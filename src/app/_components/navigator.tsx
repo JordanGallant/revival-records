@@ -36,6 +36,10 @@ const checkCorsSupport = async (url: string) => {
 };
 
 const Navigator: React.FC<NavBarProps> = ({ className }) => {
+  // Check if the device is mobile - define at component level to avoid redefinition
+  const isMobileDevice = () => {
+    return typeof navigator !== 'undefined' && /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  };
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -206,10 +210,17 @@ const Navigator: React.FC<NavBarProps> = ({ className }) => {
     // if we were previously playing
   };
 
-  // Handle song end - load the next song and continue playing automatically
+  // Handle song end - load the next song and continue playing automatically (except on mobile)
   const handleSongEnd = () => {
+    const wasPlaying = isPlaying;
     playNextSong();
-    // Don't set isPlaying to false here since we want to continue playing
+    
+    // On mobile devices, we'll set isPlaying based on the previous state
+    // but won't actually auto-play (handled in handleCanPlay)
+    if (isMobileDevice()) {
+      setIsPlaying(wasPlaying);
+    }
+    // Don't set isPlaying to false for desktop since we want to continue playing
   };
 
   // Toggle shuffle mode
@@ -236,12 +247,14 @@ const Navigator: React.FC<NavBarProps> = ({ className }) => {
     }
   };
 
-  // Handle loading events - auto play if we were previously playing
+  
+
+  // Handle loading events - auto play if we were previously playing (except on mobile)
   const handleCanPlay = () => {
     setIsLoading(false);
     
-    // Auto-play the song if we were previously playing
-    if (isPlaying && audioRef.current) {
+    // Auto-play the song if we were previously playing and not on mobile
+    if (isPlaying && audioRef.current && !isMobileDevice()) {
       const playPromise = audioRef.current.play();
       
       if (playPromise !== undefined) {
@@ -250,6 +263,10 @@ const Navigator: React.FC<NavBarProps> = ({ className }) => {
           setIsPlaying(false);
         });
       }
+    } else if (isPlaying && isMobileDevice()) {
+      // On mobile, we don't auto-play but we keep the play state
+      // This allows the UI to show the play button in a "ready to play" state
+      console.log("Auto-play skipped on mobile device");
     }
   };
 
