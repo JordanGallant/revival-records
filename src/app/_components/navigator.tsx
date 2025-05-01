@@ -42,6 +42,7 @@ const Navigator: React.FC<NavBarProps> = ({ className }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [currentSongUrl, setCurrentSongUrl] = useState<string | null>(null);
   const [currentSongTitle, setCurrentSongTitle] = useState<string>("");
+  const [currentArtist, setCurrentArtist] = useState<string>(""); // how tf we getting artists?
   const [isShuffleMode, setIsShuffleMode] = useState(false);
   const [playedSongs, setPlayedSongs] = useState<Set<string>>(new Set());
   
@@ -368,7 +369,7 @@ const Navigator: React.FC<NavBarProps> = ({ className }) => {
           </Tooltip>
           
           {currentSongTitle && (
-            <span className="ml-2 text-sm italic truncate max-w-28">
+            <span className="ml-2 text-sm italic truncate max-w-64">
               {currentSongTitle}
             </span>
           )}
@@ -386,7 +387,7 @@ const Navigator: React.FC<NavBarProps> = ({ className }) => {
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarBrand>
           <Link href="/">
-            <p className="font-badeen"> Revival Records</p>
+            <p className="font-badeen "> Revival Records</p>
           </Link>
         </NavbarBrand>
         <NavbarItem>

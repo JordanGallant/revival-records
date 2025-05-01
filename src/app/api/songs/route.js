@@ -1,7 +1,7 @@
 import { S3Client, ListObjectsV2Command } from "@aws-sdk/client-s3"; // official s3 sdk
 
 
-//dynamically get the names for all the songs
+//dynamically get the names for all the songs 
 export async function GET(req) {
   try {
     const awsRegion = process.env.AWS_REGION;
