@@ -1,8 +1,10 @@
-import { S3Client, ListObjectsV2Command } from "@aws-sdk/client-s3"; // official s3 sdk
+// app/api/songs/route.ts
+import { S3Client, ListObjectsV2Command } from "@aws-sdk/client-s3";
+import { NextResponse } from 'next/server';
 
 
 //dynamically get the names for all the songs 
-export async function GET(req) {
+export async function GET(req: Request) {
   try {
     const awsRegion = process.env.AWS_REGION;
     const accessKeyId = process.env.AWS_ACCESS_KEY_ID;
@@ -16,11 +18,12 @@ export async function GET(req) {
         hasSecretKey: !!secretAccessKey,
         hasBucket: !!bucketName
       });
-      return new Response(
-        JSON.stringify({ message: "Missing AWS credentials" }),
+      return NextResponse.json(
+        { message: "Missing AWS credentials" },
         { status: 500 }
       );
     }
+    
     //auth 
     const s3Client = new S3Client({
       region: awsRegion,
@@ -37,26 +40,28 @@ export async function GET(req) {
 
     const command = new ListObjectsV2Command(params);
     const data = await s3Client.send(command);
-    //mapp data -> song name
+    console.log(data)
+    
+    //map data -> song name
     const audioFiles = (data.Contents || [])
       .map(item => item.Key)
-      .filter(key => /\.(mp3|wav|ogg|flac|m4a)$/i.test(key));
-
-    return new Response(
-      JSON.stringify({
+      .filter(key => key && /\.(mp3|wav|ogg|flac|m4a)$/i.test(key))
+      .sort(); // Optional: Sort alphabetically
+    return NextResponse.json(
+      {
         songs: audioFiles,
         totalFiles: data.Contents?.length || 0,
         audioFilesCount: audioFiles.length
-      }),
+      },
       { status: 200 }
     );
   } catch (error) {
     console.error("Error fetching songs from S3:", error);
-    return new Response(
-      JSON.stringify({
+    return NextResponse.json(
+      {
         message: "Error fetching songs from S3",
-        error: error.message
-      }),
+        error: (error as Error).message
+      },
       { status: 500 }
     );
   }

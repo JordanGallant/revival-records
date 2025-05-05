@@ -4,6 +4,7 @@ import { FaPause } from "react-icons/fa";
 import { FaPlay } from "react-icons/fa";
 import { FaRandom } from "react-icons/fa";
 import { FaStepForward } from "react-icons/fa";
+import { FaList } from "react-icons/fa";
 import {
   Navbar,
   NavbarBrand,
@@ -15,6 +16,12 @@ import {
   Link,
   Button,
   Tooltip,
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  useDisclosure,
 } from "@heroui/react";
 
 interface NavBarProps {
@@ -24,35 +31,37 @@ interface NavBarProps {
 // Store bucket URL in environment variable
 const S3_BUCKET_URL = process.env.NEXT_PUBLIC_S3_BUCKET_URL || "https://revival-records.s3.amazonaws.com";
 
-// Check if CORS is supported on the bucket
-const checkCorsSupport = async (url: string) => {
-  try {
-    const response = await fetch(url, { method: 'HEAD' });
-    return response.ok;
-  } catch (error) {
-    console.error("CORS check failed:", error);
-    return false;
-  }
-};
+// Interface for song metadata
+interface SongInfo {
+  key: string;  // Original S3 key/path
+  title: string; // Formatted title for display
+  url: string;   // Full URL to the song
+}
 
 const Navigator: React.FC<NavBarProps> = ({ className }) => {
-  // Check if the device is mobile - define at component level to avoid redefinition
+  // Check if the device is mobile
   const isMobileDevice = () => {
     return typeof navigator !== 'undefined' && /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
   };
+  
+  // Navigation state
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  
+  // Music player state
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [currentSongUrl, setCurrentSongUrl] = useState<string | null>(null);
-  const [currentSongTitle, setCurrentSongTitle] = useState<string>("");
+  const [currentSongIndex, setCurrentSongIndex] = useState<number>(-1);
   const [isShuffleMode, setIsShuffleMode] = useState(false);
   const [playedSongs, setPlayedSongs] = useState<Set<string>>(new Set());
   
-  // Song list from API
-  const [songsList, setSongsList] = useState<string[]>([]);
+  // Song list state
+  const [songsList, setSongsList] = useState<SongInfo[]>([]);
   const [isPlaylistLoaded, setIsPlaylistLoaded] = useState(false);
   const [fetchError, setFetchError] = useState<string | null>(null);
+  
+  // Track list modal state
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   // Load the song list on component mount
   useEffect(() => {
@@ -72,22 +81,20 @@ const Navigator: React.FC<NavBarProps> = ({ className }) => {
       const data = await response.json();
       
       if (Array.isArray(data.songs) && data.songs.length > 0) {
-        setSongsList(data.songs);
+        // Transform the raw song keys into our SongInfo format
+        const formattedSongs: SongInfo[] = data.songs.map((key: string) => ({
+          key,
+          title: extractSongTitle(key),
+          url: `${S3_BUCKET_URL}/${encodeURIComponent(key)}`
+        }));
+        
+        setSongsList(formattedSongs);
         setIsPlaylistLoaded(true);
 
-        // Start with a random song if none is playing, but don't autoplay
-        if (!currentSongUrl) {
-          const randomIndex = Math.floor(Math.random() * data.songs.length);
-          // Replace spaces with %20 and other special characters properly
-          const songPath = data.songs[randomIndex];
-          const songUrl = `${S3_BUCKET_URL}/${songPath}`;
-          
-          // Check if the URL is accessible before setting it
-          const corsSupported = await checkCorsSupport(songUrl);
-          console.log(`CORS support for ${songUrl}: ${corsSupported}`);
-          
-          setCurrentSongUrl(songUrl);
-          setCurrentSongTitle(extractSongTitle(data.songs[randomIndex]));
+        // Start with a random song if none is playing
+        if (currentSongIndex === -1) {
+          const randomIndex = Math.floor(Math.random() * formattedSongs.length);
+          setCurrentSongIndex(randomIndex);
           // Note: We're not setting isPlaying to true here to prevent autoplay
         }
       } else {
@@ -112,8 +119,17 @@ const Navigator: React.FC<NavBarProps> = ({ className }) => {
       .join(" ");
   };
 
+  // Get the current song info
+  const getCurrentSong = (): SongInfo | null => {
+    if (currentSongIndex >= 0 && currentSongIndex < songsList.length) {
+      return songsList[currentSongIndex];
+    }
+    return null;
+  };
+
   const handlePlayPause = () => {
-    if (!audioRef.current || !currentSongUrl) return;
+    const currentSong = getCurrentSong();
+    if (!audioRef.current || !currentSong) return;
     
     if (audioRef.current.paused) {
       const playPromise = audioRef.current.play();
@@ -140,74 +156,52 @@ const Navigator: React.FC<NavBarProps> = ({ className }) => {
     
     setIsLoading(true);
     
-    let nextSongFilename: string;
+    let nextIndex: number;
     
     if (isShuffleMode) {
       // In shuffle mode, try to play songs that haven't been played yet
-      const unplayedSongs = songsList.filter(song => {
-        // Use consistent URL encoding by replacing spaces with +
-        const songPath = song.split(' ').join('+');
-        const songUrl = `${S3_BUCKET_URL}/${songPath}`;
-        return !playedSongs.has(songUrl);
-      });
+      const currentSong = getCurrentSong();
+      if (currentSong) {
+        // Add current song to played songs
+        setPlayedSongs(prev => new Set([...prev, currentSong.key]));
+      }
+      
+      const unplayedSongs = songsList.filter(song => !playedSongs.has(song.key));
       
       // If all songs have been played, reset the played songs tracking
       if (unplayedSongs.length === 0) {
-        setPlayedSongs(new Set([currentSongUrl!]));
-        const remainingSongs = songsList.filter(song => {
-          // Use consistent URL encoding
-          const songPath = song.split(' ').join('+');
-          const songUrl = `${S3_BUCKET_URL}/${songPath}`;
-          return songUrl !== currentSongUrl;
-        });
-        nextSongFilename = remainingSongs[Math.floor(Math.random() * remainingSongs.length)];
+        const currentKey = currentSong?.key || '';
+        setPlayedSongs(new Set([currentKey]));
+        
+        // Get all songs except the current one
+        const availableSongs = songsList.filter(song => song.key !== currentKey);
+        
+        if (availableSongs.length > 0) {
+          const randomSong = availableSongs[Math.floor(Math.random() * availableSongs.length)];
+          nextIndex = songsList.findIndex(song => song.key === randomSong.key);
+        } else {
+          // If there's only one song in the playlist, keep playing it
+          nextIndex = currentSongIndex;
+        }
       } else {
-        nextSongFilename = unplayedSongs[Math.floor(Math.random() * unplayedSongs.length)];
+        // Pick a random song from unplayed songs
+        const randomSong = unplayedSongs[Math.floor(Math.random() * unplayedSongs.length)];
+        nextIndex = songsList.findIndex(song => song.key === randomSong.key);
       }
     } else {
-      // In sequential mode, find the current song's index and play the next one
-      const currentFilename = currentSongUrl?.replace(`${S3_BUCKET_URL}/`, "");
-      let currentIndex = -1;
-      
-      // Find the current song in the list (accounting for various encoding methods)
-      for (let i = 0; i < songsList.length; i++) {
-        const songPath = songsList[i].split(' ').join('+');
-        
-        // Try multiple matching methods to be thorough
-        if (
-          songPath === currentFilename || 
-          encodeURI(songsList[i]) === currentFilename || 
-          songsList[i] === decodeURIComponent(currentFilename || "") ||
-          songsList[i].split(' ').join('+') === currentFilename
-        ) {
-          currentIndex = i;
-          break;
-        }
-      }
-      
-      // If we still couldn't find it, use a fallback
-      if (currentIndex === -1) {
-        console.warn("Couldn't find current song in list, defaulting to first song");
-        currentIndex = 0;
-      }
-      
-      const nextIndex = (currentIndex + 1) % songsList.length;
-      nextSongFilename = songsList[nextIndex];
+      // In sequential mode, simply go to the next song in the list
+      nextIndex = (currentSongIndex + 1) % songsList.length;
     }
     
-    const nextSongPath = nextSongFilename.split(' ').join('+');
-    const nextSongUrl = `${S3_BUCKET_URL}/${nextSongPath}`;
-    
-    console.log("Playing next song:", nextSongUrl);
-    
-    setCurrentSongUrl(nextSongUrl);
-    setCurrentSongTitle(extractSongTitle(nextSongFilename));
-    
-    // Add to played songs
-    setPlayedSongs(prev => new Set([...prev, nextSongUrl]));
-    
-    // Keep the isPlaying state as is - we'll play the new song when it's loaded
-    // if we were previously playing
+    setCurrentSongIndex(nextIndex);
+  };
+
+  // Play a specific song by index
+  const playSongByIndex = (index: number) => {
+    if (index >= 0 && index < songsList.length) {
+      setCurrentSongIndex(index);
+      setIsPlaying(true);
+    }
   };
 
   // Handle song end - load the next song and continue playing automatically (except on mobile)
@@ -216,16 +210,16 @@ const Navigator: React.FC<NavBarProps> = ({ className }) => {
     playNextSong();
     
     // On mobile devices, we'll set isPlaying based on the previous state
-    // but won't actually auto-play (handled in handleCanPlay)
     if (isMobileDevice()) {
       setIsPlaying(wasPlaying);
     }
-    // Don't set isPlaying to false for desktop since we want to continue playing
   };
 
   // Toggle shuffle mode
   const toggleShuffleMode = () => {
     setIsShuffleMode(prev => !prev);
+    // Reset played songs when shuffle mode changes
+    setPlayedSongs(new Set());
   };
 
   // Handle force next - user clicked next button
@@ -233,12 +227,10 @@ const Navigator: React.FC<NavBarProps> = ({ className }) => {
     // Keep track of whether we were playing
     const wasPlaying = isPlaying;
     
-    if (isPlaying) {
-      audioRef.current?.pause();
+    if (isPlaying && audioRef.current) {
+      audioRef.current.pause();
     }
     
-    // We're going to maintain the playing state when manually skipping
-    // instead of setting isPlaying to false
     playNextSong();
     
     // If we were playing before, we'll try to keep playing
@@ -246,8 +238,6 @@ const Navigator: React.FC<NavBarProps> = ({ className }) => {
       setIsPlaying(true);
     }
   };
-
-  
 
   // Handle loading events - auto play if we were previously playing (except on mobile)
   const handleCanPlay = () => {
@@ -265,7 +255,6 @@ const Navigator: React.FC<NavBarProps> = ({ className }) => {
       }
     } else if (isPlaying && isMobileDevice()) {
       // On mobile, we don't auto-play but we keep the play state
-      // This allows the UI to show the play button in a "ready to play" state
       console.log("Auto-play skipped on mobile device");
     }
   };
@@ -287,23 +276,7 @@ const Navigator: React.FC<NavBarProps> = ({ className }) => {
       message: errorMsg
     });
     
-    // For MEDIA_ERR_SRC_NOT_SUPPORTED (error code 4)
-    if (errorCode === 4) {
-      // Check if we can access the file directly via fetch
-      fetch(audioElement.src, { method: 'HEAD' })
-        .then(response => {
-          console.log(`File accessibility check: ${response.status} ${response.statusText}`);
-          if (!response.ok) {
-            console.error("File is not accessible. Check S3 bucket permissions and CORS settings.");
-          }
-        })
-        .catch(error => {
-          console.error("Cannot access file due to CORS or network issue:", error);
-        });
-    }
-    
-    // Try loading the next song if there was an error after a short delay
-    // Maintain the playing state if we were previously playing
+    // Try to load the next song when there's an error
     const wasPlaying = isPlaying;
     setTimeout(() => {
       playNextSong();
@@ -314,174 +287,243 @@ const Navigator: React.FC<NavBarProps> = ({ className }) => {
   };
 
   const menuItems = ["Blog", "Music", "About", "Events"];
+  const currentSong = getCurrentSong();
 
   return (
     <>
-    {currentSongUrl && (
-    <audio
-      ref={audioRef}
-      src={currentSongUrl}
-      onEnded={handleSongEnd}
-      onCanPlay={handleCanPlay}
-      onError={handleError}
-      preload="auto"
-      crossOrigin="anonymous"
-    />
-  )}
-    
-    <Navbar isBordered isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen}>
-      <NavbarContent className="sm:hidden" justify="start">
-        <NavbarItem className="flex flex-row items-center gap-1">
-          
-          <Tooltip content={isPlaying ? "Pause" : "Play"}>
-            <Button
-              onTouchStart={handlePlayPause}
-              onClick={handlePlayPause}
-              id="play"
-              className="w-10 h-10 flex justify-center items-center transition-none text-white"
-              disabled={isLoading || !currentSongUrl}
-            >
-              {isLoading ? "..." : isPlaying ? <FaPause /> : <FaPlay />}
-            </Button>
-          </Tooltip>
-          
-          <Tooltip content="Next Song">
-            <Button
-              onTouchStart={handleForceNext}
-              onClick={handleForceNext}
-              className="w-10 h-10 flex justify-center items-center transition-none text-white"
-              disabled={isLoading || !isPlaylistLoaded}
-            >
-              <FaStepForward />
-            </Button>
-          </Tooltip>
-          
-          <Tooltip content={isShuffleMode ? "Sequential Play" : "Shuffle Play"}>
-            <Button
-              onClick={toggleShuffleMode}
-              className={`w-10 h-10 flex justify-center items-center transition-none text-white ${
-                isShuffleMode ? "opacity-100" : "opacity-50"
-              }`}
-            >
-              <FaRandom />
-            </Button>
-          </Tooltip>
-        </NavbarItem>
-        <NavbarMenuToggle
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+      {currentSong && (
+        <audio
+          ref={audioRef}
+          src={currentSong.url}
+          onEnded={handleSongEnd}
+          onCanPlay={handleCanPlay}
+          onError={handleError}
+          preload="auto"
+          crossOrigin="anonymous"
         />
-      </NavbarContent>
-      <NavbarItem className="hidden sm:flex flex-row items-center gap-1">
+      )}
+      
+      <Navbar isBordered isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen}>
+        <NavbarContent className="sm:hidden" justify="start">
+          <NavbarItem className="flex flex-row items-center gap-1">
+            <Tooltip content={isPlaying ? "Pause" : "Play"}>
+              <Button
+                onTouchStart={handlePlayPause}
+                onClick={handlePlayPause}
+                id="play"
+                className="w-10 h-10 flex justify-center items-center transition-none text-white"
+                disabled={isLoading || !currentSong}
+              >
+                {isLoading ? "..." : isPlaying ? <FaPause /> : <FaPlay />}
+              </Button>
+            </Tooltip>
+            
+            <Tooltip content="Next Song">
+              <Button
+                onTouchStart={handleForceNext}
+                onClick={handleForceNext}
+                className="w-10 h-10 flex justify-center items-center transition-none text-white"
+                disabled={isLoading || !isPlaylistLoaded}
+              >
+                <FaStepForward />
+              </Button>
+            </Tooltip>
+            
+            <Tooltip content={isShuffleMode ? "Sequential Play" : "Shuffle Play"}>
+              <Button
+                onClick={toggleShuffleMode}
+                className={`w-10 h-10 flex justify-center items-center transition-none text-white ${
+                  isShuffleMode ? "opacity-100" : "opacity-50"
+                }`}
+              >
+                <FaRandom />
+              </Button>
+            </Tooltip>
+            
+            <Tooltip content="Show Playlist">
+              <Button
+                onClick={onOpen}
+                className="w-10 h-10 flex justify-center items-center transition-none text-white"
+              >
+                <FaList />
+              </Button>
+            </Tooltip>
+          </NavbarItem>
+          <NavbarMenuToggle
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          />
+        </NavbarContent>
         
-        <div className="flex flex-row items-center">
-          <Tooltip content={isPlaying ? "Pause" : "Play"}>
-            <Button
-              onClick={handlePlayPause}
-              id="play"
-              className="w-10 h-10 flex justify-center items-center transition-none text-white"
-              disabled={isLoading || !currentSongUrl}
-            >
-              {isLoading ? "..." : isPlaying ? <FaPause /> : <FaPlay />}
-            </Button>
-          </Tooltip>
-          
-          <Tooltip content="Next Song">
-            <Button
-              onClick={handleForceNext}
-              className="w-10 h-10 flex justify-center items-center transition-none text-white"
-              disabled={isLoading || !isPlaylistLoaded}
-            >
-              <FaStepForward />
-            </Button>
-          </Tooltip>
-          
-          <Tooltip content={isShuffleMode ? "Sequential Play" : "Shuffle Play"}>
-            <Button
-              onClick={toggleShuffleMode}
-              className={`w-10 h-10 flex justify-center items-center transition-none text-white ${
-                isShuffleMode ? "opacity-100" : "opacity-50"
-              }`}
-            >
-              <FaRandom />
-            </Button>
-          </Tooltip>
-          
-          {currentSongTitle && (
-            <span className="ml-2 text-sm italic truncate max-w-64">
-              {currentSongTitle}
-            </span>
-          )}
-        </div>
-      </NavbarItem>
+        <NavbarItem className="hidden sm:flex flex-row items-center gap-1">
+          <div className="flex flex-row items-center">
+            <Tooltip content={isPlaying ? "Pause" : "Play"}>
+              <Button
+                onClick={handlePlayPause}
+                id="play"
+                className="w-10 h-10 flex justify-center items-center transition-none text-white"
+                disabled={isLoading || !currentSong}
+              >
+                {isLoading ? "..." : isPlaying ? <FaPause /> : <FaPlay />}
+              </Button>
+            </Tooltip>
+            
+            <Tooltip content="Next Song">
+              <Button
+                onClick={handleForceNext}
+                className="w-10 h-10 flex justify-center items-center transition-none text-white"
+                disabled={isLoading || !isPlaylistLoaded}
+              >
+                <FaStepForward />
+              </Button>
+            </Tooltip>
+            
+            <Tooltip content={isShuffleMode ? "Sequential Play" : "Shuffle Play"}>
+              <Button
+                onClick={toggleShuffleMode}
+                className={`w-10 h-10 flex justify-center items-center transition-none text-white ${
+                  isShuffleMode ? "opacity-100" : "opacity-50"
+                }`}
+              >
+                <FaRandom />
+              </Button>
+            </Tooltip>
+            
+            <Tooltip content="Show Playlist">
+              <Button
+                onClick={onOpen}
+                className="w-10 h-10 flex justify-center items-center transition-none text-white"
+              >
+                <FaList />
+              </Button>
+            </Tooltip>
+            
+            {currentSong && (
+              <span className="ml-2 text-sm italic truncate max-w-64">
+                {currentSong.title}
+              </span>
+            )}
+          </div>
+        </NavbarItem>
 
-      <NavbarContent className="sm:hidden pr-3" justify="center">
-        <NavbarBrand>
-          <Link href="/">
-            <p className="font-badeen"> Revival Records</p>
-          </Link>
-        </NavbarBrand>
-      </NavbarContent>
-
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <NavbarBrand>
-          <Link href="/">
-            <p className="font-badeen "> Revival Records</p>
-          </Link>
-        </NavbarBrand>
-        <NavbarItem>
-          <Link color="foreground" href="blog">
-            Blog
-          </Link>
-        </NavbarItem>
-        <NavbarItem isActive>
-          <Link aria-current="page" href="/music">
-            Music
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" href="/about">
-            About
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" href="/events">
-            Events
-          </Link>
-        </NavbarItem>
-      </NavbarContent>
-
-      <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex">
-          <Link href="#">Login</Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Button as={Link} color="warning" href="#" variant="flat">
-            Sign Up
-          </Button>
-        </NavbarItem>
-      </NavbarContent>
-
-      <NavbarMenu>
-        {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
-            <Link
-              className="w-full"
-              color={
-                index === 2
-                  ? "warning"
-                  : index === menuItems.length - 1
-                  ? "danger"
-                  : "foreground"
-              }
-              href={item.toLowerCase()}
-              size="lg"
-            >
-              {item}
+        <NavbarContent className="sm:hidden pr-3" justify="center">
+          <NavbarBrand>
+            <Link href="/">
+              <p className="font-badeen"> Revival Records</p>
             </Link>
-          </NavbarMenuItem>
-        ))}
-      </NavbarMenu>
-    </Navbar>
+          </NavbarBrand>
+        </NavbarContent>
+
+        <NavbarContent className="hidden sm:flex gap-4" justify="center">
+          <NavbarBrand>
+            <Link href="/">
+              <p className="font-badeen"> Revival Records</p>
+            </Link>
+          </NavbarBrand>
+          <NavbarItem>
+            <Link color="foreground" href="blog">
+              Blog
+            </Link>
+          </NavbarItem>
+          <NavbarItem isActive>
+            <Link aria-current="page" href="/music">
+              Music
+            </Link>
+          </NavbarItem>
+          <NavbarItem>
+            <Link color="foreground" href="/about">
+              About
+            </Link>
+          </NavbarItem>
+          <NavbarItem>
+            <Link color="foreground" href="/events">
+              Events
+            </Link>
+          </NavbarItem>
+        </NavbarContent>
+
+        <NavbarContent justify="end">
+          <NavbarItem className="hidden lg:flex">
+            <Link href="#">Login</Link>
+          </NavbarItem>
+          <NavbarItem>
+            <Button as={Link} color="warning" href="#" variant="flat">
+              Sign Up
+            </Button>
+          </NavbarItem>
+        </NavbarContent>
+
+        <NavbarMenu>
+          {menuItems.map((item, index) => (
+            <NavbarMenuItem key={`${item}-${index}`}>
+              <Link
+                className="w-full"
+                color={
+                  index === 2
+                    ? "warning"
+                    : index === menuItems.length - 1
+                    ? "danger"
+                    : "foreground"
+                }
+                href={item.toLowerCase()}
+                size="lg"
+              >
+                {item}
+              </Link>
+            </NavbarMenuItem>
+          ))}
+        </NavbarMenu>
+      </Navbar>
+
+      {/* Track listing modal */}
+      <Modal isOpen={isOpen} onClose={onClose} size="md">
+        <ModalContent>
+          <ModalHeader className="flex flex-col gap-1">Available Tracks</ModalHeader>
+          <ModalBody>
+            {fetchError && (
+              <div className="text-red-500 mb-4">
+                Error loading tracks: {fetchError}
+              </div>
+            )}
+            
+            {isPlaylistLoaded && songsList.length === 0 ? (
+              <div className="text-center py-4">No tracks available</div>
+            ) : (
+              <div className="max-h-96 overflow-y-auto">
+                <ul className="divide-y">
+                  {songsList.map((song, index) => (
+                    <li 
+                      key={song.key}
+                      className={`py-2 px-3 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 ${
+                        currentSongIndex === index ? 'bg-gray-200 dark:bg-gray-700' : ''
+                      }`}
+                      onClick={() => {
+                        playSongByIndex(index);
+                        onClose();
+                      }}
+                    >
+                      <div className="flex items-center">
+                        <div className="flex-1 truncate">
+                          {song.title}
+                        </div>
+                        {currentSongIndex === index && (
+                          <div className="ml-2">
+                            {isPlaying ? '▶️' : '⏸️'}
+                          </div>
+                        )}
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </ModalBody>
+          <ModalFooter>
+            <Button color="primary" variant="light" onPress={onClose}>
+              Close
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </>
   );
 };
