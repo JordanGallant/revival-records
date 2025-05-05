@@ -40,7 +40,7 @@ export async function GET(req: Request) {
 
     const command = new ListObjectsV2Command(params);
     const data = await s3Client.send(command);
-    console.log(data)
+  
     
     //map data -> song name
     const audioFiles = (data.Contents || [])
