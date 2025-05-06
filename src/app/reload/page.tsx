@@ -1,4 +1,5 @@
 "use client";
+import { input } from "@nextui-org/theme";
 import { features } from "process";
 import React, { useEffect, useRef, useState } from "react";
 
@@ -18,57 +19,42 @@ function convertToMono(audioBuffer: AudioBuffer): Float32Array {
     const ch0 = audioBuffer.getChannelData(0);
     const ch1 = audioBuffer.getChannelData(1);
     const mono = new Float32Array(audioBuffer.length);
-  
+
     for (let i = 0; i < audioBuffer.length; i++) {
-      const left = ch0[i];
-      const right = ch1[i];
-      const avg = (left + right) / 2;
-      mono[i] = Number.isFinite(avg) ? avg : 0;
+        const left = ch0[i];
+        const right = ch1[i];
+        const avg = (left + right) / 2;
+        mono[i] = Number.isFinite(avg) ? avg : 0;
     }
-  
+
     return mono;
-  }
-  //removes silence in signal
-  function trimSilence(
-    signal: Float32Array,
-    sampleRate: number,
-    dbThreshold: number = -50,
-    minSilenceDuration: number = 0.02,
-    paddingDuration: number = 0.05
-  ): Float32Array {
-    const threshold = Math.pow(10, dbThreshold / 20); // convert dBFS to linear amplitude
-    const minSilenceSamples = Math.floor(minSilenceDuration * sampleRate);
-    const paddingSamples = Math.floor(paddingDuration * sampleRate);
-  
-    let start = 0;
-    let end = signal.length - 1;
-  
-    // Find first significant sample
-    for (let i = 0; i < signal.length; i++) {
-      if (Math.abs(signal[i]) > threshold) {
-        if (i > minSilenceSamples) start = i;
-        break;
-      }
+}
+//detect start time
+function detectStartTime(audioData, sampleRate, threshold = 0.01, frameSize = 1024) {
+    const frames = Math.floor(audioData.length / frameSize);
+
+    for (let i = 0; i < frames; i++) {
+        let rmsSum = 0;
+
+        for (let j = 0; j < frameSize; j++) {
+            const idx = i * frameSize + j;
+            if (idx < audioData.length) {
+                rmsSum += audioData[idx] * audioData[idx];
+            }
+        }
+
+        const rms = Math.sqrt(rmsSum / frameSize);
+
+        if (rms > threshold) {
+            // Found the start time, convert from samples to seconds
+            return i * frameSize / sampleRate;
+        }
     }
-  
-    // Find last significant sample
-    for (let i = signal.length - 1; i >= 0; i--) {
-      if (Math.abs(signal[i]) > threshold) {
-        if ((signal.length - i) > minSilenceSamples) end = i;
-        break;
-      }
-    }
-  
-    const safeStart = Math.max(0, start - paddingSamples);
-    const safeEnd = Math.min(signal.length - 1, end + paddingSamples);
-  
-    const trimmed = signal.slice(safeStart, safeEnd + 1);
-  
-    // ✅ Make sure to return a clean Float32Array
-    return new Float32Array(trimmed);
-  }
-  
-  
+
+    // If no start time found, return 0
+    return 0;
+}
+
 
 //defines structure of songinfo object that will be stashed
 interface SongInfo {
@@ -80,71 +66,17 @@ interface SongInfo {
 
 const Reload: React.FC = () => {
     const [songs, setSongs] = useState<SongInfo[]>([]);
-    const [essentiaLoaded, setEssentiaLoaded] = useState<boolean>(false);
-    const [loadingStatus, setLoadingStatus] = useState<string>("Initializing...");
-    const essentiaRef = useRef<any>(null);
 
     useEffect(() => {
         // Load Essentia.js scripts dynamically
-        const loadEssentiaScripts = async () => {
-            try {
-                setLoadingStatus("Loading Essentia.js scripts...");
-
-                // Helper function to load scripts dynamically
-                const loadScript = (src: string): Promise<void> => {
-                    return new Promise((resolve, reject) => {
-                        // Check if script already exists to avoid duplicates
-                        if (document.querySelector(`script[src="${src}"]`)) {
-                            resolve();
-                            return;
-                        }
-
-                        const script = document.createElement('script');
-                        script.src = src;
-                        script.async = true;
-                        script.onload = () => resolve();
-                        script.onerror = () => reject(new Error(`Failed to load script: ${src}`));
-                        document.head.appendChild(script);
-                    });
-                };
-
-                // Load Essentia.js scripts in sequence (WASM first, then core)
-                // Replace <version> with the specific version you want to use (e.g., 0.1.0)
-                const version = "0.1.0"; // Update this to your required version
-                await loadScript(`https://cdn.jsdelivr.net/npm/essentia.js@${version}/dist/essentia-wasm.web.js`);
-                await loadScript(`https://cdn.jsdelivr.net/npm/essentia.js@${version}/dist/essentia.js-core.js`);
-
-                setLoadingStatus("Initializing Essentia.js...");
-                // @ts-ignore - EssentiaWASM is loaded from CDN and not recognized by TypeScript
-                const EssentiaWasm = await EssentiaWASM();
-                // @ts-ignore - Essentia is loaded from CDN and not recognized by TypeScript
-                essentiaRef.current = new Essentia(EssentiaWasm);
-
-                console.log("Essentia.js loaded successfully!");
-                console.log("Version:", essentiaRef.current.version);
-                console.log("Available algorithms:", essentiaRef.current.algorithmNames);
-
-                setEssentiaLoaded(true);
-                setLoadingStatus("Essentia.js loaded successfully!");
-
-                // fetch songs after  essentia is inititiated
-                await fetchSongs();
-
-            } catch (error) {
-                console.error("Error loading Essentia.js:", error);
-                setLoadingStatus(`Error loading Essentia.js: ${error}`);
-                // Continue with fetching songs even if Essentia fails
-                await fetchSongs();
-            }
-        };
-
-        loadEssentiaScripts();
+        
+        fetchSongs();
     }, []); // runs once on mount
 
     //fetch and format songs
     const fetchSongs = async () => {
         try {
-            setLoadingStatus("Fetching songs...");
+            
             const response = await fetch('/api/songs');//gets song names form api -> s3 bucket
             const data = await response.json();
 
@@ -159,60 +91,10 @@ const Reload: React.FC = () => {
 
                 // Set initial songs state
                 setSongs(formattedSongs);
-                setLoadingStatus("Processing audio files...");
-
-                // process song from url
-                for (let i = 0; i < formattedSongs.length; i++) {
-                    const song = formattedSongs[i];
-                    try {
-                        setLoadingStatus(`Processing audio ${i + 1}/${formattedSongs.length}: ${song.title}`);
-
-                        // Access the URL and process it
-                        const response = await fetch(song.url);
-                        //converts to arraybuffer
-                        const arrayBuffer = await response.arrayBuffer();
-                        const audioContext = new AudioContext();
-                        //extracts key from audio
-                        const decodedAudio = await audioContext.decodeAudioData(arrayBuffer);
-                        let mono = convertToMono(decodedAudio); //convert to mono function^
-                        const trimmed = trimSilence(mono, decodedAudio.sampleRate); //trim silence and delay function^
-                        const cleanSignal = new Float32Array(trimmed); // stoes it in a new array -> no silence
-            
-                        if (!cleanSignal.length || cleanSignal.some(x => !Number.isFinite(x))) {
-                            throw new Error("Invalid audio buffer");
-                          }
-                        //const result = essentiaRef.current.KeyExtractor(signal, decodedAudio.sampleRate);
-                        const bpm = essentiaRef.current.BeatTrackerMultiFeature(cleanSignal);
-
-
-
-
-                        console.log(bpm)
-
-
-                        //calculate position
-
-
-
-
-
-
-                        setSongs(prevSongs => {
-                            const updatedSongs = [...prevSongs];
-                            // Mark this song as processed in some way if needed
-                            return updatedSongs;
-                        });
-
-                    } catch (error) {
-                        console.error(`Error processing ${song.title}:`, error);
-                    }
-                }
-
-                setLoadingStatus("Ready");
+                
             }
         } catch (error) {
             console.error("Error fetching songs:", error);
-            setLoadingStatus(`Error fetching songs: ${error}`);
         }
     };
 
@@ -224,13 +106,9 @@ const Reload: React.FC = () => {
                 </h1>
 
                 <div className="w-full p-4">
-                    <p className="text-black font-mono">{loadingStatus}</p>
+                    
 
-                    {essentiaLoaded && (
-                        <p className="text-green-700 font-mono">
-                            Essentia.js v{essentiaRef.current?.version}
-                        </p>
-                    )}
+                    
 
                     {songs.length > 0 && (
                         <div className="mt-4">
