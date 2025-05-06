@@ -33,7 +33,6 @@ const S3_BUCKET_URL = process.env.NEXT_PUBLIC_S3_BUCKET_URL || "https://revival-
 
 // Interface for song metadata
 interface SongInfo {
-  key: string;  // Original S3 key/path
   title: string; // Formatted title for display
   url: string;   // Full URL to the song
 }
@@ -82,11 +81,13 @@ const Navigator: React.FC<NavBarProps> = ({ className }) => {
       
       if (Array.isArray(data.songs) && data.songs.length > 0) {
         // Transform the raw song keys into our SongInfo format
-        const formattedSongs: SongInfo[] = data.songs.map((key: string) => ({
-          key,
-          title: extractSongTitle(key),
-          url: `${S3_BUCKET_URL}/${encodeURIComponent(key)}`
+        const formattedSongs: SongInfo[] = data.songs.map((song: { title: string; url: string }) => ({
+          key: song.title,
+          title: extractSongTitle(song.title),
+          url: song.url
         }));
+
+        console.log(formattedSongs)
         
         setSongsList(formattedSongs);
         setIsPlaylistLoaded(true);
