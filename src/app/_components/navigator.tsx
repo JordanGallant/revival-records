@@ -33,6 +33,7 @@ const S3_BUCKET_URL = process.env.NEXT_PUBLIC_S3_BUCKET_URL || "https://revival-
 
 // Interface for song metadata
 interface SongInfo {
+  key: string;  // Original S3 key/path
   title: string; // Formatted title for display
   url: string;   // Full URL to the song
 }
