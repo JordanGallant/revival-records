@@ -43,7 +43,7 @@ const Spotify: React.FC = () => {
 
   return (
     <div style={{ padding: "20px", fontFamily: "Arial" }}>
-      <h2>Revival Playlist</h2>
+      <h2>Revival Spotify Playlist</h2>
       {error && <p style={{ color: 'red' }}>{error}</p>}
       {tracks.length > 0 ? (
         <ul style={{ listStyle: "none", padding: 0 }}>
