@@ -2,6 +2,8 @@ import { S3Client, ListObjectsV2Command } from "@aws-sdk/client-s3";
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
+const S3_BUCKET_URL = "https://revival-records.s3.amazonaws.com"; //url for s3 bucket
+
 // CORS headers
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*", // Or specify your frontend domain
@@ -58,7 +60,11 @@ export async function GET(req: NextRequest) {
     const audioFiles = (data.Contents || [])
       .map((item) => item.Key)
       .filter((key) => key && /\.(mp3|wav|ogg|flac|m4a)$/i.test(key))
-      .sort();
+      .map((key) => ({
+        title: key!,
+        url: `${S3_BUCKET_URL}/${encodeURIComponent(key!)}`,
+      }))
+      .sort((a, b) => a.title.localeCompare(b.title));
 
     return NextResponse.json(
       {
