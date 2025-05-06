@@ -1,12 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import Navigator from "../_components/navigator";
 import dynamic from "next/dynamic";
 
-// const Video = dynamic(() => import("../shaders/Video"), {
-//   ssr: false,
-// });
+const Video = dynamic(() => import("../shaders/Video"), {
+  ssr: false,
+});
 
 type Song = {
   Track: number;
@@ -22,8 +22,11 @@ type Song = {
   flux: number;
 };
 
+const BATCH_SIZE = 50;
+
 const Music: React.FC = () => {
   const [songs, setSongs] = useState<Song[]>([]);
+  const [visibleCount, setVisibleCount] = useState(BATCH_SIZE);
 
   useEffect(() => {
     const fetchSongs = async () => {
@@ -40,20 +43,45 @@ const Music: React.FC = () => {
     fetchSongs();
   }, []);
 
+  // Lazy load more songs on scroll
+  const handleScroll = useCallback(() => {
+    const container = document.getElementById("song-list");
+    if (!container) return;
+
+    if (container.scrollTop + container.clientHeight >= container.scrollHeight - 50) {
+      setVisibleCount((prev) => Math.min(prev + BATCH_SIZE, songs.length));
+    }
+  }, [songs.length]);
+
+  useEffect(() => {
+    const container = document.getElementById("song-list");
+    if (container) {
+      container.addEventListener("scroll", handleScroll);
+    }
+    return () => {
+      if (container) {
+        container.removeEventListener("scroll", handleScroll);
+      }
+    };
+  }, [handleScroll]);
+
   return (
     <>
       <Navigator />
       <div>
-        {/* <Video /> */}
+        <Video />
       </div>
 
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-start z-30 bg-stone-200 bg-opacity-10 w-[90%] h-2/3 group hover:bg-opacity-50 rounded-lg overflow-y-scroll p-4">
+      <div
+        id="song-list"
+        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-start z-30 bg-stone-200 bg-opacity-10 w-[90%] h-2/3 group hover:bg-opacity-50 rounded-lg overflow-y-scroll p-4"
+      >
         <h1 className="font-badeen text-5xl text-left mb-4">
           The Revival Playlist
         </h1>
 
         <ul className="w-full space-y-4 text-white text-base">
-          {songs.map((song) => (
+          {songs.slice(0, visibleCount).map((song) => (
             <li
               key={song.Track}
               className="bg-stone-900 bg-opacity-50 rounded-lg p-4 hover:bg-opacity-70 transition"
@@ -69,6 +97,10 @@ const Music: React.FC = () => {
             </li>
           ))}
         </ul>
+
+        {visibleCount < songs.length && (
+          <p className="text-white text-center w-full mt-4 animate-pulse">Loading more...</p>
+        )}
       </div>
     </>
   );
