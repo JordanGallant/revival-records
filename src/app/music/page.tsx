@@ -4,9 +4,9 @@ import { useEffect, useState } from "react";
 import Navigator from "../_components/navigator";
 import dynamic from "next/dynamic";
 
-const Video = dynamic(() => import("../shaders/Video"), {
-  ssr: false,
-});
+// const Video = dynamic(() => import("../shaders/Video"), {
+//   ssr: false,
+// });
 
 type Song = {
   Track: number;
@@ -44,7 +44,7 @@ const Music: React.FC = () => {
     <>
       <Navigator />
       <div>
-        <Video />
+        {/* <Video /> */}
       </div>
 
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-start z-30 bg-stone-200 bg-opacity-10 w-[90%] h-2/3 group hover:bg-opacity-50 rounded-lg overflow-y-scroll p-4">
