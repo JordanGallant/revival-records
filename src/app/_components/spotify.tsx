@@ -1,3 +1,4 @@
+"use client"
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
@@ -31,10 +32,17 @@ const Spotify: React.FC = () => {
     const fetchTracks = async () => {
       try {
         const response = await axios.get(api);
-        setTracks(response.data.tracks); // Adjusted to access 'tracks' array
+        console.log('API Response:', response);
+        console.log('Response Data:', response.data);
+        if (response.data && Array.isArray(response.data.tracks)) {
+          setTracks(response.data.tracks);
+        } else {
+          console.log('Unexpected data format:', response.data);
+          setError('Invalid response format');
+        }
       } catch (err) {
+        console.error('Fetch error:', err);
         setError('Failed to fetch tracks');
-        console.error(err);
       }
     };
 
@@ -68,7 +76,7 @@ const Spotify: React.FC = () => {
                 style={{ borderRadius: "4px" }}
               />
               <div>
-                <a style={{color:"black"}}href={track.spotify_url} target="_blank" rel="noopener noreferrer">
+                <a style={{color:"black"}} href={track.spotify_url} target="_blank" rel="noopener noreferrer">
                   <strong>{track.name}</strong>
                 </a>
                 <p style={{ margin: 0, color:"black"}}>

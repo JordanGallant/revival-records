@@ -88,7 +88,6 @@ const Navigator: React.FC<NavBarProps> = ({ className }) => {
           url: song.url
         }));
 
-        console.log(formattedSongs)
         
         setSongsList(formattedSongs);
         setIsPlaylistLoaded(true);
