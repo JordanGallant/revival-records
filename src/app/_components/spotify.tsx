@@ -50,40 +50,35 @@ const Spotify: React.FC = () => {
   }, []);
 
   return (
-    <div style={{ padding: "20px", fontFamily: "Arial" }}>
-      <h2>Revival Spotify Playlist</h2>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+    <div className="p-5 font-sans h-screen overflow-y-auto bg-white">
+      <h2 className="text-2xl font-bold mb-4 text-black">Revival Spotify Playlist</h2>
+      {error && <p className="text-red-600">{error}</p>}
       {tracks.length > 0 ? (
-        <ul style={{ listStyle: "none", padding: 0 }}>
-          {tracks.map((track, index) => (
+        <ul className="space-y-4">
+          {[...tracks].reverse().map((track, index) => (
             <li
               key={index}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "10px",
-                marginBottom: "15px",
-                background: "#f8f8f8",
-                padding: "10px",
-                borderRadius: "8px"
-              }}
+              className="flex items-center gap-4 p-4 bg-gray-100 rounded-lg"
             >
               <img
                 src={track.cover_images.url}
                 alt={track.name}
-                width={50}
-                height={50}
-                style={{ borderRadius: "4px" }}
+                className="w-12 h-12 rounded"
               />
               <div>
-                <a style={{color:"black"}} href={track.spotify_url} target="_blank" rel="noopener noreferrer">
-                  <strong>{track.name}</strong>
+                <a
+                  href={track.spotify_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-black font-semibold hover:underline"
+                >
+                  {track.name}
                 </a>
-                <p style={{ margin: 0, color:"black"}}>
+                <p className="text-black m-0">
                   {track.artist} - {track.album}
                 </p>
-                <p style={{ margin: 0, fontSize: "12px", color: "black" }}>
-                  Popularity: {track.popularity} | Duration: {formatDuration(track.duration_ms)}
+                <p className="text-black text-sm m-0">
+                  Underground score: {100 - (track.popularity)} | Duration: {formatDuration(track.duration_ms)}
                 </p>
               </div>
             </li>
