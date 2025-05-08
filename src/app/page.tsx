@@ -19,15 +19,25 @@ export default function Home() {
 
   return (
     <>
-      <div className="cursor-none relative w-full h-full min-h-screen">
+      <div className="relative w-full h-full min-h-screen">
         <Navigator />
-        <P5Wrapper sketch={exampleSketch} />
-        <div className="absolute inset-0 z-0 ">
+        
+        <div className="absolute inset-0 z-0">
           <ThreeDee />
         </div>
       </div>
-      <div className="w-full h-screen">
-        <Spotify />
+      
+      {/* Container with relative positioning to create proper stacking context */}
+      <div className="w-full h-screen relative">
+        {/* P5Wrapper as background with absolute positioning */}
+        <div className="absolute inset-0 z-0">
+          <P5Wrapper sketch={exampleSketch} />
+        </div>
+        
+        {/* Spotify component on top with relative positioning */}
+        <div className="relative z-10">
+          <Spotify />
+        </div>
       </div>
     </>
   );

@@ -1,74 +1,80 @@
 "use client";
 
-import * as THREE from "three";
 import { useEffect, useRef, useState } from "react";
+import mapboxgl from "mapbox-gl";
 
-const ThreeScene: React.FC = () => {
+// Replace this with your real access token
+mapboxgl.accessToken = "pk.eyJ1IjoiamdzbGVlcHdpdGhtZSIsImEiOiJjbWEydDNyZTQxZXBrMmtxeTFqZGQ4MWQ4In0.G3gvAoKzyOHdPUGeRsahng";
+
+const SpinningGlobe: React.FC = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const [isDragging, setIsDragging] = useState(false);
   const [invertRotation, setInvertRotation] = useState(false);
 
   useEffect(() => {
     if (!containerRef.current) return;
 
-    let camera: THREE.PerspectiveCamera;
-    let renderer: THREE.WebGLRenderer;
-    let face: THREE.Mesh;
-    const scene = new THREE.Scene();
+    const map = new mapboxgl.Map({
+      container: containerRef.current,
+      style: "mapbox://styles/mapbox/satellite-v9",
+      projection: "globe",
+      zoom: 1.5,
+      center: [0, 0],
+      pitch: 0,
+      bearing: 0,
+      antialias: true,
+      interactive: true, // Enable mouse interaction
+      attributionControl: false, // hide default attribution UI
 
-    camera = new THREE.PerspectiveCamera(
-      50,
-      window.innerWidth / window.innerHeight,
-      0.1,
-      1000
-    );
-    camera.position.set(0, 0, 10);
+    });
 
-    renderer = new THREE.WebGLRenderer({ alpha: true });
-    renderer.setClearColor(0x000000, 0);
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    containerRef.current.appendChild(renderer.domElement);
+    map.on("style.load", () => {
+      map.setFog({});
+    });
 
-    const textureLoader = new THREE.TextureLoader();
-    const moonTexture = textureLoader.load("/textures/moon.jpg");
+    let bearing = 0;
+    let animationId: number;
 
-    const faceGeometry = new THREE.SphereGeometry(3, 32, 32);
-    const faceMaterial = new THREE.MeshStandardMaterial({ map: moonTexture });
-    face = new THREE.Mesh(faceGeometry, faceMaterial);
-    scene.add(face);
+    const animate = () => {
+      animationId = requestAnimationFrame(animate);
+      if (!isDragging) {
+        bearing += invertRotation ? -0.1 : 0.1;
+        map.setBearing(bearing % 360);
+      }
+    };
 
-    const pointLight = new THREE.PointLight(0xffffff, 1.5);
-    pointLight.position.set(10, 10, 10);
-    scene.add(pointLight);
+    animate();
 
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
-    scene.add(ambientLight);
+    // Pause auto-rotation while dragging
+    map.on("dragstart", () => {
+      setIsDragging(true);
+      if (containerRef.current) containerRef.current.style.cursor = "grabbing";
+    });
 
-    function render() {
-      requestAnimationFrame(render);
-      face.rotation.x += invertRotation ? -0.02 : 0.02;
-      face.rotation.y += invertRotation ? -0.02 : 0.02;
-      renderer.render(scene, camera);
-    }
+    map.on("dragend", () => {
+      setIsDragging(false);
+      if (containerRef.current) containerRef.current.style.cursor = "grab";
+    });
 
-    render();
+    map.on("mouseenter", () => {
+      if (!isDragging && containerRef.current) containerRef.current.style.cursor = "grab";
+    });
 
-    function onResize() {
-      if (!containerRef.current) return;
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-    }
-
-    window.addEventListener("resize", onResize);
+    map.on("mouseleave", () => {
+      if (containerRef.current) containerRef.current.style.cursor = "default";
+    });
 
     return () => {
-      window.removeEventListener("resize", onResize);
-      renderer.dispose();
-      containerRef.current?.removeChild(renderer.domElement);
+      cancelAnimationFrame(animationId);
+      map.remove();
     };
-  }, [invertRotation]);
+  }, [invertRotation, isDragging]);
 
-  return <div ref={containerRef} style={{ width: "100%", height: "100vh" }} />;
+  return (
+    <div className="relative w-full h-full overflow-hidden">
+      <div ref={containerRef} className="w-full h-full" />
+    </div>
+  );
 };
 
-export default ThreeScene;
+export default SpinningGlobe;

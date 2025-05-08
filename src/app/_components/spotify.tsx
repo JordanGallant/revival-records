@@ -32,7 +32,6 @@ const Spotify: React.FC = () => {
     const fetchTracks = async () => {
       try {
         const response = await axios.get(api);
-        console.log('API Response:', response);
         console.log('Response Data:', response.data);
         if (response.data && Array.isArray(response.data.tracks)) {
           setTracks(response.data.tracks);
@@ -50,8 +49,8 @@ const Spotify: React.FC = () => {
   }, []);
 
   return (
-    <div className="p-5 font-sans h-screen overflow-y-auto bg-white">
-      <h2 className="text-2xl font-bold mb-4 text-black">Revival Spotify Playlist</h2>
+    <div className="p-5 font-sans h-screen overflow-y-auto">
+      <h2 className="text-2xl font-bold mb-4 text-black ">Revival Spotify Playlist</h2>
       {error && <p className="text-red-600">{error}</p>}
       {tracks.length > 0 ? (
         <ul className="space-y-4">
