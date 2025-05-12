@@ -13,17 +13,19 @@ const Events: React.FC = () => {
   const [selectedArtist, setSelectedArtist] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const [events, setEvents] = useState<{ title: string; date: string }[]>([]);
+  const [isLoadingEvents, setIsLoadingEvents] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchArtists = async () => {
       try {
         setIsLoading(true);
         const res = await fetch("/api/artists");
-        
+
         if (!res.ok) {
           throw new Error('Failed to fetch artists');
         }
-        
+
         const data = await res.json();
         setArtists(data.artists); // Note the .artists here to match the API response
         setError(null);
@@ -39,8 +41,36 @@ const Events: React.FC = () => {
     fetchArtists();
   }, []);
 
-  const handleArtistSelect = (artistName: string) => {
-    setSelectedArtist(artistName.toLowerCase().trim().replace(/\s+/g, ''));
+  // Fixed function to properly send the artist name as JSON
+  const handleArtistSelect = async (artistName: string) => {
+    try {
+      setSelectedArtist(artistName);
+      setIsLoadingEvents(true);
+
+      // Format the artist name as expected by the API
+      const artist = artistName.toLowerCase().trim().replace(/\s+/g, '');
+
+      const res = await fetch("/api/scrape-ra", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ artistName: artist }),
+      });
+
+      if (!res.ok) {
+        throw new Error(`Error fetching events: ${res.statusText}`);
+      }
+
+      const data = await res.json();
+      setEvents(data.events || []);
+    } catch (err) {
+      console.error("Failed to fetch events:", err);
+      setError(err instanceof Error ? err.message : 'An unknown error occurred');
+      setEvents([]);
+    } finally {
+      setIsLoadingEvents(false);
+    }
   };
 
   return (
@@ -59,26 +89,47 @@ const Events: React.FC = () => {
       ) : (
         <>
           <div className="flex flex-wrap justify-center gap-4 px-4">
-            {artists.map((artist, index) => (
-              <button
-                key={index}
-                onClick={() => handleArtistSelect(artist)}
-                className={`
-                  px-6 py-2 rounded-xl transition
-                  ${selectedArtist === artist 
-                    ? 'bg-white text-black border border-black' 
-                    : 'bg-black text-white border border-white'}
-                  hover:bg-white hover:text-black
-                `}
-              >
-                {artist}
-              </button>
-            ))}
+            {artists.map((artist, index) => {
+              const displayName = artist.replace(/-/g, '').replace(/2/g, '');
+
+              return (
+                <button
+                  key={index}
+                  onClick={() => handleArtistSelect(artist)}
+                  className={`px-6 py-2 rounded-xl transition ${selectedArtist === artist
+                      ? 'bg-white text-black border border-white'
+                      : 'bg-black text-white border border-white hover:bg-white hover:text-black'
+                    }`}
+                >
+                  {displayName}
+                </button>
+              );
+            })}
           </div>
 
           {selectedArtist && (
-            <div className="text-center mt-8 text-xl">
-              Selected Artist: {selectedArtist}
+            <div className="text-center mt-8">
+              <h2 className="text-xl mb-4">Shows for {selectedArtist.replace(/-/g, '').replace(/2/g, '')}</h2>
+
+              {isLoadingEvents ? (
+                <div className="text-center">Loading events...</div>
+              ) : events.length > 0 ? (
+                <div className="flex flex-col items-center gap-4 max-w-3xl mx-auto">
+                  {events.map((event, idx) => (
+                    <div key={idx} className="bg-black/30 backdrop-blur-sm border border-white/20 p-4 rounded-lg w-full">
+                      <h3 className="text-lg font-bold">{event.title}</h3>
+                      <p className="text-sm">{new Date(event.date).toLocaleDateString(undefined, {
+                        weekday: 'long',
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                      })}</p>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="text-center">No upcoming events found for this artist.</div>
+              )}
             </div>
           )}
         </>
