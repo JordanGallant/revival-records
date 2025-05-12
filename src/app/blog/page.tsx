@@ -8,19 +8,6 @@ const HydraCanvas = dynamic(() => import("../shaders/Hydra"), {
 });
 
 const Blog: React.FC = () => {
-  useEffect(() => {
-    const fetchRA = async () => {
-      try {
-        const res = await fetch("/api/scrape-ra");
-        const data = await res.json();
-        console.log("RA response:", data); // <-- Logs the response to the browser console
-      } catch (err) {
-        console.error("Error fetching RA data:", err);
-      }
-    };
-
-    fetchRA();
-  }, []);
 
   return (
     <>
