@@ -9,10 +9,11 @@ export async function GET() {
       "Accept-Language": "en-US,en;q=0.9",
     },
   });
-  //load page content
+
   const html = await res.text();
   const $ = cheerio.load(html);
   const scripts: string[] = [];
+
   $("script").each((_, el) => {
     const scriptContent = $(el).html();
     if (scriptContent) {
@@ -20,26 +21,30 @@ export async function GET() {
     }
   });
 
-  let eventTitles: string[] = [];
+  const events: { title: string; date: string }[] = [];
+
   for (const script of scripts) {
-        //specific event
-    if (script.includes('"__typename":"Event"') && script.includes('"title":')) {
+    if (script.includes('"__typename":"Event"') && script.includes('"title":') && script.includes('"date":')) {
       try {
-        const eventMatches = script.match(/"__typename":"Event","title":"([^"]+)"/g);
-        
+        // Match objects that include title and date
+        const eventMatches = script.match(/"__typename":"Event".*?"title":"(.*?)".*?"date":"(.*?)"/g);
         if (eventMatches) {
           for (const match of eventMatches) {
-            const titleMatch = match.match(/"title":"([^"]+)"/);
-            if (titleMatch && titleMatch[1]) {
-              eventTitles.push(titleMatch[1]);
+            const titleMatch = match.match(/"title":"(.*?)"/);
+            const dateMatch = match.match(/"date":"(.*?)"/);
+            if (titleMatch && dateMatch) {
+              events.push({
+                title: titleMatch[1],
+                date: dateMatch[1],
+              });
             }
           }
         }
       } catch (error) {
-        console.error("Error parsing script content:", error);
+        console.error("Error parsing event data:", error);
       }
     }
   }
 
-  return NextResponse.json({ eventTitles });
+  return NextResponse.json({ events });
 }
