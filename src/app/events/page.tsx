@@ -13,8 +13,12 @@ const Events: React.FC = () => {
   const [selectedArtist, setSelectedArtist] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  const [events, setEvents] = useState<{ title: string; date: string }[]>([]);
-  const [isLoadingEvents, setIsLoadingEvents] = useState<boolean>(false);
+  const [events, setEvents] = useState<{ 
+    title: string; 
+    date: string;
+    country?: string; 
+    flag?: string;
+  }[]>([]);  const [isLoadingEvents, setIsLoadingEvents] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchArtists = async () => {
