@@ -13,12 +13,8 @@ const Events: React.FC = () => {
   const [selectedArtist, setSelectedArtist] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  const [events, setEvents] = useState<{ 
-    title: string; 
-    date: string;
-    country?: string; 
-    flag?: string;
-  }[]>([]);  const [isLoadingEvents, setIsLoadingEvents] = useState<boolean>(false);
+  const [events, setEvents] = useState<{ title: string; date: string }[]>([]);
+  const [isLoadingEvents, setIsLoadingEvents] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchArtists = async () => {
@@ -113,7 +109,7 @@ const Events: React.FC = () => {
 
           {selectedArtist && (
             <div className="text-center mt-8">
-              <h2 className="text-xl mb-4">Shows for {selectedArtist.replace(/-/g, '').replace(/2/g, '')}</h2>
+              <h2 className="text-xl mb-4">Events for {selectedArtist.replace(/-/g, '').replace(/2/g, '')}</h2>
 
               {isLoadingEvents ? (
                 <div className="text-center">Loading events...</div>

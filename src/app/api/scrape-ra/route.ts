@@ -88,7 +88,7 @@ export async function POST(request: Request) {
       
       return NextResponse.json({ events } as ApiResponse);
     }
-    //structure events
+    //send evetns
     const events: Event[] = [];
         for (const query of eventData) {
       if (query?.state?.data?.eventsList) {
