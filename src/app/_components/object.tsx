@@ -27,7 +27,44 @@ const SpinningGlobe = () => {
 
     map.on("style.load", () => {
       map.setFog({});
-    });
+    
+
+    map.addSource('streets', {
+        type: 'vector',
+        url: 'mapbox://mapbox.mapbox-streets-v8'
+      });
+      
+      map.addLayer({
+        id: 'road-major',
+        type: 'line',
+        source: 'streets',
+        'source-layer': 'road',
+        filter: ['all', ['==', 'class', 'primary']],
+        paint: {
+          'line-color': '#ffff00',
+          'line-width': 1,
+          'line-opacity': 0.6
+        }
+      });
+      
+      map.addLayer({
+        id: 'place-labels',
+        type: 'symbol',
+        source: 'streets',
+        'source-layer': 'place_label',
+        layout: {
+          'text-field': ['get', 'name_en'],
+          'text-font': ['Open Sans Bold'],
+          'text-size': 12,
+          'text-max-width': 8
+        },
+        paint: {
+          'text-color': '#ffffff',
+          'text-halo-color': 'rgba(0,0,0,0.75)',
+          'text-halo-width': 1.5
+        }
+      });
+      }); //close loading
 
     // Set cursor to grab when hovering over the map
     map.on("mouseenter", () => {
