@@ -32,7 +32,6 @@ const Spotify: React.FC = () => {
     const fetchTracks = async () => {
       try {
         const response = await axios.get(api);
-        console.log('Response Data:', response.data);
         if (response.data && Array.isArray(response.data.tracks)) {
           setTracks(response.data.tracks);
         } else {

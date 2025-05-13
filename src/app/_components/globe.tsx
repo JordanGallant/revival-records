@@ -1,15 +1,35 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import mapboxgl from "mapbox-gl";
 
 // Replace this with your real access token
 mapboxgl.accessToken = "pk.eyJ1IjoiamdzbGVlcHdpdGhtZSIsImEiOiJjbWEydDNyZTQxZXBrMmtxeTFqZGQ4MWQ4In0.G3gvAoKzyOHdPUGeRsahng";
 
 const SpinningGlobe = () => {
+  const mapRef = useRef<mapboxgl.Map | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const [clubs, setClubs] = useState(null);
+
+  const handleClick = () => {
+  if (mapRef.current) {
+    mapRef.current.flyTo({
+      zoom: 7,
+      duration: 2000  // Duration in milliseconds (2 seconds)
+    });
+  }
+};
 
   useEffect(() => {
+    // get clubs list data
+    fetch('/clubs.json')
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        setClubs(data);
+      })
+      .catch(error => console.error('Error fetching clubs:', error));
+
     if (!containerRef.current) return;
 
     const map = new mapboxgl.Map({
@@ -17,23 +37,26 @@ const SpinningGlobe = () => {
       style: "mapbox://styles/mapbox/satellite-v9",
       projection: "globe",
       zoom: 1.5,
-      center: [0, 0],
+      center: [5.126769, 52.096782],
       pitch: 0,
       bearing: 0,
       antialias: true,
       interactive: true,
       attributionControl: false,
+      
     });
+    mapRef.current = map;
+
+    
 
     map.on("style.load", () => {
       map.setFog({});
-    
 
-    map.addSource('streets', {
+      map.addSource('streets', {
         type: 'vector',
         url: 'mapbox://mapbox.mapbox-streets-v8'
       });
-      
+
       map.addLayer({
         id: 'road-major',
         type: 'line',
@@ -46,7 +69,7 @@ const SpinningGlobe = () => {
           'line-opacity': 0.6
         }
       });
-      
+
       map.addLayer({
         id: 'place-labels',
         type: 'symbol',
@@ -64,7 +87,7 @@ const SpinningGlobe = () => {
           'text-halo-width': 1.5
         }
       });
-      }); //close loading
+    }); // This closing bracket was missing in your original code
 
     // Set cursor to grab when hovering over the map
     map.on("mouseenter", () => {
@@ -92,6 +115,12 @@ const SpinningGlobe = () => {
   return (
     <div className="relative w-full h-full overflow-hidden">
       <div ref={containerRef} className="w-full h-full" />
+      <button
+        className="absolute bottom-5 right-5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        onClick={() => handleClick()}
+      >
+        Zoom
+      </button>
     </div>
   );
 };

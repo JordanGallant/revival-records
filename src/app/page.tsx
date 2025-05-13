@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 import LogRocket from "logrocket";
 import Navigator from "./_components/navigator";
 import exampleSketch from "./sketches/exampleSketch";
-import ThreeDee from "./_components/object";
+import ThreeDee from "./_components/globe";
 import Spotify from "./_components/spotify";
 
 const P5Wrapper = dynamic(() => import("../app/_components/P5Wrapper"), {
