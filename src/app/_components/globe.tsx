@@ -69,9 +69,9 @@ const SpinningGlobe = () => {
         type: 'symbol',
         source: 'streets',
         'source-layer': 'place_label',
-        filter: ['all',
-          ['==', ['get', 'class'], 'settlement'],
-          ['==', ['get', 'symbolrank'], 6]
+        filter: ['all', //manually select cities
+          ['in', 'name_en', 'Amsterdam', 'London','Utrecht', 'Berlin', 'Cape Town', 'Lisbon','Copenhagen', 'Bristol','Manchester','Johannesburg']
+
 
         ],
         layout: {
