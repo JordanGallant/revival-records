@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef, useImperativeHandle } from "react";
 import { useRef, useState, useEffect } from "react";
 import { FaPause } from "react-icons/fa";
 import { FaPlay } from "react-icons/fa";
@@ -25,7 +25,11 @@ import {
 } from "@heroui/react";
 
 interface NavBarProps {
-  className?: string;
+  audioRefs?: React.RefObject<HTMLAudioElement | null> | null; //force to accpet null
+    onTrackChange?: (url: string, title: string) => void; 
+    onAudioElementCreated?: (audioElement: HTMLAudioElement) => void;
+
+
 }
 
 // Store bucket URL in environment variable
@@ -38,17 +42,26 @@ interface SongInfo {
   url: string;   // Full URL to the song
 }
 
-const Navigator: React.FC<NavBarProps> = ({ className }) => {
+const Navigator = forwardRef<HTMLAudioElement, NavBarProps>((props, ref) => {
+   
+
   // Check if the device is mobile
   const isMobileDevice = () => {
     return typeof navigator !== 'undefined' && /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
   };
   
   // Navigation state
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false); 
   
   // Music player state
-  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const internalAudioRef = useRef<HTMLAudioElement | null>(null);
+  useEffect(() => {
+  if (internalAudioRef.current && props.onAudioElementCreated) {
+    // Call the callback with the audio element
+    props.onAudioElementCreated(internalAudioRef.current);
+  }
+}, [internalAudioRef.current, props.onAudioElementCreated]);
+   useImperativeHandle(ref, () => internalAudioRef.current as HTMLAudioElement); //allow page to control internal audio ref
   const [isPlaying, setIsPlaying] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [currentSongIndex, setCurrentSongIndex] = useState<number>(-1);
@@ -67,6 +80,10 @@ const Navigator: React.FC<NavBarProps> = ({ className }) => {
   useEffect(() => {
     fetchSongsList();
   }, []);
+
+  
+
+
 
   // Function to fetch songs list from the API
   const fetchSongsList = async () => {
@@ -130,10 +147,10 @@ const Navigator: React.FC<NavBarProps> = ({ className }) => {
 
   const handlePlayPause = () => {
     const currentSong = getCurrentSong();
-    if (!audioRef.current || !currentSong) return;
+    if (!internalAudioRef.current || !currentSong) return;
     
-    if (audioRef.current.paused) {
-      const playPromise = audioRef.current.play();
+    if (internalAudioRef.current.paused) {
+      const playPromise = internalAudioRef.current.play();
       
       if (playPromise !== undefined) {
         playPromise
@@ -146,7 +163,7 @@ const Navigator: React.FC<NavBarProps> = ({ className }) => {
           });
       }
     } else {
-      audioRef.current.pause();
+      internalAudioRef.current.pause();
       setIsPlaying(false);
     }
   };
@@ -228,8 +245,8 @@ const Navigator: React.FC<NavBarProps> = ({ className }) => {
     // Keep track of whether we were playing
     const wasPlaying = isPlaying;
     
-    if (isPlaying && audioRef.current) {
-      audioRef.current.pause();
+    if (isPlaying && internalAudioRef.current) {
+      internalAudioRef.current.pause();
     }
     
     playNextSong();
@@ -245,8 +262,8 @@ const Navigator: React.FC<NavBarProps> = ({ className }) => {
     setIsLoading(false);
     
     // Auto-play the song if we were previously playing and not on mobile
-    if (isPlaying && audioRef.current && !isMobileDevice()) {
-      const playPromise = audioRef.current.play();
+    if (isPlaying && internalAudioRef.current && !isMobileDevice()) {
+      const playPromise = internalAudioRef.current.play();
       
       if (playPromise !== undefined) {
         playPromise.catch(error => {
@@ -290,11 +307,12 @@ const Navigator: React.FC<NavBarProps> = ({ className }) => {
   const menuItems = ["Blog", "Music", "About", "Events"];
   const currentSong = getCurrentSong();
 
+
   return (
     <>
       {currentSong && (
         <audio
-          ref={audioRef}
+          ref={internalAudioRef}
           src={currentSong.url}
           onEnded={handleSongEnd}
           onCanPlay={handleCanPlay}
@@ -508,7 +526,6 @@ const Navigator: React.FC<NavBarProps> = ({ className }) => {
                         </div>
                         {currentSongIndex === index && (
                           <div className="ml-2">
-                            {isPlaying ? '▶️' : '⏸️'}
                           </div>
                         )}
                       </div>
@@ -527,6 +544,6 @@ const Navigator: React.FC<NavBarProps> = ({ className }) => {
       </Modal>
     </>
   );
-};
+});
 
 export default Navigator;

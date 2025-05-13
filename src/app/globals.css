@@ -27,16 +27,3 @@ body {
   font-style: normal;
 }
 
-.mapboxgl-popup.custom-popup {
-  max-width: 250px;
-  font-size: 14px;
-  z-index: 50;
-  overflow-wrap: break-word;
-}
-
-.mapboxgl-popup-content {
-  padding: 10px;
-  background: #fff;
-  border-radius: 4px;
-  box-shadow: 0 1px 10px rgba(0,0,0,0.2);
-}
