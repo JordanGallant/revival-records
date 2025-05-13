@@ -55,22 +55,15 @@ const SpinningGlobe = () => {
         url: 'mapbox://mapbox.mapbox-streets-v8'
       });
 
-      map.on('load', function () {
-        map.querySourceFeatures('streets', {
-          sourceLayer: 'place_label',
-          filter: ['has', 'class']
-        }).slice(0, 5).forEach(function (feature) {
-          console.log(feature.properties);
-        });
-      });
-
       map.addLayer({
         id: 'city-labels',
         type: 'symbol',
         source: 'streets',
         'source-layer': 'place_label',
         filter: ['all', //manually select cities
-          ['in', 'name_en', 'Amsterdam', 'London','Utrecht', 'Berlin', 'Cape Town', 'Lisbon','Copenhagen', 'Bristol','Manchester','Johannesburg']
+          ['in', 'name_en', 'Amsterdam', 'London','Utrecht', 'Berlin', 'Cape Town', 'Lisbon','Copenhagen', 'Bristol','Manchester','Johannesburg',
+            'Rotterdam', 'Brussels', 'Paris', 'Cologne','Madrid', 'Barcelona','Antwerp', 'Dublin','Tokyo','Rome','Milan','Prague'
+          ]
 
 
         ],
