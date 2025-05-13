@@ -1313,7 +1313,31 @@
       },
       "properties": {
         "name": "Radio Radio",
+        "radio":true,
         "address": "Pazzanistraat 3, 1014 DB Amsterdam, Netherlands",
+        "place_id": "ChIJMy5xe1gJxkcRuz7-jXV-bvg",
+        "rating": 4,
+        "user_ratings_total": 257,
+        "types": [
+          "night_club",
+          "point_of_interest",
+          "establishment"
+        ]
+      }
+    },
+     {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.9121298,
+          52.3940665
+        ]
+      },
+      "properties": {
+        "name": "Radio TNP",
+        "radio":true,
+        "address": "Papaverweg 7. 1032KD Amsterdam Netherlands",
         "place_id": "ChIJMy5xe1gJxkcRuz7-jXV-bvg",
         "rating": 4,
         "user_ratings_total": 257,
@@ -1339,6 +1363,29 @@
         "place_id": "ChIJnZjaIIbEw0cRcPKHYt4cUqM",
         "rating": 3.6,
         "user_ratings_total": 1353,
+        "types": [
+          "night_club",
+          "point_of_interest",
+          "establishment"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.3626518,
+          50.843453
+        ]
+      },
+      "properties": {
+        "name": "Kiosk Radio",
+        "radio":true,
+        "address": "Pl. des Palais 10, 1000 Bruxelles, Belgium",
+        "place_id": "ChIJ-1mPQIHEw0cRuDtlGEEGMtE",
+        "rating": 4.8,
+        "user_ratings_total": 808,
         "types": [
           "night_club",
           "point_of_interest",
@@ -2073,6 +2120,52 @@
         "place_id": "ChIJKV9myERvxkcRIE9GhhP1fCc",
         "rating": 2.9,
         "user_ratings_total": 328,
+        "types": [
+          "night_club",
+          "point_of_interest",
+          "establishment"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.111481599999999,
+          52.0951442
+        ]
+      },
+      "properties": {
+        "name": "Stranded FM",
+        "radio":true,
+        "address": "Paardenveld 5bis, 3511 RC Utrecht",
+        "place_id": "ChIJJdglRkRvxkcRMIFJkkJbWuw",
+        "rating": 4.8,
+        "user_ratings_total": 14,
+        "types": [
+          "night_club",
+          "point_of_interest",
+          "establishment"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.101122999999999,
+          52.0985229
+        ]
+      },
+      "properties": {
+        "name": "Birdcage Radio",
+        "radio":true,
+        "address": "2e Daalsedijk 8B, 3551 EJ Utrecht",
+        "place_id": "ChIJk4bRtG1vxkcRLxUlB2D_7lg",
+        "rating": 5.0,
+        "user_ratings_total": 13,
         "types": [
           "night_club",
           "point_of_interest",

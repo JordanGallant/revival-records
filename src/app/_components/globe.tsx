@@ -14,7 +14,8 @@ const SpinningGlobe = () => {
   const handleClick = () => {
     if (mapRef.current) {
       mapRef.current.flyTo({
-        zoom: 10,
+        center: [5.126769, 52.096782],
+        zoom: 15,
         duration: 2000  // zoom
       });
     }
@@ -60,7 +61,12 @@ const SpinningGlobe = () => {
         source: 'center-points',
         paint: {
           'circle-radius': 10,
-          'circle-color': '#FF0000',
+          'circle-color': [
+            'case',
+            ['==', ['get', 'radio'], true],
+            '#00FF00',
+            '#FF0000'
+          ],
           'circle-opacity': 0.8,
           'circle-stroke-width': 2,
           'circle-stroke-color': '#FFFFFF'
@@ -74,7 +80,7 @@ const SpinningGlobe = () => {
         'source-layer': 'place_label',
         filter: ['all', //manually select cities
           ['in', 'name_en', 'Amsterdam', 'London', 'Utrecht', 'Berlin', 'Cape Town', 'Lisbon', 'Copenhagen', 'Bristol', 'Manchester', 'Johannesburg',
-            'Rotterdam', 'Brussels', 'Paris', 'Cologne', 'Madrid', 'Barcelona', 'Antwerp', 'Dublin', 'Tokyo', 'Rome', 'Milan', 'Prague'
+            'Rotterdam', 'Brussels', 'Paris', 'Cologne', 'Madrid', 'Barcelona', 'Antwerp', 'Dublin', 'Tokyo', 'Rome', 'Milan', 'Prague', 'Leeds'
           ]
         ],
         layout: {
