@@ -147,26 +147,28 @@ const SpinningGlobe = () => {
     };
   }, []);
 
-return (
-  <div className="relative w-full h-full overflow-hidden">
-    <div ref={containerRef} className="w-full h-full" />
+  return (
+    <div className="relative w-full h-full overflow-hidden">
+      <div ref={containerRef} className="w-full h-full" />
 
-    <div className="absolute bottom-5 right-5 flex flex-col items-end space-y-2">
-      <div className="bg-white bg-opacity-90 text-black p-4 rounded shadow-md min-w-[200px]">
-        <p className="font-semibold">Selected Club</p>
-        <p><strong>Name:</strong> {name || "—"}</p>
-        <p><strong>Address:</strong> {address || "—"}</p>
+      <div className="absolute bottom-5 right-5 flex flex-col items-end space-y-2">
+        <div className="bg-white bg-opacity-90 text-black p-4 rounded shadow-md min-w-[200px]">
+          <p className="font-semibold">
+            {/(radio|fm)/i.test(name) ? "Selected Radio" : "Selected Club"}
+          </p>
+          <p><strong>Name:</strong> {name || "—"}</p>
+          <p><strong>Address:</strong> {address || "—"}</p>
+        </div>
+
+        <button
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          onClick={() => handleClick()}
+        >
+          Zoom
+        </button>
       </div>
-
-      <button
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-        onClick={() => handleClick()}
-      >
-        Zoom
-      </button>
     </div>
-  </div>
-);
+  );
 };
 
 export default SpinningGlobe;
