@@ -10,7 +10,6 @@ const SpinningGlobe = () => {
   const mapRef = useRef<mapboxgl.Map | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [clubs, setClubs] = useState(null);
-
   const handleClick = () => {
   if (mapRef.current) {
     mapRef.current.flyTo({
@@ -25,7 +24,6 @@ const SpinningGlobe = () => {
     fetch('/clubs.json')
       .then(response => response.json())
       .then(data => {
-        console.log(data);
         setClubs(data);
       })
       .catch(error => console.error('Error fetching clubs:', error));
