@@ -2,8 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 import mapboxgl from "mapbox-gl";
+import clubs from '@/data/clubs.json'; // ✅ works with Next.js aliases
 
-
+console.log(clubs.results)
 mapboxgl.accessToken = "pk.eyJ1IjoiamdzbGVlcHdpdGhtZSIsImEiOiJjbWEydDNyZTQxZXBrMmtxeTFqZGQ4MWQ4In0.G3gvAoKzyOHdPUGeRsahng";
 
 const SpinningGlobe = () => {
@@ -20,14 +21,6 @@ const SpinningGlobe = () => {
   };
 
   useEffect(() => {
-    // get clubs list data
-    fetch('/clubs.json')
-      .then(response => response.json())
-      .then(data => {
-        setClubs(data);
-      })
-      .catch(error => console.error('Error fetching clubs:', error));
-
     if (!containerRef.current) return;
 
     const map = new mapboxgl.Map({
