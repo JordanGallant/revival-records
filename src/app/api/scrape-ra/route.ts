@@ -4,6 +4,7 @@ import * as cheerio from "cheerio";
 interface Event {
   title: string;
   date: string;
+  imageUrl: string;
 }
 
 interface ApiResponse {
@@ -59,20 +60,9 @@ export async function POST(request: Request) {
               const contentAfterSecond = scriptContent.slice(secondIndex);
 
               const areaMatches = [...contentAfterSecond.matchAll(/"urlName":"(.*?)"|{[^}]*"__typename":"Country"[^}]*"name":"(.*?)"/g)];
-              const urlNames = areaMatches.map(match => {
-                // If we find a urlName (match[1]), return it
-                if (match[1] !== undefined) {
-                  return match[1];
-                } else if (match[2] !== undefined) {
-                  // If urlName is missing, use the country name (match[2])
-                  return match[2];
-                }
+              const urlNames = areaMatches.map(match => { //if urlname is null -> country name -> '' as fallback
+                return match[1] ?? match[2] ?? '';
               });
-
-
-
-
-
               const eventMatches = filteredContent.match(/({[^}]*?"__typename":"Event"[^}]*})/g);
               let index = 0
               if (eventMatches) {
@@ -88,6 +78,7 @@ export async function POST(request: Request) {
                     events.push({
                       title: titleMatch[1],
                       date: dateMatch[1],
+                      imageUrl: imageUrl,
                     });
                   }
                 }

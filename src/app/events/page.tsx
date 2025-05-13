@@ -13,7 +13,7 @@ const Events: React.FC = () => {
   const [selectedArtist, setSelectedArtist] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  const [events, setEvents] = useState<{ title: string; date: string }[]>([]);
+  const [events, setEvents] = useState<{ title: string; date: string; imageUrl: string; }[]>([]);
   const [isLoadingEvents, setIsLoadingEvents] = useState<boolean>(false);
 
   useEffect(() => {
@@ -63,6 +63,7 @@ const Events: React.FC = () => {
       }
 
       const data = await res.json();
+      console.log(data)
       setEvents(data.events || []);
     } catch (err) {
       console.error("Failed to fetch events:", err);
@@ -97,8 +98,8 @@ const Events: React.FC = () => {
                   key={index}
                   onClick={() => handleArtistSelect(artist)}
                   className={`px-6 py-2 rounded-xl transition ${selectedArtist === artist
-                      ? 'bg-white text-black border border-white'
-                      : 'bg-black text-white border border-white hover:bg-white hover:text-black'
+                    ? 'bg-white text-black border border-white'
+                    : 'bg-black text-white border border-white hover:bg-white hover:text-black'
                     }`}
                 >
                   {displayName}
@@ -118,6 +119,11 @@ const Events: React.FC = () => {
                   {events.map((event, idx) => (
                     <div key={idx} className="bg-black/30 backdrop-blur-sm border border-white/20 p-4 rounded-lg w-full">
                       <h3 className="text-lg font-bold">{event.title}</h3>
+                      <img
+                        src={event.imageUrl}
+                        alt={event.title}
+                        className="w-full max-w-md mx-auto rounded-md"
+                      />
                       <p className="text-sm">{new Date(event.date).toLocaleDateString(undefined, {
                         weekday: 'long',
                         year: 'numeric',
