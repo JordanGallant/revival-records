@@ -58,9 +58,16 @@ export async function POST(request: Request) {
               const secondIndex = scriptContent.indexOf('"urlName"', startIndex + 1);
               const contentAfterSecond = scriptContent.slice(secondIndex);
 
-              const areaMatches = [...contentAfterSecond.matchAll(/"urlName":"(.*?)"/g)]; //getts all area names
-              const urlNames = areaMatches.map(m => m[1]);
-
+              const areaMatches = [...contentAfterSecond.matchAll(/"urlName":"(.*?)"|{[^}]*"__typename":"Country"[^}]*"name":"(.*?)"/g)];
+              const urlNames = areaMatches.map(match => {
+                // If we find a urlName (match[1]), return it
+                if (match[1] !== undefined) {
+                  return match[1];
+                } else if (match[2] !== undefined) {
+                  // If urlName is missing, use the country name (match[2])
+                  return match[2];
+                }
+              });
 
 
 
