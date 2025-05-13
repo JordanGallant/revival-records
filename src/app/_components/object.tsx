@@ -1,15 +1,13 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import mapboxgl from "mapbox-gl";
 
 // Replace this with your real access token
 mapboxgl.accessToken = "pk.eyJ1IjoiamdzbGVlcHdpdGhtZSIsImEiOiJjbWEydDNyZTQxZXBrMmtxeTFqZGQ4MWQ4In0.G3gvAoKzyOHdPUGeRsahng";
 
-const SpinningGlobe: React.FC = () => {
+const SpinningGlobe = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const [isDragging, setIsDragging] = useState(false);
-  const [invertRotation, setInvertRotation] = useState(false);
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -23,41 +21,26 @@ const SpinningGlobe: React.FC = () => {
       pitch: 0,
       bearing: 0,
       antialias: true,
-      interactive: true, // Enable mouse interaction
-      attributionControl: false, // hide default attribution UI
-
+      interactive: true,
+      attributionControl: false,
     });
 
     map.on("style.load", () => {
       map.setFog({});
     });
 
-    let bearing = 0;
-    let animationId: number;
-
-    const animate = () => {
-      animationId = requestAnimationFrame(animate);
-      if (!isDragging) {
-        bearing += invertRotation ? -0.1 : 0.1;
-        map.setBearing(bearing % 360);
-      }
-    };
-
-    animate();
-
-    // Pause auto-rotation while dragging
-    map.on("dragstart", () => {
-      setIsDragging(true);
-      if (containerRef.current) containerRef.current.style.cursor = "grabbing";
-    });
-
-    map.on("dragend", () => {
-      setIsDragging(false);
+    // Set cursor to grab when hovering over the map
+    map.on("mouseenter", () => {
       if (containerRef.current) containerRef.current.style.cursor = "grab";
     });
 
-    map.on("mouseenter", () => {
-      if (!isDragging && containerRef.current) containerRef.current.style.cursor = "grab";
+    // Change cursor to grabbing during drag
+    map.on("mousedown", () => {
+      if (containerRef.current) containerRef.current.style.cursor = "grabbing";
+    });
+
+    map.on("mouseup", () => {
+      if (containerRef.current) containerRef.current.style.cursor = "grab";
     });
 
     map.on("mouseleave", () => {
@@ -65,10 +48,9 @@ const SpinningGlobe: React.FC = () => {
     });
 
     return () => {
-      cancelAnimationFrame(animationId);
       map.remove();
     };
-  }, [invertRotation, isDragging]);
+  }, []);
 
   return (
     <div className="relative w-full h-full overflow-hidden">
