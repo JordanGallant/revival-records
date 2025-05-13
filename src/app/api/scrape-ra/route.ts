@@ -52,8 +52,9 @@ export async function POST(request: Request) {
             const startIndex = scriptContent.indexOf('"urlName"'); //gets urlName -> currrent location (starting point)
             if (startIndex !== -1) {
               const filteredContent = scriptContent.slice(startIndex);
-              const imageUrlMatches = [...filteredContent.matchAll(/"filename":"(https?:\/\/[^"]+)"/g)]; //finds all image urls
-              const imageUrls = imageUrlMatches.map(match => match[1]);
+              const imageUrlMatches = [
+              ...filteredContent.matchAll(/"filename":"(https?:\/\/[^"]+?)","alt":null,"type":"FLYERFRONT"/g)
+              ]; const imageUrls = imageUrlMatches.map(match => match[1]);
 
               //skips first urlName -> actual location
               const secondIndex = scriptContent.indexOf('"urlName"', startIndex + 1);
