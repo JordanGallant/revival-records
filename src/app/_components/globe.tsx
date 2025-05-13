@@ -2,19 +2,19 @@
 
 import { useEffect, useRef, useState } from "react";
 import mapboxgl from "mapbox-gl";
-import clubs from '@/data/clubs.json'; // ✅ works with Next.js aliases
+import clubsJson from '@/data/clubs.json';
+import type { FeatureCollection } from 'geojson';
 
-console.log(clubs.results)
+const clubs = clubsJson as FeatureCollection; //trypescript crying what is this file!!! -> had to decare it as a feature collection
 mapboxgl.accessToken = "pk.eyJ1IjoiamdzbGVlcHdpdGhtZSIsImEiOiJjbWEydDNyZTQxZXBrMmtxeTFqZGQ4MWQ4In0.G3gvAoKzyOHdPUGeRsahng";
 
 const SpinningGlobe = () => {
   const mapRef = useRef<mapboxgl.Map | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const [clubs, setClubs] = useState(null);
   const handleClick = () => {
     if (mapRef.current) {
       mapRef.current.flyTo({
-        zoom: 7,
+        zoom: 10,
         duration: 2000  // zoom
       });
     }
@@ -48,17 +48,34 @@ const SpinningGlobe = () => {
         url: 'mapbox://mapbox.mapbox-streets-v8'
       });
 
+      // create gejson
+      map.addSource('center-points', {
+        type: 'geojson',
+        data: clubs,
+      });
+
+      map.addLayer({
+        id: 'center-circles',
+        type: 'circle',
+        source: 'center-points',
+        paint: {
+          'circle-radius': 10,
+          'circle-color': '#FF0000',
+          'circle-opacity': 0.8,
+          'circle-stroke-width': 2,
+          'circle-stroke-color': '#FFFFFF'
+        }
+      });
+
       map.addLayer({
         id: 'city-labels',
         type: 'symbol',
         source: 'streets',
         'source-layer': 'place_label',
         filter: ['all', //manually select cities
-          ['in', 'name_en', 'Amsterdam', 'London','Utrecht', 'Berlin', 'Cape Town', 'Lisbon','Copenhagen', 'Bristol','Manchester','Johannesburg',
-            'Rotterdam', 'Brussels', 'Paris', 'Cologne','Madrid', 'Barcelona','Antwerp', 'Dublin','Tokyo','Rome','Milan','Prague'
+          ['in', 'name_en', 'Amsterdam', 'London', 'Utrecht', 'Berlin', 'Cape Town', 'Lisbon', 'Copenhagen', 'Bristol', 'Manchester', 'Johannesburg',
+            'Rotterdam', 'Brussels', 'Paris', 'Cologne', 'Madrid', 'Barcelona', 'Antwerp', 'Dublin', 'Tokyo', 'Rome', 'Milan', 'Prague'
           ]
-
-
         ],
         layout: {
           'text-field': ['get', 'name_en'],
