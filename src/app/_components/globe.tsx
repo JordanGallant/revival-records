@@ -11,6 +11,9 @@ mapboxgl.accessToken = "pk.eyJ1IjoiamdzbGVlcHdpdGhtZSIsImEiOiJjbWEydDNyZTQxZXBrM
 const SpinningGlobe = () => {
   const mapRef = useRef<mapboxgl.Map | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const [address, setAddress] = useState("")
+  const [name, setName] = useState("")
+
   const handleClick = () => {
     if (mapRef.current) {
       mapRef.current.flyTo({
@@ -23,6 +26,8 @@ const SpinningGlobe = () => {
 
   useEffect(() => {
     if (!containerRef.current) return;
+
+
 
     const map = new mapboxgl.Map({
       container: containerRef.current,
@@ -95,6 +100,31 @@ const SpinningGlobe = () => {
           'text-halo-width': 1.5
         }
       });
+
+
+    });
+
+    map.on('mouseenter', 'center-circles', () => {
+      map.getCanvas().style.cursor = 'pointer';
+    });
+
+    map.on('mouseleave', 'center-circles', () => {
+      map.getCanvas().style.cursor = '';
+    });
+
+    map.on('click', 'center-circles', (e) => {
+      if (e.features && e.features.length > 0) {
+        const feature = e.features[0];
+        const location = feature.properties?.address;
+        const id = feature.properties?.name;
+        console.log(location);
+        console.log(id)
+        setAddress(location);
+        setName(id)
+
+      }
+
+
     });
 
 
@@ -119,17 +149,26 @@ const SpinningGlobe = () => {
     };
   }, []);
 
-  return (
-    <div className="relative w-full h-full overflow-hidden">
-      <div ref={containerRef} className="w-full h-full" />
+return (
+  <div className="relative w-full h-full overflow-hidden">
+    <div ref={containerRef} className="w-full h-full" />
+
+    <div className="absolute bottom-5 right-5 flex flex-col items-end space-y-2">
+      <div className="bg-white bg-opacity-90 text-black p-4 rounded shadow-md min-w-[200px]">
+        <p className="font-semibold">Selected Club</p>
+        <p><strong>Name:</strong> {name || "—"}</p>
+        <p><strong>Address:</strong> {address || "—"}</p>
+      </div>
+
       <button
-        className="absolute bottom-5 right-5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
         onClick={() => handleClick()}
       >
         Zoom
       </button>
     </div>
-  );
+  </div>
+);
 };
 
 export default SpinningGlobe;
