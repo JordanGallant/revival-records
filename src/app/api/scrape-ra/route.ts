@@ -45,7 +45,7 @@ export async function POST(request: Request) {
 
       $("script").each((_, el) => {
         const scriptContent = $(el).html();
-
+        const defaultImageUrl = "https://images.squarespace-cdn.com/content/v1/57a9f951e6f2e1756d5449ee/1575044716580-FBZ6EKOVLW8CT8I7D598/P1010656.jpg?format=2500w"
         if (scriptContent && scriptContent.includes('"__typename":"Event"')) {
           try {
 
@@ -73,10 +73,14 @@ export async function POST(request: Request) {
                   console.log(area)
                   index++;
                   if (titleMatch && dateMatch) {
+                    if (titleMatch[1] === "Down The Rabbit Hole 2025" ) {
+                      index-=1
+                      continue;
+                    }
                     events.push({
                       title: titleMatch[1],
                       date: dateMatch[1],
-                      imageUrl: imageUrl,
+                      imageUrl: imageUrl || defaultImageUrl,
                     });
                   }
                 }
