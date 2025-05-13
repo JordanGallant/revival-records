@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import mapboxgl from "mapbox-gl";
 
-// Replace this with your real access token
+
 mapboxgl.accessToken = "pk.eyJ1IjoiamdzbGVlcHdpdGhtZSIsImEiOiJjbWEydDNyZTQxZXBrMmtxeTFqZGQ4MWQ4In0.G3gvAoKzyOHdPUGeRsahng";
 
 const SpinningGlobe = () => {
@@ -11,13 +11,13 @@ const SpinningGlobe = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [clubs, setClubs] = useState(null);
   const handleClick = () => {
-  if (mapRef.current) {
-    mapRef.current.flyTo({
-      zoom: 7,
-      duration: 2000  // Duration in milliseconds (2 seconds)
-    });
-  }
-};
+    if (mapRef.current) {
+      mapRef.current.flyTo({
+        zoom: 7,
+        duration: 2000  // zoom
+      });
+    }
+  };
 
   useEffect(() => {
     // get clubs list data
@@ -41,11 +41,11 @@ const SpinningGlobe = () => {
       antialias: true,
       interactive: true,
       attributionControl: false,
-      
+
     });
     mapRef.current = map;
 
-    
+
 
     map.on("style.load", () => {
       map.setFog({});
@@ -55,24 +55,25 @@ const SpinningGlobe = () => {
         url: 'mapbox://mapbox.mapbox-streets-v8'
       });
 
-      map.addLayer({
-        id: 'road-major',
-        type: 'line',
-        source: 'streets',
-        'source-layer': 'road',
-        filter: ['all', ['==', 'class', 'primary']],
-        paint: {
-          'line-color': '#ffff00',
-          'line-width': 1,
-          'line-opacity': 0.6
-        }
+      map.on('load', function () {
+        map.querySourceFeatures('streets', {
+          sourceLayer: 'place_label',
+          filter: ['has', 'class']
+        }).slice(0, 5).forEach(function (feature) {
+          console.log(feature.properties);
+        });
       });
 
       map.addLayer({
-        id: 'place-labels',
+        id: 'city-labels',
         type: 'symbol',
         source: 'streets',
         'source-layer': 'place_label',
+        filter: ['all',
+          ['==', ['get', 'class'], 'settlement'],
+          ['==', ['get', 'symbolrank'], 6]
+
+        ],
         layout: {
           'text-field': ['get', 'name_en'],
           'text-font': ['Open Sans Bold'],
@@ -85,14 +86,13 @@ const SpinningGlobe = () => {
           'text-halo-width': 1.5
         }
       });
-    }); // This closing bracket was missing in your original code
+    });
 
-    // Set cursor to grab when hovering over the map
+
     map.on("mouseenter", () => {
       if (containerRef.current) containerRef.current.style.cursor = "grab";
     });
 
-    // Change cursor to grabbing during drag
     map.on("mousedown", () => {
       if (containerRef.current) containerRef.current.style.cursor = "grabbing";
     });
