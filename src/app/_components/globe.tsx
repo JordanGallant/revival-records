@@ -117,8 +117,6 @@ const SpinningGlobe = () => {
         const feature = e.features[0];
         const location = feature.properties?.address;
         const id = feature.properties?.name;
-        console.log(location);
-        console.log(id)
         setAddress(location);
         setName(id)
 
