@@ -53,17 +53,15 @@ export async function POST(request: Request) {
             if (startIndex !== -1) {
               const filteredContent = scriptContent.slice(startIndex);
               const imageUrlMatches = [
-              ...filteredContent.matchAll(/"filename":"(https?:\/\/[^"]+?)","alt":null,"type":"FLYERFRONT"/g)
+                ...filteredContent.matchAll(/"filename":"(https?:\/\/[^"]+?)","alt":(null|"[^"]*"),"type":"FLYERFRONT"/g)
               ]; const imageUrls = imageUrlMatches.map(match => match[1]);
-
               //skips first urlName -> actual location
               const secondIndex = scriptContent.indexOf('"urlName"', startIndex + 1);
               const contentAfterSecond = scriptContent.slice(secondIndex);
 
-              const areaMatches = [...contentAfterSecond.matchAll(/"urlName":"(.*?)"|{[^}]*"__typename":"Country"[^}]*"name":"(.*?)"/g)];
-              const urlNames = areaMatches.map(match => { //if urlname is null -> country name -> '' as fallback
-                return match[1] ?? match[2] ?? '';
-              });
+              //COUNTRY
+              const areaMatches = [...contentAfterSecond.matchAll(/"urlName":"(.*?)"/g)];
+              const areas = areaMatches.map(match => match[1]);
               const eventMatches = filteredContent.match(/({[^}]*?"__typename":"Event"[^}]*})/g);
               let index = 0
               if (eventMatches) {
@@ -71,9 +69,8 @@ export async function POST(request: Request) {
                   const titleMatch = match.match(/"title":"(.*?)"/);
                   const dateMatch = match.match(/"date":"(.*?)"/);
                   const imageUrl = imageUrls[index]
-                  const area = urlNames[index]
+                  const area = areas[index]
                   console.log(area)
-                  console.log(imageUrl)
                   index++;
                   if (titleMatch && dateMatch) {
                     events.push({
