@@ -5,6 +5,9 @@ import { MDXRemote } from 'next-mdx-remote';
 import { notFound } from 'next/navigation';
 import { serialize } from 'next-mdx-remote/serialize';
 import Navigator from '@/app/_components/navigator';
+import rehypePrism from 'rehype-prism-plus';
+import rehypeSlug from 'rehype-slug';
+import remarkGfm from 'remark-gfm';
 
 type Post = {
   metadata: {
@@ -28,19 +31,24 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
   // need to use use()
   const resolvedParams = use(params);
   const slug = resolvedParams.slug;
-  
+
   const [post, setPost] = useState<Post | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [serializedContent, setSerializedContent] = useState<any>(null);
 
-  useEffect(() => {// get individual post
+  useEffect(() => {
     const fetchPost = async () => {
       try {
         const postData = await getPost(slug);
         if (postData) {
           setPost(postData);
-          const serialized = await serialize(postData.content);
+          const serialized = await serialize(postData.content, {
+            mdxOptions: {
+              remarkPlugins: [remarkGfm],
+              rehypePlugins: [rehypePrism, rehypeSlug],
+            },
+          });
           setSerializedContent(serialized);
         } else {
           setError('Post not found');
@@ -53,7 +61,7 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
     };
 
     fetchPost();
-  }, [slug]); // Now using the unwrapped slug value
+  }, [slug]);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -65,16 +73,18 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
 
   if (!post || !serializedContent) {
     return notFound();
-  }
+  }  
 
   return (
     <>
-    <Navigator/>
-    <article className="p-6 prose prose-invert">
-      <h1 className="text-4xl font-bold">{post.metadata.title}</h1>
-      <p className="text-sm text-gray-400">{post.metadata.date}</p>
-      <MDXRemote {...serializedContent} />
-    </article>
+    <Navigator />
+        <div className="flex justify-center">
+      <article className="p-6 prose">
+        <h1 className="text-4xl font-bold">{post.metadata.title}</h1>
+        <p className="text-sm text-gray-400">{post.metadata.date}</p>
+        <MDXRemote {...serializedContent} />
+      </article>
+      </div>
     </>
   );
 }
