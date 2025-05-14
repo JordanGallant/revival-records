@@ -1,14 +1,13 @@
-// app/api/posts/[slug]/route.ts
 import { getPostBySlug } from '../../../lib/mdx';
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
 export async function GET(
-  request: Request,
+  request: NextRequest,
   { params }: { params: { slug: string } }
 ) {
   try {
     const slug = params.slug;
-    
+
     if (!slug) {
       return NextResponse.json(
         { error: 'Slug parameter is required' },
@@ -17,7 +16,7 @@ export async function GET(
     }
 
     const { content, frontmatter } = await getPostBySlug(slug);
-    
+
     return NextResponse.json({
       content,
       frontmatter
