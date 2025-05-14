@@ -26,7 +26,7 @@ export default function BlogIndexPage() {
         // Fetch blog posts from an API endpoint
         async function fetchPosts() {
             try {
-                const response = await fetch('/api/posts');
+                const response = await fetch('https://blog-api-bd4m.onrender.com/posts');
                 
                 if (!response.ok) {
                     throw new Error(`Error ${response.status}: ${response.statusText}`);
