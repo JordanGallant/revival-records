@@ -459,6 +459,11 @@ const Navigator = forwardRef<HTMLAudioElement, NavBarProps>((props, ref) => {
               Events
             </Link>
           </NavbarItem>
+          <NavbarItem>
+            <Link color="foreground" href="/listen">
+              Listen
+            </Link>
+          </NavbarItem>
         </NavbarContent>
 
         <NavbarContent justify="end">

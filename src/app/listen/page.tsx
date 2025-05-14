@@ -12,6 +12,8 @@ const MusicReactiveBar: React.FC = () => {
 
   const handleAudioElement = (audio: HTMLAudioElement) => {
     if (!audio || audioRef.current === audio) return;
+
+    console.log('Got audio element via callback:', audio);
     audioRef.current = audio;
 
     if (!audioContextRef.current) {
@@ -59,7 +61,10 @@ const MusicReactiveBar: React.FC = () => {
 
   return (
     <div className="w-full">
+      {/* Top: Navigator */}
       <Navigator ref={handleAudioElement} />
+
+      {/* Bottom: Audio Bars */}
       <div className="w-full h-48 flex items-end justify-center bg-black overflow-hidden">
         <div
           ref={containerRef}
