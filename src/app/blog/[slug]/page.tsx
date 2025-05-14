@@ -8,6 +8,7 @@ import Navigator from '@/app/_components/navigator';
 import rehypePrism from 'rehype-prism-plus';
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
+import dynamic from 'next/dynamic';
 
 type Post = {
   metadata: {
