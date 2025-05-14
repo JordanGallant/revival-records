@@ -4,6 +4,7 @@ import { useState, useEffect, use } from 'react';
 import { MDXRemote } from 'next-mdx-remote';
 import { notFound } from 'next/navigation';
 import { serialize } from 'next-mdx-remote/serialize';
+import Navigator from '@/app/_components/navigator';
 
 type Post = {
   metadata: {
@@ -24,7 +25,7 @@ async function getPost(slug: string): Promise<Post | null> {
 }
 
 export default function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
-  // Unwrap the params Promise with React.use()
+  // need to use use()
   const resolvedParams = use(params);
   const slug = resolvedParams.slug;
   
@@ -33,7 +34,7 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
   const [error, setError] = useState<string | null>(null);
   const [serializedContent, setSerializedContent] = useState<any>(null);
 
-  useEffect(() => {
+  useEffect(() => {// get individual post
     const fetchPost = async () => {
       try {
         const postData = await getPost(slug);
@@ -67,10 +68,13 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
   }
 
   return (
+    <>
+    <Navigator/>
     <article className="p-6 prose prose-invert">
       <h1 className="text-4xl font-bold">{post.metadata.title}</h1>
       <p className="text-sm text-gray-400">{post.metadata.date}</p>
       <MDXRemote {...serializedContent} />
     </article>
+    </>
   );
 }
