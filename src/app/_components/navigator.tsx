@@ -29,7 +29,6 @@ interface NavBarProps {
     onTrackChange?: (url: string, title: string) => void; 
     onAudioElementCreated?: (audioElement: HTMLAudioElement) => void;
 
-
 }
 
 // Store bucket URL in environment variable
@@ -80,6 +79,8 @@ const Navigator = forwardRef<HTMLAudioElement, NavBarProps>((props, ref) => {
   useEffect(() => {
     fetchSongsList();
   }, []);
+
+  
 
   
 

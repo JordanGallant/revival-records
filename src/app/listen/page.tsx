@@ -2,41 +2,53 @@
 import React, { useRef, useEffect, useState } from 'react';
 import Navigator from '../_components/navigator';
 
-const MusicReactiveBars: React.FC = () => {
+const MusicReactiveBar: React.FC = () => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const sourceRef = useRef<MediaElementAudioSourceNode | null>(null);
+  const audioContextRef = useRef<AudioContext | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const animationRef = useRef<number | null>(null);
-  const [barCount, setBarCount] = useState(64); // default bar count
+  const [barCount] = useState(64); // fixed bar count
 
   const handleAudioElement = (audio: HTMLAudioElement) => {
-    console.log('Got audio element via callback:', audio);
+    if (!audio || audioRef.current === audio) return;
     audioRef.current = audio;
 
-    const audioContext = new AudioContext();
-    const source = audioContext.createMediaElementSource(audio);
-    const analyser = audioContext.createAnalyser();
+    if (!audioContextRef.current) {
+      audioContextRef.current = new AudioContext();
+    }
 
-    source.connect(analyser);
-    analyser.connect(audioContext.destination);
-    analyser.fftSize = barCount * 2; // fftSize must be twice barCount
+    const audioContext = audioContextRef.current;
 
-    const bufferLength = analyser.frequencyBinCount;
-    const dataArray = new Uint8Array(bufferLength);
+    if (!sourceRef.current) {
+      const source = audioContext.createMediaElementSource(audio);
+      const analyser = audioContext.createAnalyser();
 
-    const animate = () => {
-      analyser.getByteFrequencyData(dataArray);
-      if (containerRef.current) {
-        const bars = containerRef.current.children;
-        for (let i = 0; i < bars.length; i++) {
-          const value = dataArray[i];
-          const bar = bars[i] as HTMLElement;
-          bar.style.height = `${value}px`;
+      source.connect(analyser);
+      analyser.connect(audioContext.destination);
+      analyser.fftSize = barCount * 2;
+
+      const bufferLength = analyser.frequencyBinCount;
+      const dataArray = new Uint8Array(bufferLength);
+
+      const animate = () => {
+        analyser.getByteFrequencyData(dataArray);
+
+        if (containerRef.current) {
+          const bars = containerRef.current.children;
+          for (let i = 0; i < bars.length; i++) {
+            const value = dataArray[i];
+            const bar = bars[i] as HTMLElement;
+            bar.style.height = `${(value / 255) * 100}%`;
+          }
         }
-      }
-      animationRef.current = requestAnimationFrame(animate);
-    };
 
-    animate();
+        animationRef.current = requestAnimationFrame(animate);
+      };
+
+      animate();
+      sourceRef.current = source;
+    }
   };
 
   useEffect(() => {
@@ -46,32 +58,28 @@ const MusicReactiveBars: React.FC = () => {
   }, []);
 
   return (
-    <div>
-      <Navigator onAudioElementCreated={handleAudioElement} />
-      <div
-        ref={containerRef}
-        style={{
-          display: 'flex',
-          alignItems: 'flex-end',
-          height: '200px',
-          gap: '2px',
-          marginTop: '20px',
-        }}
-      >
-        {Array.from({ length: barCount }).map((_, index) => (
-          <div
-            key={index}
-            style={{
-              width: '4px',
-              background: 'limegreen',
-              height: '10px',
-              transition: 'height 0.1s ease',
-            }}
-          />
-        ))}
+    <div className="w-full">
+      <Navigator ref={handleAudioElement} />
+      <div className="w-full h-48 flex items-end justify-center bg-black overflow-hidden">
+        <div
+          ref={containerRef}
+          style={{ display: 'flex', gap: '2px', alignItems: 'flex-end', height: '100%' }}
+        >
+          {Array.from({ length: barCount }).map((_, index) => (
+            <div
+              key={index}
+              style={{
+                width: '4px',
+                background: 'limegreen',
+                height: '10%',
+                transition: 'height 0.1s ease',
+              }}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
 };
 
-export default MusicReactiveBars;
+export default MusicReactiveBar;
