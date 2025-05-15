@@ -40,7 +40,7 @@
     "src/app/sketches/shaderPark.js",
     "src/app/listen/page.jsx",
     "src/app/_components/shaderParkWrapper.jsx"
-, "src/app/api/songs/route.js", "src/app/api/songs/route.js"  ],
+, "src/app/api/songs/route.js", "src/app/api/songs/route.js", "src/app/faust/page.jsx"  ],
   "exclude": [
     "node_modules"
   ]
