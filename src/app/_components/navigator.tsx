@@ -357,9 +357,6 @@ const Navigator = forwardRef<HTMLAudioElement, NavBarProps>((props, ref) => {
                 <FaRandom />
               </Button>
             </Tooltip>
-
-            
-            
           </NavbarItem>
 
         </NavbarContent>
@@ -396,6 +393,11 @@ const Navigator = forwardRef<HTMLAudioElement, NavBarProps>((props, ref) => {
                 <FaRandom />
               </Button>
             </Tooltip>
+            {currentSong && (
+              <span className=" text-sm italic truncate max-w-64">
+                {currentSong.title}
+              </span>
+            )}
           </div>
         </NavbarItem>
 
