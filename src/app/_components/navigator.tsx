@@ -445,19 +445,12 @@ const Navigator = forwardRef<HTMLAudioElement, NavBarProps>((props, ref) => {
               List
             </Link>
           </NavbarItem>
-        </NavbarContent>
-
-        <NavbarContent justify="end">
-          <NavbarItem className="hidden lg:flex">
-            <Link href="#">Login</Link>
-          </NavbarItem>
           <NavbarItem>
-            <Button as={Link} color="warning" href="#" variant="flat">
-              Sign Up
-            </Button>
+            <Link color="foreground" href="/effect">
+              Effects
+            </Link>
           </NavbarItem>
         </NavbarContent>
-
         <NavbarMenu>
           {menuItems.map((item, index) => (
             <NavbarMenuItem key={`${item}-${index}`}>
