@@ -1,44 +1,61 @@
+/////DSP IN THE BROWSER//////
+
 'use client';
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef } from 'react';
 import Navigator from '../_components/navigator';
 
 const Effects: React.FC = () => {
+    const iframeRef = useRef<HTMLIFrameElement>(null);
     const audioRef = useRef<HTMLAudioElement | null>(null);
     const sourceRef = useRef<MediaElementAudioSourceNode | null>(null);
     const audioContextRef = useRef<AudioContext | null>(null);
 
-    const handleAudioElement = (audio: HTMLAudioElement) => {
-        if (!audio || audioRef.current === audio) return;
+    let sendAudio;
+  
+const handleAudioElement = (audio: HTMLAudioElement) => {
+    if (!audio) return;
 
+    if (audioRef.current !== audio) {
         console.log('Got audio element via callback:', audio);
         audioRef.current = audio;
 
+        //sends src every time track is changed
+        audio.addEventListener('loadedmetadata', sendCurrentAudioToIframe);
+    }
+};
 
-        if (!audioContextRef.current) {
-            audioContextRef.current = new AudioContext();
-        }
+const sendCurrentAudioToIframe = () => {
+    const audio = audioRef.current;
+    if (!audio) return;
 
-        const audioContext = audioContextRef.current;
+    const sendAudio = audio.src;
+    console.log('Sending audio source:', sendAudio);
+    iframeRef.current?.contentWindow?.postMessage(sendAudio, '*');
+};
 
-        if (!sourceRef.current) {
-            const source = audioContext.createMediaElementSource(audio);
-            const analyser = audioContext.createAnalyser();
 
-            source.connect(analyser);
-            analyser.connect(audioContext.destination);
-
-            sourceRef.current = source;
-        }
+    const SendMessage = () => {
+        iframeRef.current?.contentWindow?.postMessage(sendAudio, '*');
+        console.log("SENDING MESSAGE") //sends audio src to reverb component
     };
-
-    
 
     return (
         <div className="w-full">
             <Navigator ref={handleAudioElement} />
 
-            <iframe id="pwaFrame" src="https://reverb-faust-component.vercel.app" width="100%" height="500" allow="autoplay; microphone; accelerometer; gyroscope" title="Faust PWA" />
+            <div className="p-4">
+            </div>
 
+            <iframe
+                ref={iframeRef}
+                onLoad={SendMessage}
+                id="pwaFrame"
+                src="https://reverb-faust-component.vercel.app"
+                width="100%"
+                height="500"
+                allow="autoplay; microphone; accelerometer; gyroscope"
+                title="Faust PWA"
+            />
         </div>
     );
 };
