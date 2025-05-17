@@ -85,7 +85,7 @@ const Mic: React.FC = () => {
                             transportRef.current.stop();
                         }
 
-                        const bpmMatch = finalTranscript.toLowerCase().match(/(?:change|set)\s*(?:bpm)?\s*(?:to)?\s*(\d{2,3})/);
+                        const bpmMatch = finalTranscript.toLowerCase().match(/(?:change|set)\s*(?:bpm|bbm)?\s*(?:to)?\s*(\d{2,3})/);
                         if (bpmMatch) {
                             const newBpm = parseInt(bpmMatch[1], 10);
                             if (!isNaN(newBpm) && newBpm >= 60 && newBpm <= 180) {

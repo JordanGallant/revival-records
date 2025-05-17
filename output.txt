@@ -1,8 +1,7 @@
 To Do:
-1) Voice-Controlled Browser Synthesizer <> Tone.js
 2) Media Pipe x 3 js 
-3) live streaming 
-4) touch desginer
+3) touch desginer
+4) live streaming 
 5) electron app
 6) Responsive
 7) audio nft market place
