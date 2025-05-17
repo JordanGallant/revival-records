@@ -1,6 +1,7 @@
 'use client';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { createContext, useEffect, useRef, useState } from 'react';
 import * as Tone from 'tone';
+import { useDrumMachine } from './deumMachineContext';
 
 const DrumMachineGrid: React.FC = () => {
   const numRows = 8;
@@ -25,6 +26,8 @@ const DrumMachineGrid: React.FC = () => {
   const [currentStep, setCurrentStep] = useState<number>(0);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [bpm, setBpm] = useState<number>(120);
+  const transportRef = useDrumMachine();
+
 
   const stepRef = useRef(0);
   const gridRef = useRef(grid);
@@ -34,6 +37,11 @@ const DrumMachineGrid: React.FC = () => {
   useEffect(() => {
     gridRef.current = grid;
   }, [grid]);
+
+  useEffect(() => {
+  transportRef.current.start = startTransport;
+  transportRef.current.stop = stopTransport;
+}, []);
 
   // Load all samples on mount
   useEffect(() => {

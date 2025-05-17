@@ -3,6 +3,7 @@ import React from "react";
 import DrumMachineGrid from './components/grid'
 import Mic from './components/mic'
 import Navigator from "../_components/navigator";
+import { DrumMachineProvider } from "./components/deumMachineContext";
 
 const Synth: React.FC = () => {
   // Use MembraneSynth for kick drum-like sound
@@ -10,6 +11,8 @@ const Synth: React.FC = () => {
 
   return (
     <>
+    <DrumMachineProvider>
+
       <Navigator />
       <div className="flex justify-center align center w-full ">
         <DrumMachineGrid />
@@ -18,6 +21,7 @@ const Synth: React.FC = () => {
       <div className="flex justify-center align center w-full pb-5">
         <Mic />
       </div>
+      </DrumMachineProvider>
     </>
   );
 };
