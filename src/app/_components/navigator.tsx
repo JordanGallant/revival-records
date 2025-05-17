@@ -382,7 +382,7 @@ const Navigator = forwardRef<HTMLAudioElement, NavBarProps>((props, ref) => { //
           </div>
         </NavbarItem>
 
-        <NavbarContent className="sm:hidden pr-3" justify="center">
+        <NavbarContent className="sm:hidden w-full">
           <NavbarBrand>
             <Link href="/">
               <p className="font-badeen"> Revival Records</p>
@@ -390,7 +390,7 @@ const Navigator = forwardRef<HTMLAudioElement, NavBarProps>((props, ref) => { //
           </NavbarBrand>
         </NavbarContent>
 
-        <NavbarContent className="hidden sm:flex gap-4" justify="center">
+        <NavbarContent className="hidden sm:flex w-full" >
           <NavbarBrand>
             <Link href="/">
               <p className="font-badeen"> Revival Records</p>
@@ -422,7 +422,7 @@ const Navigator = forwardRef<HTMLAudioElement, NavBarProps>((props, ref) => { //
             </Link>
           </NavbarItem>
            <NavbarItem>
-            <Link color="foreground" href="/song-list">
+            <Link color="foreground" href="/song-list" target="_blank">
               List
             </Link>
           </NavbarItem>
