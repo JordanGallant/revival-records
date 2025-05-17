@@ -15,11 +15,6 @@ import {
   Link,
   Button,
   Tooltip,
-  Modal,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
   useDisclosure,
 } from "@heroui/react";
 
@@ -40,7 +35,7 @@ interface SongInfo {
   url: string;   // Full URL to the song
 }
 
-const Navigator = forwardRef<HTMLAudioElement, NavBarProps>((props, ref) => {
+const Navigator = forwardRef<HTMLAudioElement, NavBarProps>((props, ref) => { //abel to parse audio context to other compoents
 
 
   // Check if the device is mobile
@@ -78,10 +73,6 @@ const Navigator = forwardRef<HTMLAudioElement, NavBarProps>((props, ref) => {
   useEffect(() => {
     fetchSongsList();
   }, []);
-
-
-
-
 
 
 
@@ -214,14 +205,6 @@ const Navigator = forwardRef<HTMLAudioElement, NavBarProps>((props, ref) => {
     setCurrentSongIndex(nextIndex);
   };
 
-  // Play a specific song by index
-  const playSongByIndex = (index: number) => {
-    if (index >= 0 && index < songsList.length) {
-      setCurrentSongIndex(index);
-      setIsPlaying(true);
-    }
-  };
-
   // Handle song end - load the next song and continue playing automatically (except on mobile)
   const handleSongEnd = () => {
     const wasPlaying = isPlaying;
@@ -250,8 +233,6 @@ const Navigator = forwardRef<HTMLAudioElement, NavBarProps>((props, ref) => {
     }
 
     playNextSong();
-
-    // If we were playing before, we'll try to keep playing
     if (wasPlaying) {
       setIsPlaying(true);
     }
@@ -448,6 +429,11 @@ const Navigator = forwardRef<HTMLAudioElement, NavBarProps>((props, ref) => {
           <NavbarItem>
             <Link color="foreground" href="/effect/reverb">
               Effects
+            </Link>
+          </NavbarItem>
+          <NavbarItem>
+            <Link color="foreground" href="/voice-sampler">
+              Sampler
             </Link>
           </NavbarItem>
         </NavbarContent>
