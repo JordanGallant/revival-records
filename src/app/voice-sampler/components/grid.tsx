@@ -26,7 +26,7 @@ const DrumMachineGrid: React.FC = () => {
   const [currentStep, setCurrentStep] = useState<number>(0);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [bpm, setBpm] = useState<number>(120);
-  const transportRef = useDrumMachine();
+  const transportRef = useDrumMachine(); //reference for shared functions
 
 
   const stepRef = useRef(0);
@@ -38,9 +38,14 @@ const DrumMachineGrid: React.FC = () => {
     gridRef.current = grid;
   }, [grid]);
 
+  //shares functions with other components
   useEffect(() => {
   transportRef.current.start = startTransport;
   transportRef.current.stop = stopTransport;
+  transportRef.current.setBpm = (value: number) => {
+  setBpm(value); // updates state
+  Tone.Transport.bpm.value = value; // updates transport
+};
 }, []);
 
   // Load all samples on mount

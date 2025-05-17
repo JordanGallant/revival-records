@@ -1,5 +1,4 @@
 import React, { createContext, useContext, useRef } from 'react';
-import * as Tone from 'tone';
 
 const DrumMachineContext = createContext<any>(null);
 
@@ -7,6 +6,8 @@ export const DrumMachineProvider: React.FC<{ children: React.ReactNode }> = ({ c
   const transportRef = useRef({
     start: async () => {},
     stop: () => {},
+    setBpm: (bpm: number) => {},
+
   });
 
   return (
