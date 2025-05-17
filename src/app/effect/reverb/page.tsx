@@ -2,13 +2,11 @@
 
 'use client';
 import React, { useRef } from 'react';
-import Navigator from '../_components/navigator';
+import Navigator from '../../_components/navigator';
 
-const Effects: React.FC = () => {
+const Reverb: React.FC = () => {
     const iframeRef = useRef<HTMLIFrameElement>(null);
     const audioRef = useRef<HTMLAudioElement | null>(null);
-    const sourceRef = useRef<MediaElementAudioSourceNode | null>(null);
-    const audioContextRef = useRef<AudioContext | null>(null);
 
     let sendAudio;
   
@@ -60,4 +58,4 @@ const sendCurrentAudioToIframe = () => {
     );
 };
 
-export default Effects;
+export default Reverb;
