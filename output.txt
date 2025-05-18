@@ -1,7 +1,10 @@
 To Do:
-2) Media Pipe x 3 js 
-3) touch desginer
-4) live streaming 
-5) electron app
-6) Responsive
-7) audio nft market place
+Media Pipe x audio 
+touch desginer
+blockchain
+audio visualizer
+map songs by simialar qualities
+live streaming 
+electron app
+Responsive
+audio nft market place

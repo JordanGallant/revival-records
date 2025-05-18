@@ -441,6 +441,11 @@ const Navigator = forwardRef<HTMLAudioElement, NavBarProps>((props, ref) => { //
               Hands
             </Link>
           </NavbarItem>
+          <NavbarItem>
+            <Link color="foreground" href="/dos">
+              DOS
+            </Link>
+          </NavbarItem>
         </NavbarContent>
         <NavbarMenu>
           {menuItems.map((item, index) => (
