@@ -427,23 +427,8 @@ const Navigator = forwardRef<HTMLAudioElement, NavBarProps>((props, ref) => { //
             </Link>
           </NavbarItem>
           <NavbarItem>
-            <Link color="foreground" href="/effect/reverb">
-              Effects
-            </Link>
-          </NavbarItem>
-          <NavbarItem>
-            <Link color="foreground" href="/voice-sampler">
-              Sampler
-            </Link>
-          </NavbarItem>
-          <NavbarItem>
-            <Link color="foreground" href="/media-pipe">
-              Hands
-            </Link>
-          </NavbarItem>
-          <NavbarItem>
-            <Link color="foreground" href="/dos">
-              DOS
+            <Link color="foreground" href="/projects">
+              Projects
             </Link>
           </NavbarItem>
         </NavbarContent>

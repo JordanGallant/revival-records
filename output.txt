@@ -1,8 +1,10 @@
 To Do:
+Projects Page
 Media Pipe x audio 
+Konva <> Cymatics
 touch desginer
 blockchain
-audio visualizer
+audio visualizer > threejs
 map songs by simialar qualities
 live streaming 
 electron app

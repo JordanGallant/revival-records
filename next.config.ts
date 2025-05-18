@@ -4,6 +4,10 @@ const nextConfig = {
     // This ensures the WASM modules are processed correctly
     config.experiments = { ...config.experiments, asyncWebAssembly: true };
     return config;
+  },
+  // Add image domains configuration
+  images: {
+    domains: ['i.ibb.co'],
   }
 }
 
