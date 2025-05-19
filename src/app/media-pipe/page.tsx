@@ -13,13 +13,13 @@ export default function HandLandmarkerComponent() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const sourceRef = useRef<MediaElementAudioSourceNode | null>(null);
   const audioContextRef = useRef<AudioContext | null>(null);
-  const gainNodeRef = useRef<GainNode | null>(null); // Add this
+  const gainNodeRef = useRef<GainNode | null>(null);
+  const lowpassRef = useRef<BiquadFilterNode | null>(null)
 
 
   const handleAudioElement = (audio: HTMLAudioElement) => {
     if (!audio || audioRef.current === audio) return;
 
-    console.log('Got audio element via callback:', audio);
     audioRef.current = audio;
 
     if (!audioContextRef.current) {
@@ -27,27 +27,27 @@ export default function HandLandmarkerComponent() {
     }
 
     const audioContext = audioContextRef.current;
-    console.log(audioContext)
 
     if (!sourceRef.current) {
       const source = audioContext.createMediaElementSource(audio);
       const gainNode = audioContext.createGain();
+      const lowpass = audioContext.createBiquadFilter();
       const analyser = audioContext.createAnalyser();
 
+      lowpass.type = 'lowpass';
+      lowpass.frequency.value = 1000; // default cutoff
+
       source.connect(gainNode);
-      gainNode.connect(analyser);
+      gainNode.connect(lowpass);
+      lowpass.connect(analyser);
       analyser.connect(audioContext.destination);
 
       sourceRef.current = source;
       gainNodeRef.current = gainNode;
+      lowpassRef.current = lowpass; // just to reuse the same ref for simplicity
     }
   };
 
-  const handleVolumeChange = (value: number) => {
-    if (gainNodeRef.current) {
-      gainNodeRef.current.gain.value = value;
-    }
-  };
 
   useEffect(() => {
     const HAND_CONNECTIONS = [
@@ -117,7 +117,7 @@ export default function HandLandmarkerComponent() {
 
         if (results.landmarks) {
           for (const landmarks of results.landmarks) {
-
+            //distance thum index
             const thumbTip = landmarks[4];
             const indexTip = landmarks[8];
 
@@ -125,13 +125,34 @@ export default function HandLandmarkerComponent() {
             const dy = thumbTip.y - indexTip.y;
             const dz = thumbTip.z - indexTip.z;
 
+
             const distance = Math.sqrt(dx * dx + dy * dy + dz * dz); //distnace between index and thumb
 
             const clampedDistance = Math.min(Math.max(distance, 0.0), 0.4); // limit to 0.0 - 0.4
-            const volume = clampedDistance / 0.4; // map to 0.0 - 1.0 -> map distnace to volume
+            const volume = clampedDistance / 0.8; // map to 0.0 - 1.0 -> map distnace to volume
 
             if (gainNodeRef.current) {
               gainNodeRef.current.gain.value = volume;
+            }
+            //lowpass
+            const wrist = landmarks[0];
+            const middleTip = landmarks[12];
+
+            const dwx = wrist.x - middleTip.x;
+            const dwy = wrist.y - middleTip.y;
+            const dwz = wrist.z - middleTip.z;
+
+            const wristToMiddleDist = Math.sqrt(dwx * dwx + dwy * dwy + dwz * dwz);
+            const wristDistnace = Math.min(Math.max(wristToMiddleDist, 0.0), 0.8); 
+
+            const delay = wristDistnace / 0.4; // map to 0.0 - 1.0 -> map distnace to volume
+
+            const minFreq = 300;
+            const maxFreq = 5000;
+            const mappedFreq = minFreq + (wristDistnace / 0.4) * (maxFreq - minFreq);
+
+            if (lowpassRef.current && 'frequency' in lowpassRef.current) {
+              lowpassRef.current.frequency.value = mappedFreq;
             }
 
             // draw lines
@@ -174,7 +195,8 @@ export default function HandLandmarkerComponent() {
     <>
       <Navigator ref={handleAudioElement} />
 
-      <p>Volume is mapped to: Disntace between index finger and thumb</p>
+      <p>1. Volume is mapped to: Disntace between index finger and thumb</p>
+      <p>2. Low pass filter  is mapped to: Disntace between middle finger and wrist</p>
       <div className="flex justify-center items-center min-h-screen bg-gray-900">
         <div className="relative w-[640px] h-[480px]">
           <video
