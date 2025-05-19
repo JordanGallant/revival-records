@@ -10,6 +10,44 @@ import Navigator from '../_components/navigator';
 export default function HandLandmarkerComponent() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const sourceRef = useRef<MediaElementAudioSourceNode | null>(null);
+  const audioContextRef = useRef<AudioContext | null>(null);
+  const gainNodeRef = useRef<GainNode | null>(null); // Add this
+
+
+  const handleAudioElement = (audio: HTMLAudioElement) => {
+    if (!audio || audioRef.current === audio) return;
+
+    console.log('Got audio element via callback:', audio);
+    audioRef.current = audio;
+
+    if (!audioContextRef.current) {
+      audioContextRef.current = new AudioContext();
+    }
+
+    const audioContext = audioContextRef.current;
+    console.log(audioContext)
+
+    if (!sourceRef.current) {
+      const source = audioContext.createMediaElementSource(audio);
+      const gainNode = audioContext.createGain();
+      const analyser = audioContext.createAnalyser();
+
+      source.connect(gainNode);
+      gainNode.connect(analyser);
+      analyser.connect(audioContext.destination);
+
+      sourceRef.current = source;
+      gainNodeRef.current = gainNode;
+    }
+  };
+
+  const handleVolumeChange = (value: number) => {
+    if (gainNodeRef.current) {
+      gainNodeRef.current.gain.value = value;
+    }
+  };
 
   useEffect(() => {
     const HAND_CONNECTIONS = [
@@ -79,11 +117,27 @@ export default function HandLandmarkerComponent() {
 
         if (results.landmarks) {
           for (const landmarks of results.landmarks) {
+
+            const thumbTip = landmarks[4];
+            const indexTip = landmarks[8];
+
+            const dx = thumbTip.x - indexTip.x;
+            const dy = thumbTip.y - indexTip.y;
+            const dz = thumbTip.z - indexTip.z;
+
+            const distance = Math.sqrt(dx * dx + dy * dy + dz * dz); //distnace between index and thumb
+
+            const clampedDistance = Math.min(Math.max(distance, 0.0), 0.4); // limit to 0.0 - 0.4
+            const volume = clampedDistance / 0.4; // map to 0.0 - 1.0 -> map distnace to volume
+
+            if (gainNodeRef.current) {
+              gainNodeRef.current.gain.value = volume;
+            }
+
             // draw lines
             for (const [startIdx, endIdx] of HAND_CONNECTIONS) {
               const start = landmarks[startIdx];
-              const end = landmarks[endIdx];
-
+              const end = landmarks[endIdx]
               ctx.beginPath();
               ctx.moveTo(start.x * canvas.width, start.y * canvas.height);
               ctx.lineTo(end.x * canvas.width, end.y * canvas.height);
@@ -118,25 +172,27 @@ export default function HandLandmarkerComponent() {
 
   return (
     <>
-    <Navigator/>
-    <div className="flex justify-center items-center min-h-screen bg-gray-900">
-      <div className="relative w-[640px] h-[480px]">
-        <video
-          ref={videoRef}
-          className="absolute top-0 left-0 w-full h-full"
-          
-          autoPlay
-          muted
-          playsInline
-        />
-        <canvas
-          ref={canvasRef}
-          className="absolute top-0 left-0 w-full h-full"
-          width={640}
-          height={480}
-        />
+      <Navigator ref={handleAudioElement} />
+
+      <p>Volume is mapped to: Disntace between index finger and thumb</p>
+      <div className="flex justify-center items-center min-h-screen bg-gray-900">
+        <div className="relative w-[640px] h-[480px]">
+          <video
+            ref={videoRef}
+            className="absolute top-0 left-0 w-full h-full"
+
+            autoPlay
+            muted
+            playsInline
+          />
+          <canvas
+            ref={canvasRef}
+            className="absolute top-0 left-0 w-full h-full"
+            width={640}
+            height={480}
+          />
+        </div>
       </div>
-    </div>
     </>
   );
 }

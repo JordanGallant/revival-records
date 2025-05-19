@@ -184,7 +184,7 @@ const Cymatics: React.FC = () => {
 
         containerRef.current.options.particles.move.speed = mappedSpeed;
 
-        containerRef.current.options.particles.size.value = { min: 1, max: frequency / 100 };
+        containerRef.current.options.particles.size.value = { min: 1, max: frequency / 50 };
         containerRef.current.options.particles.opacity.value = Math.min(frequency / 1500, 1);
 
         containerRef.current.refresh();
