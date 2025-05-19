@@ -134,6 +134,7 @@ const play = () => {
                 value: "#ffffff",
             },
             move: {
+                //@ts-ignore
                 direction: particleDirection,
                 enable: particleMove,
                 outModes: {
