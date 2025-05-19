@@ -15,6 +15,8 @@ export default function HandLandmarkerComponent() {
   const audioContextRef = useRef<AudioContext | null>(null);
   const gainNodeRef = useRef<GainNode | null>(null);
   const lowpassRef = useRef<BiquadFilterNode | null>(null)
+  const highpassRef = useRef<BiquadFilterNode | null>(null);
+
 
 
   const handleAudioElement = (audio: HTMLAudioElement) => {
@@ -32,19 +34,27 @@ export default function HandLandmarkerComponent() {
       const source = audioContext.createMediaElementSource(audio);
       const gainNode = audioContext.createGain();
       const lowpass = audioContext.createBiquadFilter();
+      const highpass = audioContext.createBiquadFilter();
       const analyser = audioContext.createAnalyser();
+
+
+      highpass.type = 'highpass';
+      highpass.frequency.value = 500; // default cutoff
 
       lowpass.type = 'lowpass';
       lowpass.frequency.value = 1000; // default cutoff
 
       source.connect(gainNode);
       gainNode.connect(lowpass);
-      lowpass.connect(analyser);
+      lowpass.connect(highpass);
+      highpass.connect(analyser);
       analyser.connect(audioContext.destination);
 
       sourceRef.current = source;
       gainNodeRef.current = gainNode;
       lowpassRef.current = lowpass; // just to reuse the same ref for simplicity
+      highpassRef.current = highpass;
+
     }
   };
 
@@ -128,8 +138,8 @@ export default function HandLandmarkerComponent() {
 
             const distance = Math.sqrt(dx * dx + dy * dy + dz * dz); //distnace between index and thumb
 
-            const clampedDistance = Math.min(Math.max(distance, 0.0), 0.4); // limit to 0.0 - 0.4
-            const volume = clampedDistance / 0.8; // map to 0.0 - 1.0 -> map distnace to volume
+            const clampedDistance = Math.min(Math.max(distance, 0.0), 1.6); // limit to 0.0 - 0.4
+            const volume = clampedDistance / 0.4; // map to 0.0 - 1.0 -> map distnace to volume
 
             if (gainNodeRef.current) {
               gainNodeRef.current.gain.value = volume;
@@ -143,9 +153,7 @@ export default function HandLandmarkerComponent() {
             const dwz = wrist.z - middleTip.z;
 
             const wristToMiddleDist = Math.sqrt(dwx * dwx + dwy * dwy + dwz * dwz);
-            const wristDistnace = Math.min(Math.max(wristToMiddleDist, 0.0), 0.8); 
-
-            const delay = wristDistnace / 0.4; // map to 0.0 - 1.0 -> map distnace to volume
+            const wristDistnace = Math.min(Math.max(wristToMiddleDist, 0.0), 1.6);
 
             const minFreq = 300;
             const maxFreq = 5000;
@@ -154,6 +162,27 @@ export default function HandLandmarkerComponent() {
             if (lowpassRef.current && 'frequency' in lowpassRef.current) {
               lowpassRef.current.frequency.value = mappedFreq;
             }
+
+            //high pass
+            const pinkyTip = landmarks[20];
+
+            const dpx = pinkyTip.x - wrist.x;
+            const dpy = pinkyTip.y - wrist.y;
+            const dpz = pinkyTip.z - wrist.z;
+
+            const pinkyDist = Math.sqrt(dpx * dpx + dpy * dpy + dpz * dpz);
+            const clampedPinkyDist = Math.min(Math.max(pinkyDist, 0.0), 1.6);
+
+            const minHighFreq = 100;
+            const maxHighFreq = 3000;
+            const mappedHighFreq = maxHighFreq - (clampedPinkyDist / 0.4) * (maxHighFreq - minHighFreq);
+
+            if (highpassRef.current && 'frequency' in highpassRef.current) {
+              highpassRef.current.frequency.value = mappedHighFreq;
+            }
+
+
+
 
             // draw lines
             for (const [startIdx, endIdx] of HAND_CONNECTIONS) {
@@ -197,6 +226,7 @@ export default function HandLandmarkerComponent() {
 
       <p>1. Volume is mapped to: Disntace between index finger and thumb</p>
       <p>2. Low pass filter  is mapped to: Disntace between middle finger and wrist</p>
+      <p>3. High pass filter  is mapped to: Disntace between Pinky finger and wrist</p>
       <div className="flex justify-center items-center min-h-screen bg-gray-900">
         <div className="relative w-[640px] h-[480px]">
           <video
