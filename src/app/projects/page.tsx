@@ -41,6 +41,13 @@ const projects = [
     description: 'Javascript (Browser Plugin)',
     url: 'https://github.com/JordanGallant/sleepy-mp3-downloader-plugin',
   },
+  {
+    title: 'Audio Reactive Particle System',
+    image: 'https://i.ibb.co/rGDVbz7r/Screenshot-2025-05-19-at-15-02-00.png',
+    description: 'tsparticles, Web Audio API',
+    url: '/cymatics',
+  },
+
 
 
 ];

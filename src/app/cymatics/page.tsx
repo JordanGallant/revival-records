@@ -3,12 +3,14 @@ import React, { useState, useEffect, useRef } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import { type Container, type ISourceOptions } from "@tsparticles/engine";
+import Navigator from "../_components/navigator";
 
 const Cymatics: React.FC = () => {
     const [init, setInit] = useState(false);
     const [particleSpeed, setParticleSpeed] = useState(4);
     const [particleMove, setParticleMove] = useState(false);
     const [particleDirection, setParticleDirection] = useState("none");
+    const [frequency, setFrequncy] = useState(110)
     const containerRef = useRef<Container | null>(null);
 
     const audioCtxRef = useRef<AudioContext | null>(null);
@@ -46,39 +48,39 @@ const Cymatics: React.FC = () => {
         }
     };
 
-const play = () => {
-    if (!audioCtxRef.current) return;
+    const play = () => {
+        if (!audioCtxRef.current) return;
 
-    if (audioCtxRef.current.state === "suspended") {
-        audioCtxRef.current.resume();
-    }
-
-    if (!oscillatorRef.current) {
-        const newOsc = audioCtxRef.current.createOscillator();
-        newOsc.type = 'sine';
-        newOsc.frequency.setValueAtTime(110, audioCtxRef.current.currentTime);
-        newOsc.connect(audioCtxRef.current.destination);
-        newOsc.start();
-
-        oscillatorRef.current = newOsc;
-    } else {
-        try {
-            oscillatorRef.current.start();
-        } catch (e) {
-            console.log("Oscillator already started.");
+        if (audioCtxRef.current.state === "suspended") {
+            audioCtxRef.current.resume();
         }
-    }
 
-    const newSpeed = 6;
-    setParticleSpeed(newSpeed);
-    setParticleMove(true);
-    setParticleDirection('top');
+        if (!oscillatorRef.current) {
+            const newOsc = audioCtxRef.current.createOscillator();
+            newOsc.type = 'sine';
+            newOsc.frequency.setValueAtTime(110, audioCtxRef.current.currentTime);
+            newOsc.connect(audioCtxRef.current.destination);
+            newOsc.start();
 
-    if (containerRef.current) {
-        containerRef.current.options.particles.move.speed = newSpeed;
-        containerRef.current.refresh();
-    }
-};
+            oscillatorRef.current = newOsc;
+        } else {
+            try {
+                oscillatorRef.current.start();
+            } catch (e) {
+                console.log("Oscillator already started.");
+            }
+        }
+
+        const newSpeed = 6;
+        setParticleSpeed(newSpeed);
+        setParticleMove(true);
+        setParticleDirection('top');
+
+        if (containerRef.current) {
+            containerRef.current.options.particles.move.speed = newSpeed;
+            containerRef.current.refresh();
+        }
+    };
 
     const stop = () => {
         if (oscillatorRef.current) {
@@ -114,10 +116,6 @@ const play = () => {
                     enable: true,
                     mode: "push",
                 },
-                onHover: {
-                    enable: true,
-                    mode: "repulse",
-                },
             },
             modes: {
                 push: {
@@ -140,9 +138,26 @@ const play = () => {
                 outModes: {
                     default: "bounce",
                 },
-                random: false,
+                random: true,
                 speed: particleSpeed,
                 straight: false,
+                warp: true,
+                noise: {
+                    enable: true,
+                    delay: {
+                        value: { min: 0.5, max: 1.5 },
+                    },
+                    clamp: false,
+                    generator: "perlin",
+                },
+                spin: {
+                    acceleration: 2,
+                    enable: true,
+                    position: {
+                        x: 50,
+                        y: 50,
+                    }
+                }
             },
             number: {
                 density: {
@@ -163,8 +178,24 @@ const play = () => {
         detectRetina: true,
     };
 
+    useEffect(() => {
+    if (containerRef.current) {
+        const mappedSpeed = Math.min(Math.max((frequency - 80) / 150, 1), 10);
+
+        containerRef.current.options.particles.move.speed = mappedSpeed;
+
+        containerRef.current.options.particles.size.value = { min: 1, max: frequency / 100 };
+        containerRef.current.options.particles.opacity.value = Math.min(frequency / 1500, 1);
+
+        containerRef.current.refresh();
+    }
+}, [frequency]);
+
     return (
         <>
+         <div className="z-10 text-white">
+        <Navigator/>
+        </div>
             {init && (
                 <Particles
                     id="tsparticles"
@@ -172,7 +203,25 @@ const play = () => {
                     options={options}
                 />
             )}
-            <div className="absolute top-10 left-10 z-10 text-white">
+            <div className="absolute top-15 left-10 z-10 text-white">
+                <div>
+                    <p>Frequency: {frequency}</p>
+                    <input
+                        type="range"
+                        min="80"
+                        max="1500"
+                        step="1"
+                        value={frequency}
+                        onChange={(e) => {
+                            const newFreq = parseFloat(e.target.value);
+                            setFrequncy(newFreq);
+                            if (oscillatorRef.current) {
+                                oscillatorRef.current.frequency.setValueAtTime(newFreq, audioCtxRef.current!.currentTime);
+                            }
+                        }}
+                    />
+                </div>
+
                 <button
                     onClick={play}
                     className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
