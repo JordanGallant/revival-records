@@ -29,6 +29,12 @@ const projects = [
     description: 'Faust (WebAssembly)',
     url: '/effect/reverb',
   },
+  {
+    title: 'World Wide FM radio',
+    image: 'https://i.ibb.co/fY0MQ49h/Screenshot-2025-05-19-at-09-48-28.png',
+    description: 'Radio Garden',
+    url: '/world-radio',
+  },
 ];
 
 export default function ProjectsGrid() {
