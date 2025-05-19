@@ -1,13 +1,11 @@
 To Do:
-Scrape radio Garden <> Radio Browser
-Matter js music balls slingshot
+Cymatics tsparticles Web audio API
 Media Pipe x audio 
-Cymatics?
-touch desginer
 blockchain
+Matter js music balls slingshot
+touch desginer
 audio visualizer > threejs
 map songs by simialar qualities
 live streaming -> Icecast - https://icecast.org/download/ 
-electron app
 Responsive
 audio nft market place

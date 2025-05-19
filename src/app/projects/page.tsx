@@ -32,9 +32,17 @@ const projects = [
   {
     title: 'World Wide FM radio',
     image: 'https://i.ibb.co/fY0MQ49h/Screenshot-2025-05-19-at-09-48-28.png',
-    description: 'Radio Garden',
+    description: 'Radio Garden, Howler.js',
     url: '/world-radio',
   },
+  {
+    title: 'Sleepy MP3 Downloader',
+    image: 'https://i.ibb.co/xt3f90qQ/Screenshot-2025-05-19-at-10-01-18.png',
+    description: 'Javascript (Browser Plugin)',
+    url: 'https://github.com/JordanGallant/sleepy-mp3-downloader-plugin',
+  },
+
+
 ];
 
 export default function ProjectsGrid() {

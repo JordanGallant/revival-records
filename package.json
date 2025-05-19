@@ -24,6 +24,8 @@
     "@nextui-org/theme": "^2.4.5",
     "@splinetool/react-spline": "^4.0.0",
     "@splinetool/runtime": "^1.9.59",
+    "@tsparticles/react": "^3.0.0",
+    "@tsparticles/slim": "^3.8.1",
     "@types/meyda": "^5.3.0",
     "axios": "^1.7.9",
     "cheerio": "^1.0.0",
