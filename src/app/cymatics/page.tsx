@@ -5,6 +5,8 @@ import { loadSlim } from "@tsparticles/slim";
 import { type Container, type ISourceOptions } from "@tsparticles/engine";
 import Navigator from "../_components/navigator";
 
+
+
 const Cymatics: React.FC = () => {
     const [init, setInit] = useState(false);
     const [particleSpeed, setParticleSpeed] = useState(4);

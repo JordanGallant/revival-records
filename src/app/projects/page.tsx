@@ -47,6 +47,12 @@ const projects = [
     description: 'tsparticles, Web Audio API',
     url: '/cymatics',
   },
+  {
+    title: 'Nintendo 64 Emulator',
+    image: '/imgs/n64.png',
+    description: 'Web Assembly',
+    url: '/n64',
+  },
 
 
 

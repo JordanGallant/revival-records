@@ -1,7 +1,8 @@
 To Do:
-Media Pipe x audio 
-blockchain
 Matter js music balls slingshot
+Cymatics
+blockchain
+
 touch desginer
 audio visualizer > threejs
 map songs by simialar qualities
