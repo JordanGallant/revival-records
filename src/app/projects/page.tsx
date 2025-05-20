@@ -53,6 +53,12 @@ const projects = [
     description: 'Web Assembly',
     url: '/n64',
   },
+  {
+    title: 'Web Synth',
+    image: 'https://i.ibb.co/FqHWzZLm/Screenshot-2025-05-20-at-13-47-00.png',
+    description: 'Tone.js, NexusUi',
+    url: '/sleepy-synth',
+  },
 
 
 
