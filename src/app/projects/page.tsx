@@ -59,6 +59,18 @@ const projects = [
     description: 'Tone.js, NexusUi',
     url: '/sleepy-synth',
   },
+  {
+    title: 'Movie Streamer',
+    image: 'https://i.ibb.co/5X7GdhSg/Screenshot-2025-05-21-at-07-09-17.png',
+    description: 'Movies Joy',
+    url: '/movie',
+  },
+  {
+    title: 'Flash Emulator',
+    image: 'https://i.ibb.co/DDkv2WPJ/Screenshot-2025-05-21-at-07-34-08.png',
+    description: 'Ruffle (Web Assembly)',
+    url: '/flash',
+  },
 
 
 
