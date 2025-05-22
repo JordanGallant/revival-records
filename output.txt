@@ -1,8 +1,8 @@
 To Do:
+Graffiti to text -> OPENCV -> TESSERECT -> API
+Paintball -> babylon js client Colyseus -> server
+blockchain MEV BOT
 Matter js music balls slingshot
-Cymatics
-blockchain
-
 touch desginer
 audio visualizer > threejs
 map songs by simialar qualities
