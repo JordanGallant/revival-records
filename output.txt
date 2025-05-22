@@ -1,8 +1,9 @@
 To Do:
-Graffiti to text -> OPENCV -> TESSERECT -> API
+Phone -> gyroscope |-> music
+Matter js music balls slingshot
 Paintball -> babylon js client Colyseus -> server
 blockchain MEV BOT
-Matter js music balls slingshot
+TEE deployed on oasis chain AGENT -> detects if you are copying and pasting passwords into a browser
 touch desginer
 audio visualizer > threejs
 map songs by simialar qualities

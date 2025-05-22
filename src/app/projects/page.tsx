@@ -77,8 +77,21 @@ const projects = [
     description: 'Canvas API, Google Vision ',
     url: '/graffiti',
   },
+  {
+    title: 'Sling Shot Music Game',
+    image: 'https://i.ibb.co/7BSBSMp/Screenshot-2025-05-22-at-21-34-58.png',
+    description: 'Matter.js, Tone.js',
+    url: '/sling-shot',
+  },
+{
+    title: 'Hallucinate Images',
+    image: 'https://i.ibb.co/v6yvn534/dreamified-1747917536.jpg',
+    description: 'Pytorch, Flask',
+    url: '/hallucinate',
+  },
 
 
+  
 
 ];
 
