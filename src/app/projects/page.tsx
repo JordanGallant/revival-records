@@ -49,7 +49,7 @@ const projects = [
   },
   {
     title: 'Nintendo 64 Emulator',
-    image: '/imgs/n64.png',
+    image: 'https://i.ibb.co/vvCgQ3Sb/Screenshot-2025-05-22-at-09-18-53.png',
     description: 'Web Assembly',
     url: '/n64',
   },
