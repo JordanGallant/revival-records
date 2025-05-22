@@ -85,7 +85,7 @@ const projects = [
   },
 {
     title: 'Hallucinate Images',
-    image: 'https://i.ibb.co/v6yvn534/dreamified-1747917536.jpg',
+    image: 'https://github.com/JordanGallant/deep-dream/blob/main/api.py',
     description: 'Pytorch, Flask',
     url: '/hallucinate',
   },
