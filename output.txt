@@ -1,8 +1,9 @@
 To Do:
 Phone -> gyroscope |-> music
-Matter js music balls slingshot
 Paintball -> babylon js client Colyseus -> server
-blockchain MEV BOT
+blockchain -> MEV BOT
+
+Ideas:
 TEE deployed on oasis chain AGENT -> detects if you are copying and pasting passwords into a browser
 touch desginer
 audio visualizer > threejs
