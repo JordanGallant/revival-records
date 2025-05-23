@@ -1,8 +1,12 @@
 To Do:
+private jet tracker
+Fake strava runs
+ebike apps
+tik tok filter AR
 Phone -> gyroscope |-> music
 Paintball -> babylon js client Colyseus -> server
 blockchain -> MEV BOT || honeypot smart contracts
-private jet tracker
+
 
 Ideas:
 TEE deployed on oasis chain AGENT -> detects if you are copying and pasting passwords into a browser
