@@ -89,6 +89,12 @@ const projects = [
     description: 'Pytorch, Flask',
     url: '/hallucinate',
   },
+  {
+    title: 'Celebrity Jet Viewer',
+    image: 'https://i.ibb.co/v6yvn534/dreamified-1747917536.jpg',
+    description: 'ASDB Exchange',
+    url: '/flights',
+  },
 
 
   

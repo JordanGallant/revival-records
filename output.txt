@@ -1,10 +1,12 @@
 To Do:
 Phone -> gyroscope |-> music
 Paintball -> babylon js client Colyseus -> server
-blockchain -> MEV BOT
+blockchain -> MEV BOT || honeypot smart contracts
+private jet tracker
 
 Ideas:
 TEE deployed on oasis chain AGENT -> detects if you are copying and pasting passwords into a browser
+sqlite browser
 touch desginer
 audio visualizer > threejs
 map songs by simialar qualities
