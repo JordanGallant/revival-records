@@ -10,8 +10,8 @@ const flights = [
     { name: 'Michael Jordan', hex: 'A21FE6', redisKey: 'MichealJordan' },
     { name: 'Bill Gates', hex: 'AC39D6', redisKey: 'Bill' },
     { name: 'Travis Scott', hex: 'A988EC', redisKey: 'Travis' },
-    { name: 'Kim Kardashian', hex: 'A1B2C3', redisKey: 'Kim' }, // Added Kim
-    { name: 'Elon Musk', hex: 'A2B3C4', redisKey: 'Elon' } // Added Elon
+    { name: 'Kim Kardashian', hex: 'A18845', redisKey: 'Kim' }, 
+    { name: 'Elon Musk', hex: 'A835AF', redisKey: 'Elon' } 
 ];
 
 type FlightImage = {
