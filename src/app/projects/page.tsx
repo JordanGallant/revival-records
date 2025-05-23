@@ -91,7 +91,7 @@ const projects = [
   },
   {
     title: 'Celebrity Jet Viewer',
-    image: 'https://i.ibb.co/v6yvn534/dreamified-1747917536.jpg',
+    image: 'https://i.ibb.co/jvq8Ybvm/Screenshot-2025-05-23-at-18-33-48.png',
     description: 'ASDB Exchange',
     url: '/flights',
   },
