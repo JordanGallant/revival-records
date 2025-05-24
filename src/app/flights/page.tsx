@@ -10,8 +10,8 @@ const flights = [
     { name: 'Michael Jordan', hex: 'A21FE6', redisKey: 'MichealJordan' },
     { name: 'Bill Gates', hex: 'AC39D6', redisKey: 'Bill' },
     { name: 'Travis Scott', hex: 'A988EC', redisKey: 'Travis' },
-    { name: 'Kim Kardashian', hex: 'A18845', redisKey: 'Kim' }, 
-    { name: 'Elon Musk', hex: 'A835AF', redisKey: 'Elon' } 
+    { name: 'Kim Kardashian', hex: 'A18845', redisKey: 'Kim' },
+    { name: 'Elon Musk', hex: 'A835AF', redisKey: 'Elon' }
 ];
 
 type FlightImage = {
@@ -25,11 +25,14 @@ type FlightHistory = {
         total_km: number;
         total_miles: number;
     };
-    url: string;
+    start_position?: string;
+    end_position?: string;
+
 };
 
 type FlightData = {
     [key: string]: {
+        summary: any;
         results: FlightHistory[];
     };
 };
@@ -92,6 +95,9 @@ const Flights: React.FC = () => {
         return (
             <>
                 <Navigator />
+                <div>
+
+                </div>
                 <div className="p-4 max-w-6xl mx-auto">
                     <div className="flex items-center justify-center h-64">
                         <div className="text-center">
@@ -107,6 +113,7 @@ const Flights: React.FC = () => {
     return (
         <>
             <Navigator />
+
             <div className="p-4 max-w-6xl mx-auto">
                 {/* Tab Navigation */}
                 <div className="flex flex-wrap gap-2 mb-6 border-b border-gray-200">
@@ -114,11 +121,10 @@ const Flights: React.FC = () => {
                         <button
                             key={hex}
                             onClick={() => setSelectedCeleb(hex)}
-                            className={`px-4 py-2 rounded-t-lg font-medium transition-all duration-200 ${
-                                selectedCeleb === hex
+                            className={`px-4 py-2 rounded-t-lg font-medium transition-all duration-200 ${selectedCeleb === hex
                                     ? 'bg-blue-500 text-white border-b-2 border-blue-500'
                                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200 border-b-2 border-transparent'
-                            }`}
+                                }`}
                         >
                             {name}
                         </button>
@@ -136,7 +142,7 @@ const Flights: React.FC = () => {
                                 </h1>
                                 <p className="text-gray-600">Aircraft Registration: {selectedFlight.hex}</p>
                             </div>
-                            
+
                             <div className="flex justify-center">
                                 {images[selectedFlight.hex] ? (
                                     <div className="max-w-4xl w-full">
@@ -155,7 +161,7 @@ const Flights: React.FC = () => {
                                     </div>
                                 )}
                             </div>
-                            
+
                             <div className="mt-6 text-center">
                                 <div className="inline-block bg-gray-50 rounded-lg px-4 py-2">
                                     <span className="text-sm text-gray-600">Hex Code: </span>
@@ -163,24 +169,50 @@ const Flights: React.FC = () => {
                                 </div>
                             </div>
                         </div>
+                        {/* Flight Summary Section */}
+                        {selectedFlight && flightData[selectedFlight.redisKey]?.summary && (
+                            <div className="bg-white rounded-xl shadow-lg border p-6">
+                                <h2 className="text-2xl font-bold text-gray-800 mb-4">Flight Summary</h2>
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-gray-700">
+                                    <div>
+                                        <span className="font-semibold">Processed Limit:</span> {flightData[selectedFlight.redisKey]!.summary!.processed_limit}
+                                    </div>
+                                    <div>
+                                        <span className="font-semibold">Successful Flights:</span> {flightData[selectedFlight.redisKey]!.summary!.successful_flights}
+                                    </div>
+                                    <div>
+                                        <span className="font-semibold">Total Flights:</span> {flightData[selectedFlight.redisKey]!.summary!.total_flights}
+                                    </div>
+                                    <div>
+                                        <span className="font-semibold">Total Distance:</span> {formatDistance(
+                                            flightData[selectedFlight.redisKey]!.summary!.total_distance_km,
+                                            flightData[selectedFlight.redisKey]!.summary!.total_distance_miles
+                                        )}
+                                    </div>
+                                </div>
+                            </div>
+                        )}
 
                         {/* Flight History Section */}
                         <div className="bg-white rounded-xl shadow-lg border p-6">
+                            <p><a href="https://t.me/celeb_jet_tracking_bot"> Telegram Bot</a></p>
                             <h2 className="text-2xl font-bold text-gray-800 mb-6">
                                 Flight History
+
                             </h2>
-                            
+
                             {selectedFlightHistory.length > 0 ? (
                                 <div className="space-y-4">
                                     {selectedFlightHistory.map((flight, index) => (
-                                        <div 
-                                            key={index} 
+                                        <div
+                                            key={index}
                                             className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow"
                                         >
                                             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
                                                 <div className="mb-2 sm:mb-0">
                                                     <h3 className="font-semibold text-lg text-gray-800">
                                                         {formatDate(flight.date)}
+                                                      
                                                     </h3>
                                                     <p className="text-gray-600">
                                                         Distance: {formatDistance(flight.distance.total_km, flight.distance.total_miles)}
