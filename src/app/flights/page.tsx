@@ -222,9 +222,9 @@ const Flights: React.FC = () => {
                                     </div>
                                     <div className="bg-orange-50 p-4 rounded-lg">
                                         <div className="text-2xl font-bold text-orange-600">
-                                            {flightData[selectedFlight.redisKey]!.summary!.processed_limit}
+                                            {flightData[selectedFlight.redisKey]!.summary!.total_co2_emissions_tons}
                                         </div>
-                                        <div className="text-sm text-gray-600">Processed Limit</div>
+                                        <div className="text-sm text-gray-600">Total Tons of C02</div>
                                     </div>
                                     <div className="bg-purple-50 p-4 rounded-lg">
                                         <div className="text-lg font-bold text-purple-600">
