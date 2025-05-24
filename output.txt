@@ -1,12 +1,15 @@
 To Do:
-private jet tracker
-Fake strava runs
-ebike apps
+Fake strava app
+Image restoration API
 tik tok filter AR
 Phone -> gyroscope |-> music
 Paintball -> babylon js client Colyseus -> server
-blockchain -> MEV BOT || honeypot smart contracts
+blockchain -> MEV BOT || honeypot smart contracts || DEFI
 
+
+Repos:
+https://github.com/rerun-io/rerun
+https://www.npmjs.com/package/@playcanvas/blocks
 
 Ideas:
 TEE deployed on oasis chain AGENT -> detects if you are copying and pasting passwords into a browser

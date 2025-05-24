@@ -95,9 +95,15 @@ const projects = [
     description: 'ASDB Exchange',
     url: '/flights',
   },
+  {
+    title: 'Strava-run downlaoder',
+    image: ' https://i.ibb.co/tTm6JFqg/Screenshot-2025-05-24-at-19-49-44.png',
+    description: 'MapboxGl, .GPX',
+    url: '/strainva',
+  },
 
 
-  
+
 
 ];
 
