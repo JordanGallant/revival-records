@@ -18,6 +18,14 @@ type FlightImage = {
     [hex: string]: string | null;
 };
 
+type FlightPosition = {
+    latitude: number;
+    longitude: number;
+    altitude: string;
+    formatted_time: string;
+    timestamp: number;
+};
+
 type FlightHistory = {
     date: string;
     distance: {
@@ -25,9 +33,22 @@ type FlightHistory = {
         total_km: number;
         total_miles: number;
     };
-    start_position?: string;
-    end_position?: string;
-
+    emissions: {
+        aircraft_category: string;
+        aircraft_name: string;
+        aircraft_type: string;
+        co2_emissions_kg: number;
+        co2_emissions_tons: number;
+        co2_per_km: number;
+        co2_per_mile: number;
+        estimated_fuel_consumed_gallons: number;
+        flight_time_hours: number;
+        fuel_consumption_gph: number;
+    };
+    positions: {
+        end: FlightPosition;
+        start: FlightPosition;
+    };
 };
 
 type FlightData = {
@@ -87,17 +108,29 @@ const Flights: React.FC = () => {
         });
     };
 
+    const formatTime = (timeString: string) => {
+        return new Date(timeString).toLocaleString('en-US', {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            timeZoneName: 'short'
+        });
+    };
+
     const formatDistance = (km: number, miles: number) => {
         return `${km.toFixed(1)} km (${miles.toFixed(1)} miles)`;
+    };
+
+    const formatCoordinates = (lat: number, lng: number) => {
+        return `${lat.toFixed(4)}°, ${lng.toFixed(4)}°`;
     };
 
     if (loading) {
         return (
             <>
                 <Navigator />
-                <div>
-
-                </div>
                 <div className="p-4 max-w-6xl mx-auto">
                     <div className="flex items-center justify-center h-64">
                         <div className="text-center">
@@ -169,25 +202,38 @@ const Flights: React.FC = () => {
                                 </div>
                             </div>
                         </div>
+
                         {/* Flight Summary Section */}
                         {selectedFlight && flightData[selectedFlight.redisKey]?.summary && (
                             <div className="bg-white rounded-xl shadow-lg border p-6">
                                 <h2 className="text-2xl font-bold text-gray-800 mb-4">Flight Summary</h2>
-                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-gray-700">
-                                    <div>
-                                        <span className="font-semibold">Processed Limit:</span> {flightData[selectedFlight.redisKey]!.summary!.processed_limit}
+                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-gray-700">
+                                    <div className="bg-blue-50 p-4 rounded-lg">
+                                        <div className="text-2xl font-bold text-blue-600">
+                                            {flightData[selectedFlight.redisKey]!.summary!.total_flights}
+                                        </div>
+                                        <div className="text-sm text-gray-600">Total Flights</div>
                                     </div>
-                                    <div>
-                                        <span className="font-semibold">Successful Flights:</span> {flightData[selectedFlight.redisKey]!.summary!.successful_flights}
+                                    <div className="bg-green-50 p-4 rounded-lg">
+                                        <div className="text-2xl font-bold text-green-600">
+                                            {flightData[selectedFlight.redisKey]!.summary!.successful_flights}
+                                        </div>
+                                        <div className="text-sm text-gray-600">Successful Flights</div>
                                     </div>
-                                    <div>
-                                        <span className="font-semibold">Total Flights:</span> {flightData[selectedFlight.redisKey]!.summary!.total_flights}
+                                    <div className="bg-orange-50 p-4 rounded-lg">
+                                        <div className="text-2xl font-bold text-orange-600">
+                                            {flightData[selectedFlight.redisKey]!.summary!.processed_limit}
+                                        </div>
+                                        <div className="text-sm text-gray-600">Processed Limit</div>
                                     </div>
-                                    <div>
-                                        <span className="font-semibold">Total Distance:</span> {formatDistance(
-                                            flightData[selectedFlight.redisKey]!.summary!.total_distance_km,
-                                            flightData[selectedFlight.redisKey]!.summary!.total_distance_miles
-                                        )}
+                                    <div className="bg-purple-50 p-4 rounded-lg">
+                                        <div className="text-lg font-bold text-purple-600">
+                                            {formatDistance(
+                                                flightData[selectedFlight.redisKey]!.summary!.total_distance_km,
+                                                flightData[selectedFlight.redisKey]!.summary!.total_distance_miles
+                                            )}
+                                        </div>
+                                        <div className="text-sm text-gray-600">Total Distance</div>
                                     </div>
                                 </div>
                             </div>
@@ -195,31 +241,138 @@ const Flights: React.FC = () => {
 
                         {/* Flight History Section */}
                         <div className="bg-white rounded-xl shadow-lg border p-6">
-                            <p><a href="https://t.me/celeb_jet_tracking_bot"> Telegram Bot</a></p>
-                            <h2 className="text-2xl font-bold text-gray-800 mb-6">
-                                Flight History
-
-                            </h2>
+                            <div className="flex items-center justify-between mb-6">
+                                <h2 className="text-2xl font-bold text-gray-800">Flight History</h2>
+                                <a href="https://t.me/celeb_jet_tracking_bot" 
+                                   className="text-blue-500 hover:text-blue-700 underline">
+                                    Telegram Bot
+                                </a>
+                            </div>
 
                             {selectedFlightHistory.length > 0 ? (
-                                <div className="space-y-4">
+                                <div className="space-y-6">
                                     {selectedFlightHistory.map((flight, index) => (
                                         <div
                                             key={index}
-                                            className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow"
+                                            className="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow"
                                         >
-                                            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
-                                                <div className="mb-2 sm:mb-0">
-                                                    <h3 className="font-semibold text-lg text-gray-800">
-                                                        {formatDate(flight.date)}
-                                                      
-                                                    </h3>
-                                                    <p className="text-gray-600">
-                                                        Distance: {formatDistance(flight.distance.total_km, flight.distance.total_miles)}
-                                                    </p>
-                                                    <p className="text-sm text-gray-500">
-                                                        Tracking Points: {flight.distance.num_points}
-                                                    </p>
+                                            {/* Flight Date and Basic Info */}
+                                            <div className="mb-4">
+                                                <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                                                    {formatDate(flight.date)}
+                                                </h3>
+                                                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                                                    <div>
+                                                        <span className="font-medium text-gray-600">Distance:</span>
+                                                        <div className="text-gray-800">{formatDistance(flight.distance.total_km, flight.distance.total_miles)}</div>
+                                                    </div>
+                                                    <div>
+                                                        <span className="font-medium text-gray-600">Flight Time:</span>
+                                                        <div className="text-gray-800">{flight.emissions.flight_time_hours.toFixed(2)} hours</div>
+                                                    </div>
+                                                    <div>
+                                                        <span className="font-medium text-gray-600">Tracking Points:</span>
+                                                        <div className="text-gray-800">{flight.distance.num_points}</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            {/* Aircraft Information */}
+                                            <div className="mb-4 p-4 bg-gray-50 rounded-lg">
+                                                <h4 className="font-semibold text-gray-800 mb-2">Aircraft Details</h4>
+                                                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                                                    <div>
+                                                        <span className="font-medium text-gray-600">Aircraft Name:</span>
+                                                        <div className="text-gray-800">{flight.emissions.aircraft_name}</div>
+                                                    </div>
+                                                    <div>
+                                                        <span className="font-medium text-gray-600">Aircraft Type:</span>
+                                                        <div className="text-gray-800">{flight.emissions.aircraft_type}</div>
+                                                    </div>
+                                                    <div>
+                                                        <span className="font-medium text-gray-600">Category:</span>
+                                                        <div className="text-gray-800">{flight.emissions.aircraft_category}</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            {/* Emissions Data */}
+                                            <div className="mb-4 p-4 bg-red-50 rounded-lg">
+                                                <h4 className="font-semibold text-gray-800 mb-2">Environmental Impact</h4>
+                                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
+                                                    <div>
+                                                        <span className="font-medium text-gray-600">CO₂ Emissions:</span>
+                                                        <div className="text-gray-800">{flight.emissions.co2_emissions_tons.toFixed(2)} tons</div>
+                                                        <div className="text-xs text-gray-500">({flight.emissions.co2_emissions_kg.toFixed(0)} kg)</div>
+                                                    </div>
+                                                    <div>
+                                                        <span className="font-medium text-gray-600">CO₂ per Distance:</span>
+                                                        <div className="text-gray-800">{flight.emissions.co2_per_km.toFixed(2)} kg/km</div>
+                                                        <div className="text-xs text-gray-500">({flight.emissions.co2_per_mile.toFixed(2)} kg/mile)</div>
+                                                    </div>
+                                                    <div>
+                                                        <span className="font-medium text-gray-600">Fuel Consumed:</span>
+                                                        <div className="text-gray-800">{flight.emissions.estimated_fuel_consumed_gallons.toFixed(0)} gallons</div>
+                                                    </div>
+                                                    <div>
+                                                        <span className="font-medium text-gray-600">Fuel Rate:</span>
+                                                        <div className="text-gray-800">{flight.emissions.fuel_consumption_gph.toFixed(1)} GPH</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            {/* Flight Positions */}
+                                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                                                {/* Departure */}
+                                                <div className="p-4 bg-green-50 rounded-lg">
+                                                    <h4 className="font-semibold text-gray-800 mb-2 flex items-center">
+                                                        <span className="w-3 h-3 bg-green-500 rounded-full mr-2"></span>
+                                                        Departure
+                                                    </h4>
+                                                    <div className="text-sm space-y-1">
+                                                        <div>
+                                                            <span className="font-medium text-gray-600">Time:</span>
+                                                            <div className="text-gray-800">{formatTime(flight.positions.start.formatted_time)}</div>
+                                                        </div>
+                                                        <div>
+                                                            <span className="font-medium text-gray-600">Location:</span>
+                                                            <div className="text-gray-800">{formatCoordinates(flight.positions.start.latitude, flight.positions.start.longitude)}</div>
+                                                        </div>
+                                                        <div>
+                                                            <span className="font-medium text-gray-600">Altitude:</span>
+                                                            <div className="text-gray-800">{flight.positions.start.altitude}</div>
+                                                        </div>
+                                                        <div>
+                                                            <span className="font-medium text-gray-600">Timestamp:</span>
+                                                            <div className="text-gray-800">{flight.positions.start.timestamp}</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                {/* Arrival */}
+                                                <div className="p-4 bg-blue-50 rounded-lg">
+                                                    <h4 className="font-semibold text-gray-800 mb-2 flex items-center">
+                                                        <span className="w-3 h-3 bg-blue-500 rounded-full mr-2"></span>
+                                                        Arrival
+                                                    </h4>
+                                                    <div className="text-sm space-y-1">
+                                                        <div>
+                                                            <span className="font-medium text-gray-600">Time:</span>
+                                                            <div className="text-gray-800">{formatTime(flight.positions.end.formatted_time)}</div>
+                                                        </div>
+                                                        <div>
+                                                            <span className="font-medium text-gray-600">Location:</span>
+                                                            <div className="text-gray-800">{formatCoordinates(flight.positions.end.latitude, flight.positions.end.longitude)}</div>
+                                                        </div>
+                                                        <div>
+                                                            <span className="font-medium text-gray-600">Altitude:</span>
+                                                            <div className="text-gray-800">{flight.positions.end.altitude}</div>
+                                                        </div>
+                                                        <div>
+                                                            <span className="font-medium text-gray-600">Timestamp:</span>
+                                                            <div className="text-gray-800">{flight.positions.end.timestamp}</div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
