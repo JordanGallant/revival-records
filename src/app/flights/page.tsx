@@ -108,15 +108,15 @@ const Flights: React.FC = () => {
         });
     };
 
-    const formatTime = (timeString: string) => {
-        return new Date(timeString).toLocaleString('en-US', {
-            year: 'numeric',
-            month: 'short',
-            day: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit',
-            timeZoneName: 'short'
-        });
+    const formatTimeFromSeconds = (seconds: number): string => {
+        const hrs = Math.floor(seconds / 3600);
+        const mins = Math.floor((seconds % 3600) / 60);
+        const secs = Math.floor(seconds % 60);
+
+        // Pad with zeros to ensure two digits
+        const pad = (n: number) => String(n).padStart(2, '0');
+
+        return `${pad(hrs)}:${pad(mins)}:${pad(secs)}`;
     };
 
     const formatDistance = (km: number, miles: number) => {
@@ -155,8 +155,8 @@ const Flights: React.FC = () => {
                             key={hex}
                             onClick={() => setSelectedCeleb(hex)}
                             className={`px-4 py-2 rounded-t-lg font-medium transition-all duration-200 ${selectedCeleb === hex
-                                    ? 'bg-blue-500 text-white border-b-2 border-blue-500'
-                                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200 border-b-2 border-transparent'
+                                ? 'bg-blue-500 text-white border-b-2 border-blue-500'
+                                : 'bg-gray-100 text-gray-700 hover:bg-gray-200 border-b-2 border-transparent'
                                 }`}
                         >
                             {name}
@@ -243,8 +243,8 @@ const Flights: React.FC = () => {
                         <div className="bg-white rounded-xl shadow-lg border p-6">
                             <div className="flex items-center justify-between mb-6">
                                 <h2 className="text-2xl font-bold text-gray-800">Flight History</h2>
-                                <a href="https://t.me/celeb_jet_tracking_bot" 
-                                   className="text-blue-500 hover:text-blue-700 underline">
+                                <a href="https://t.me/celeb_jet_tracking_bot"
+                                    className="text-blue-500 hover:text-blue-700 underline">
                                     Telegram Bot
                                 </a>
                             </div>
@@ -332,7 +332,7 @@ const Flights: React.FC = () => {
                                                     <div className="text-sm space-y-1">
                                                         <div>
                                                             <span className="font-medium text-gray-600">Time:</span>
-                                                            <div className="text-gray-800">{formatTime(flight.positions.start.formatted_time)}</div>
+                                                            <div className="text-gray-800">{formatTimeFromSeconds(flight.positions.start.timestamp)}</div>
                                                         </div>
                                                         <div>
                                                             <span className="font-medium text-gray-600">Location:</span>
@@ -343,8 +343,6 @@ const Flights: React.FC = () => {
                                                             <div className="text-gray-800">{flight.positions.start.altitude}</div>
                                                         </div>
                                                         <div>
-                                                            <span className="font-medium text-gray-600">Timestamp:</span>
-                                                            <div className="text-gray-800">{flight.positions.start.timestamp}</div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -358,7 +356,7 @@ const Flights: React.FC = () => {
                                                     <div className="text-sm space-y-1">
                                                         <div>
                                                             <span className="font-medium text-gray-600">Time:</span>
-                                                            <div className="text-gray-800">{formatTime(flight.positions.end.formatted_time)}</div>
+                                                            <div className="text-gray-800">{formatTimeFromSeconds(flight.positions.end.timestamp)}</div>
                                                         </div>
                                                         <div>
                                                             <span className="font-medium text-gray-600">Location:</span>
@@ -369,8 +367,6 @@ const Flights: React.FC = () => {
                                                             <div className="text-gray-800">{flight.positions.end.altitude}</div>
                                                         </div>
                                                         <div>
-                                                            <span className="font-medium text-gray-600">Timestamp:</span>
-                                                            <div className="text-gray-800">{flight.positions.end.timestamp}</div>
                                                         </div>
                                                     </div>
                                                 </div>
