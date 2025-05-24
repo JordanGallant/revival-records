@@ -1,5 +1,4 @@
 To Do:
-Fake strava app
 Image restoration API
 tik tok filter AR
 Phone -> gyroscope |-> music

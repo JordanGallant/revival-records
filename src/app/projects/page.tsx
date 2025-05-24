@@ -97,7 +97,7 @@ const projects = [
   },
   {
     title: 'Strava-run downlaoder',
-    image: ' https://i.ibb.co/tTm6JFqg/Screenshot-2025-05-24-at-19-49-44.png',
+    image: 'https://i.ibb.co/qMVjnX17/Screenshot-2025-05-24-at-19-59-23.png',
     description: 'MapboxGl, .GPX',
     url: '/strainva',
   },
