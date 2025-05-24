@@ -197,8 +197,7 @@ const Flights: React.FC = () => {
 
                             <div className="mt-6 text-center">
                                 <div className="inline-block bg-gray-50 rounded-lg px-4 py-2">
-                                    <span className="text-sm text-gray-600">Hex Code: </span>
-                                    <span className="font-mono text-sm font-semibold">{selectedFlight.hex}</span>
+                                    <span className="text-sm text-gray-600">Tracked From: 1st of January 2023</span>
                                 </div>
                             </div>
                         </div>
