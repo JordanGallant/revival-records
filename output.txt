@@ -1,21 +1,20 @@
 To Do:
-
 tik tok filter AR
+Resume -> Job finder
 Phone -> gyroscope |-> music
 Paintball -> babylon js client Colyseus -> server
 blockchain -> MEV BOT || honeypot smart contracts || DEFI
 
 
+
+
 Repos:
-https://github.com/rerun-io/rerun -> Gausan spalt
-https://www.npmjs.com/package/@playcanvas/blocks
+https://github.com/KupynOrest/DeblurGAN -> train your own Image DeBlur Model
 
 Ideas:
-TEE deployed on oasis chain AGENT -> detects if you are copying and pasting passwords into a browser
-sqlite browser
+Image Enhancement API
 touch desginer
 audio visualizer > threejs
 map songs by simialar qualities
 live streaming -> Icecast - https://icecast.org/download/ 
 Responsive
-audio nft market place

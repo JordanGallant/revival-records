@@ -107,6 +107,12 @@ const projects = [
     description: 'Vanilla JS',
     url: '/splat',
   },
+  {
+    title: 'Snapchat AR in the browser',
+    image: 'https://i.ibb.co/1G24W9nt/Screenshot-2025-05-25-at-22-28-13.png',
+    description: 'Snapchat Lens',
+    url: '/lens',
+  },
 
 
 
