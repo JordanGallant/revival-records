@@ -71,7 +71,7 @@ const projects = [
     description: 'Ruffle (Web Assembly)',
     url: '/flash',
   },
-{
+  {
     title: 'Graffiti Translator',
     image: 'https://i.ibb.co/4Rg57wkz/Screenshot-2025-05-22-at-09-11-52.png',
     description: 'Canvas API, Google Vision ',
@@ -83,7 +83,7 @@ const projects = [
     description: 'Matter.js, Tone.js',
     url: '/sling-shot',
   },
-{
+  {
     title: 'Hallucinate Images',
     image: 'https://i.ibb.co/v6yvn534/dreamified-1747917536.jpg',
     description: 'Pytorch, Flask',
@@ -101,7 +101,12 @@ const projects = [
     description: 'MapboxGl, .GPX',
     url: '/strainva',
   },
-
+  {
+    title: 'Gaussian Splat Rendering',
+    image: 'https://i.ibb.co/B5dWHPYF/Screenshot-2025-05-25-at-08-05-45.png',
+    description: 'Vanilla JS',
+    url: '/splat',
+  },
 
 
 

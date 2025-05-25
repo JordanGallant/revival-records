@@ -1,5 +1,5 @@
 To Do:
-Image restoration API
+
 tik tok filter AR
 Phone -> gyroscope |-> music
 Paintball -> babylon js client Colyseus -> server
@@ -7,7 +7,7 @@ blockchain -> MEV BOT || honeypot smart contracts || DEFI
 
 
 Repos:
-https://github.com/rerun-io/rerun
+https://github.com/rerun-io/rerun -> Gausan spalt
 https://www.npmjs.com/package/@playcanvas/blocks
 
 Ideas:
