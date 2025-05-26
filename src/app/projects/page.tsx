@@ -124,11 +124,13 @@ const projects = [
     image: '/gyro.png',
     description: 'Gyroscope, Vanilla js',
     url: '/gyro',
+  }, 
+  {
+    title: 'zoom blur effects',
+    image: '/pulse.png',
+    description: 'glfx.js',
+    url: 'https://pulse-alpha-snowy.vercel.app/',
   },
-
-
-
-
 ];
 
 export default function ProjectsGrid() {
