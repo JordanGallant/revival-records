@@ -114,10 +114,10 @@ const projects = [
     url: '/lens',
   },
   {
-    title: 'Eye trakcer',
-    image: '/track.png',
-    description: 'WebGazer.js',
-    url: '/eyetrack',
+    title: 'Phone Gyroscope Color picker',
+    image: '/gyro.png',
+    description: 'Gyroscope, Vanilla js',
+    url: '/gyro',
   },
 
 
