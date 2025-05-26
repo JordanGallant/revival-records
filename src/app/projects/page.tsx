@@ -117,13 +117,13 @@ const projects = [
     title: 'Eye trakcer',
     image: '/track.png',
     description: 'WebGazer.js',
-    url: '/eyetrack',
+    url: 'https://eye-track-orcin.vercel.app/',
   },
    {
     title: 'Phone Gyroscope Color picker',
     image: '/gyro.png',
     description: 'Gyroscope, Vanilla js',
-    url: 'https://eye-track-orcin.vercel.app/',
+    url: '/gyro',
   },
 
 
