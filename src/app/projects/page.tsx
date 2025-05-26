@@ -123,7 +123,7 @@ const projects = [
     title: 'Phone Gyroscope Color picker',
     image: '/gyro.png',
     description: 'Gyroscope, Vanilla js',
-    url: '/gyro',
+    url: 'https://eye-track-orcin.vercel.app/',
   },
 
 
