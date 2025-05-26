@@ -1,7 +1,6 @@
 To Do:
-tik tok filter AR
-Resume -> Job finder
 Phone -> gyroscope |-> music
+
 Paintball -> babylon js client Colyseus -> server
 blockchain -> MEV BOT || honeypot smart contracts || DEFI
 
@@ -12,6 +11,8 @@ Repos:
 https://github.com/KupynOrest/DeblurGAN -> train your own Image DeBlur Model
 
 Ideas:
+Eyetracking art/music
+Geoguesser hacker
 Image Enhancement API
 touch desginer
 audio visualizer > threejs

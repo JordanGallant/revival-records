@@ -109,9 +109,15 @@ const projects = [
   },
   {
     title: 'Snapchat AR in the browser',
-    image: 'https://i.ibb.co/1G24W9nt/Screenshot-2025-05-25-at-22-28-13.png',
+    image: 'https://i.ibb.co/tM4ZgpV1/Screenshot-2025-05-25-at-22-28-13.png',
     description: 'Snapchat Lens',
     url: '/lens',
+  },
+  {
+    title: 'Eye trakcer',
+    image: 'https://i.ibb.co/b5d4YSHc/Screenshot-2025-05-26-at-09-18-21.png',
+    description: 'WebGazer.js',
+    url: '/eyetrack',
   },
 
 
