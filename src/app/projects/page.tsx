@@ -126,10 +126,16 @@ const projects = [
     url: '/gyro',
   }, 
   {
-    title: 'zoom blur effects',
+    title: 'Zoom blur effects',
     image: '/pulse.png',
     description: 'glfx.js',
     url: 'https://pulse-alpha-snowy.vercel.app/',
+  },
+  {
+    title: 'Audio Seperator',
+    image: '/spleeter.png',
+    description: 'spleeter, Flask',
+    url: '/spleeter',
   },
 ];
 
