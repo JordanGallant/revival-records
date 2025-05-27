@@ -137,12 +137,6 @@ const projects = [
     description: 'spleeter, Flask',
     url: '/spleeter',
   },
-  {
-    title: 'AI Generated msuic in the browser',
-    image: '/paino.png',
-    description: 'Magenta js, Tensorflow JS',
-    url: '/gen-paino',
-  },
 ];
 
 export default function ProjectsGrid() {
