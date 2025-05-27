@@ -1,20 +1,18 @@
 To Do:
+music gen magentajs
 Paintball -> babylon js client Colyseus -> server
+remotion audio shaders
 blockchain -> MEV BOT || honeypot smart contracts || DEFI
 
 
-
-
-
 Repos:
-anaconda image deblur api
-text to speech ebook
-remotion audio shaders
+
 
 
 Ideas:
 Geoguesser hacker
 ui in ratatui
+advierseroial noise encodeed -> speech recognition harmony cloak, poisionify
 
 Image Enhancement API
 touch desginer
