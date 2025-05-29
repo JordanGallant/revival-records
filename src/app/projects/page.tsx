@@ -137,6 +137,12 @@ const projects = [
     description: 'spleeter, Flask',
     url: '/spleeter',
   },
+  {
+    title: 'Mulitplayer fairy chess',
+    image: '/chess.png',
+    description: 'Colyseus.js, Phaser.js',
+    url: 'https://chess-client-zeta.vercel.app/',
+  },
 ];
 
 export default function ProjectsGrid() {

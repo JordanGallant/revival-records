@@ -1,5 +1,4 @@
 To Do:
-music gen magentajs
 Paintball -> babylon js client Colyseus -> server
 remotion audio shaders
 blockchain -> MEV BOT || honeypot smart contracts || DEFI
@@ -7,16 +6,24 @@ blockchain -> MEV BOT || honeypot smart contracts || DEFI
 
 Repos:
 
-
-
 Ideas:
 Geoguesser hacker
 ui in ratatui
-advierseroial noise encodeed -> speech recognition harmony cloak, poisionify
+search engine
+custom chess
 
-Image Enhancement API
-touch desginer
-audio visualizer > threejs
+
+
+LATER:...
+audio visualizer > threejs 
 map songs by simialar qualities
-live streaming -> Icecast - https://icecast.org/download/ 
 Responsive
+
+
+BOTTLE NECKED:
+advierseroial noise encodeed -> speech recognition harmony cloak, poisionify -> not publicaly available unless GPU
+Image Enhancement API -> NEED GPU
+touch desginer -> NEED TO STREAM VISUALS -> live streaming -> Icecast (radio) - https://icecast.org/download/ 
+Fluid sim -> MATHS/PHYSICS
+music gen magentajs -> not updated recently
+
