@@ -1,8 +1,7 @@
 To Do:
-Paintball -> babylon js client Colyseus -> server
-remotion audio shaders
+algo trading -> black dragon
 blockchain -> MEV BOT || honeypot smart contracts || DEFI
-
+remotion audio shaders
 
 Repos:
 
@@ -10,7 +9,7 @@ Ideas:
 Geoguesser hacker
 ui in ratatui
 search engine
-custom chess
+
 
 
 
