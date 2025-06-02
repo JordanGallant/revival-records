@@ -26,3 +26,7 @@ touch desginer -> NEED TO STREAM VISUALS -> live streaming -> Icecast (radio) - 
 Fluid sim -> MATHS/PHYSICS
 music gen magentajs -> not updated recently
 
+
+
+          
+

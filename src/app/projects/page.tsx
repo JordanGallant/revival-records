@@ -143,6 +143,12 @@ const projects = [
     description: 'Colyseus.js, Phaser.js',
     url: 'https://chess-client-zeta.vercel.app/',
   },
+   {
+    title: 'Traffic cam viewer',
+    image: '/traffic.png',
+    description: 'Javascript',
+    url: '/traffic',
+  },
 ];
 
 export default function ProjectsGrid() {
