@@ -1,6 +1,9 @@
 'use client'
 import React, { useState, useEffect } from "react";
 import Navigator from "../_components/navigator";
+//List for non public use->
+
+//const cameras = [3, 5, 6, 11, 12, 13, 15, 18, 19, 27, 34, 36, 39, 40, 41, 45, 46, 61, 62, 87, 107, 108, 118, 121, 162, 164, 165, 166, 167, 177, 178, 179, 185, 191, 192, 194, 198, 207, 211, 212, 213, 214, 215, 216, 217, 218];
 
 const cameras = [177, 178, 179, 194, 211, 212, 213, 214, 215, 216, 217, 218];
 
