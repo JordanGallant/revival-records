@@ -1,8 +1,6 @@
 To Do:
-algo trading -> black dragon
-blockchain -> MEV BOT || honeypot smart contracts || DEFI
-remotion audio shaders
 
+Bash scripts in the web
 Repos:
 
 Ideas:

@@ -149,6 +149,12 @@ const projects = [
     description: 'Javascript',
     url: '/traffic',
   },
+  {
+    title: 'Mario SNES ROM hacks',
+    image: '/mario.png',
+    description: 'Javascript, WebAssembly',
+    url: '/snes',
+  },
 ];
 
 export default function ProjectsGrid() {
