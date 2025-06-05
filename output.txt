@@ -1,6 +1,8 @@
 To Do:
-
+dynamic wallpapers
+minecraft modded server
 Bash scripts in the web
+telegram mini app - game on ton
 Repos:
 
 Ideas:
