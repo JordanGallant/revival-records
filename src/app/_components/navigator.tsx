@@ -19,10 +19,15 @@ import {
 } from "@heroui/react";
 
 interface NavBarProps {
-  audioRefs?: React.RefObject<HTMLAudioElement | null> | null; //force to accpet null
+  audioRefs?: React.RefObject<HTMLAudioElement | null> | null; //force to accept null
   onTrackChange?: (url: string, title: string) => void;
   onAudioElementCreated?: (audioElement: HTMLAudioElement) => void;
 
+  // New Colyseus props
+  isDJ?: boolean;
+  onPlayPause?: () => void;
+  onNextSong?: (songIndex: number) => void;
+  onToggleShuffle?: () => void;
 }
 
 // Store bucket URL in environment variable
@@ -140,6 +145,7 @@ const Navigator = forwardRef<HTMLAudioElement, NavBarProps>((props, ref) => { //
     const currentSong = getCurrentSong();
     if (!internalAudioRef.current || !currentSong) return;
 
+    // Always do the local audio logic first
     if (internalAudioRef.current.paused) {
       const playPromise = internalAudioRef.current.play();
 
@@ -147,6 +153,10 @@ const Navigator = forwardRef<HTMLAudioElement, NavBarProps>((props, ref) => { //
         playPromise
           .then(() => {
             setIsPlaying(true);
+            // THEN send to Colyseus if we're DJ
+            if (props.isDJ && props.onPlayPause) {
+              props.onPlayPause();
+            }
           })
           .catch(error => {
             console.error("Playback failed:", error);
@@ -156,6 +166,10 @@ const Navigator = forwardRef<HTMLAudioElement, NavBarProps>((props, ref) => { //
     } else {
       internalAudioRef.current.pause();
       setIsPlaying(false);
+      // THEN send to Colyseus if we're DJ
+      if (props.isDJ && props.onPlayPause) {
+        props.onPlayPause();
+      }
     }
   };
 
@@ -218,6 +232,13 @@ const Navigator = forwardRef<HTMLAudioElement, NavBarProps>((props, ref) => { //
 
   // Toggle shuffle mode
   const toggleShuffleMode = () => {
+    // If user is DJ and we have a callback, use that instead
+    if (props.isDJ && props.onToggleShuffle) {
+      props.onToggleShuffle();
+      return;
+    }
+
+    // Original logic for non-DJ users or fallback
     setIsShuffleMode(prev => !prev);
     // Reset played songs when shuffle mode changes
     setPlayedSongs(new Set());
@@ -232,9 +253,17 @@ const Navigator = forwardRef<HTMLAudioElement, NavBarProps>((props, ref) => { //
       internalAudioRef.current.pause();
     }
 
+    // Always do local logic first
     playNextSong();
     if (wasPlaying) {
       setIsPlaying(true);
+    }
+
+    // THEN send to Colyseus if we're DJ
+    if (props.isDJ && props.onNextSong) {
+      // Calculate next index and send it
+      let nextIndex = (currentSongIndex + 1) % songsList.length; // simplified for now
+      props.onNextSong(nextIndex);
     }
   };
 
@@ -308,11 +337,10 @@ const Navigator = forwardRef<HTMLAudioElement, NavBarProps>((props, ref) => { //
           <NavbarItem className="flex flex-row items-center gap-1">
             <Tooltip content={isPlaying ? "Pause" : "Play"}>
               <Button
-                onTouchStart={handlePlayPause}
                 onClick={handlePlayPause}
                 id="play"
                 className="w-10 h-10 flex justify-center items-center transition-none text-white"
-                disabled={isLoading || !currentSong}
+                disabled={isLoading || !currentSong || (!props.isDJ)} // Add this part
               >
                 {isLoading ? "..." : isPlaying ? <FaPause /> : <FaPlay />}
               </Button>
@@ -320,10 +348,9 @@ const Navigator = forwardRef<HTMLAudioElement, NavBarProps>((props, ref) => { //
 
             <Tooltip content="Next Song">
               <Button
-                onTouchStart={handleForceNext}
                 onClick={handleForceNext}
                 className="w-10 h-10 flex justify-center items-center transition-none text-white"
-                disabled={isLoading || !isPlaylistLoaded}
+                disabled={isLoading || !isPlaylistLoaded || (!props.isDJ)} // Add this part
               >
                 <FaStepForward />
               </Button>
@@ -421,7 +448,7 @@ const Navigator = forwardRef<HTMLAudioElement, NavBarProps>((props, ref) => { //
               Listen
             </Link>
           </NavbarItem>
-           <NavbarItem>
+          <NavbarItem>
             <Link color="foreground" href="/song-list" target="_blank">
               List
             </Link>

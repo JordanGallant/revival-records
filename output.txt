@@ -1,8 +1,14 @@
 To Do:
-dynamic wallpapers
-minecraft modded server
-Bash scripts in the web
+
+ratchet and clank mod
+minecraft modded server smart contracts?
 telegram mini app - game on ton
+
+Train Mario Kart  ai -> dolphin Kinoko
+dynamic wallpapers
+
+Bash scripts in the web
+
 Repos:
 
 Ideas:
