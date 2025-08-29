@@ -68,12 +68,28 @@ const Flights: React.FC = () => {
         async function fetchFlightData() {
             try {
                 setLoading(true);
-                const res = await fetch('/api/flights');
-                const data = await res.json();
-                console.log('Flight data from Redis:', data.flightData);
-                setFlightData(data.flightData || {});
+                const flightDataMap: FlightData = {};
+                
+                // Load data for each celebrity
+                for (const flight of flights) {
+                    try {
+                        const response = await fetch(`/rich/${flight.redisKey}.json`);
+                        if (response.ok) {
+                            const data = await response.json();
+                            flightDataMap[flight.redisKey] = data;
+                        } else {
+                            console.warn(`Failed to load data for ${flight.name}: ${response.status}`);
+                            flightDataMap[flight.redisKey] = { summary: null, results: [] };
+                        }
+                    } catch (error) {
+                        console.error(`Error loading data for ${flight.name}:`, error);
+                        flightDataMap[flight.redisKey] = { summary: null, results: [] };
+                    }
+                }
+                
+                setFlightData(flightDataMap);
             } catch (err) {
-                console.error('Failed to fetch flight data from Redis', err);
+                console.error('Failed to fetch flight data from local files', err);
             } finally {
                 setLoading(false);
             }

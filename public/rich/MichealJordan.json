@@ -1,0 +1,4604 @@
+{
+  "results": [
+    {
+      "date": "2025-05-18",
+      "distance": {
+        "num_points": 246,
+        "total_km": 284.9,
+        "total_miles": 177.03
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 1634.5,
+        "co2_emissions_tons": 1.635,
+        "co2_per_km": 5.74,
+        "co2_per_mile": 9.23,
+        "estimated_fuel_consumed_gallons": 170.79,
+        "flight_time_hours": 0.49,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 14:23:58 UTC",
+          "latitude": 26.681602,
+          "longitude": -80.092716,
+          "timestamp": 48238.77
+        },
+        "start": {
+          "altitude": 11175,
+          "formatted_time": "1970-01-01 13:54:31 UTC",
+          "latitude": 26.587418,
+          "longitude": -77.385674,
+          "timestamp": 46471.93
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2025/05/18/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2025-05-14",
+      "distance": {
+        "num_points": 678,
+        "total_km": 1662.48,
+        "total_miles": 1033.02
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 7704.85,
+        "co2_emissions_tons": 7.705,
+        "co2_per_km": 4.63,
+        "co2_per_mile": 7.46,
+        "estimated_fuel_consumed_gallons": 805.1,
+        "flight_time_hours": 2.31,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": 17725,
+          "formatted_time": "1970-01-02 00:49:54 UTC",
+          "latitude": 27.61232,
+          "longitude": -77.495921,
+          "timestamp": 85794.68
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 22:31:06 UTC",
+          "latitude": 40.847397,
+          "longitude": -74.066437,
+          "timestamp": 77466.01
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2025/05/14/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2025-05-13",
+      "distance": {
+        "num_points": 841,
+        "total_km": 1772.99,
+        "total_miles": 1101.69
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 12456.59,
+        "co2_emissions_tons": 12.457,
+        "co2_per_km": 7.03,
+        "co2_per_mile": 11.31,
+        "estimated_fuel_consumed_gallons": 1301.63,
+        "flight_time_hours": 3.74,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 13:54:29 UTC",
+          "latitude": 40.845969,
+          "longitude": -74.066407,
+          "timestamp": 46469.34
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 10:10:04 UTC",
+          "latitude": 26.67905,
+          "longitude": -80.102497,
+          "timestamp": 33004.21
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2025/05/13/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2025-05-05",
+      "distance": {
+        "num_points": 975,
+        "total_km": 195.5,
+        "total_miles": 121.48
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 5047.35,
+        "co2_emissions_tons": 5.047,
+        "co2_per_km": 25.82,
+        "co2_per_mile": 41.55,
+        "estimated_fuel_consumed_gallons": 527.41,
+        "flight_time_hours": 1.52,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 16:24:18 UTC",
+          "latitude": 26.679039,
+          "longitude": -80.102458,
+          "timestamp": 55458.79
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 14:53:22 UTC",
+          "latitude": 26.679169,
+          "longitude": -80.102599,
+          "timestamp": 50002.79
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2025/05/05/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2025-05-04",
+      "distance": {
+        "num_points": 1747,
+        "total_km": 3728.56,
+        "total_miles": 2316.82
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 78981.6,
+        "co2_emissions_tons": 78.982,
+        "co2_per_km": 21.18,
+        "co2_per_mile": 34.09,
+        "estimated_fuel_consumed_gallons": 8253.04,
+        "flight_time_hours": 23.72,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-02 00:43:04 UTC",
+          "latitude": 26.68159,
+          "longitude": -80.096195,
+          "timestamp": 85384.79
+        },
+        "start": {
+          "altitude": 40825,
+          "formatted_time": "1970-01-01 01:00:08 UTC",
+          "latitude": 28.401939,
+          "longitude": -81.697783,
+          "timestamp": 8.51
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2025/05/04/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2025-05-03",
+      "distance": {
+        "num_points": 499,
+        "total_km": 552.87,
+        "total_miles": 343.54
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 6106.1,
+        "co2_emissions_tons": 6.106,
+        "co2_per_km": 11.04,
+        "co2_per_mile": 17.77,
+        "estimated_fuel_consumed_gallons": 638.05,
+        "flight_time_hours": 1.83,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": 40550,
+          "formatted_time": "1970-01-02 00:59:52 UTC",
+          "latitude": 28.380106,
+          "longitude": -81.67301,
+          "timestamp": 86392.87
+        },
+        "start": {
+          "altitude": 12425,
+          "formatted_time": "1970-01-01 23:09:52 UTC",
+          "latitude": 26.5871,
+          "longitude": -77.236316,
+          "timestamp": 79792.39
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2025/05/03/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2025-04-30",
+      "distance": {
+        "num_points": 200,
+        "total_km": 221.76,
+        "total_miles": 137.8
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 1669.68,
+        "co2_emissions_tons": 1.67,
+        "co2_per_km": 7.53,
+        "co2_per_mile": 12.12,
+        "estimated_fuel_consumed_gallons": 174.47,
+        "flight_time_hours": 0.5,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": 8100,
+          "formatted_time": "1970-01-01 12:33:02 UTC",
+          "latitude": 26.668259,
+          "longitude": -78.076828,
+          "timestamp": 41582.43
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 12:02:57 UTC",
+          "latitude": 27.176182,
+          "longitude": -80.219447,
+          "timestamp": 39777.57
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2025/04/30/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2025-04-29",
+      "distance": {
+        "num_points": 373,
+        "total_km": 130.29,
+        "total_miles": 80.96
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 2363.4,
+        "co2_emissions_tons": 2.363,
+        "co2_per_km": 18.14,
+        "co2_per_mile": 29.19,
+        "estimated_fuel_consumed_gallons": 246.96,
+        "flight_time_hours": 0.71,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 17:14:25 UTC",
+          "latitude": 27.176262,
+          "longitude": -80.216778,
+          "timestamp": 58465.82
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 16:31:51 UTC",
+          "latitude": 26.679204,
+          "longitude": -80.103167,
+          "timestamp": 55911.07
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2025/04/29/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2025-04-27",
+      "distance": {
+        "num_points": 1018,
+        "total_km": 7798.56,
+        "total_miles": 4845.8
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 34791.95,
+        "co2_emissions_tons": 34.792,
+        "co2_per_km": 4.46,
+        "co2_per_mile": 7.18,
+        "estimated_fuel_consumed_gallons": 3635.52,
+        "flight_time_hours": 10.45,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 18:45:47 UTC",
+          "latitude": 26.681648,
+          "longitude": -80.092709,
+          "timestamp": 63947.23
+        },
+        "start": {
+          "altitude": 1200,
+          "formatted_time": "1970-01-01 08:18:58 UTC",
+          "latitude": 46.226578,
+          "longitude": 6.096541,
+          "timestamp": 26338.38
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2025/04/27/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2025-04-23",
+      "distance": {
+        "num_points": 794,
+        "total_km": 7745.6,
+        "total_miles": 4812.89
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 28609.96,
+        "co2_emissions_tons": 28.61,
+        "co2_per_km": 3.69,
+        "co2_per_mile": 5.94,
+        "estimated_fuel_consumed_gallons": 2989.55,
+        "flight_time_hours": 8.59,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 09:35:27 UTC",
+          "latitude": 46.226291,
+          "longitude": 6.097893,
+          "timestamp": 30927.76
+        },
+        "start": {
+          "altitude": 11400,
+          "formatted_time": "1970-01-01 01:00:01 UTC",
+          "latitude": 26.880379,
+          "longitude": -79.75752,
+          "timestamp": 1.42
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2025/04/23/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2025-04-22",
+      "distance": {
+        "num_points": 191,
+        "total_km": 43.66,
+        "total_miles": 27.13
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 4461.54,
+        "co2_emissions_tons": 4.462,
+        "co2_per_km": 102.18,
+        "co2_per_mile": 164.45,
+        "estimated_fuel_consumed_gallons": 466.2,
+        "flight_time_hours": 1.34,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": 11200,
+          "formatted_time": "1970-01-02 00:59:54 UTC",
+          "latitude": 26.873071,
+          "longitude": -79.76576,
+          "timestamp": 86394.8
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 23:39:32 UTC",
+          "latitude": 26.679181,
+          "longitude": -80.10248,
+          "timestamp": 81572.04
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2025/04/22/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2025-04-16",
+      "distance": {
+        "num_points": 945,
+        "total_km": 1749.4,
+        "total_miles": 1087.03
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 10978.59,
+        "co2_emissions_tons": 10.979,
+        "co2_per_km": 6.28,
+        "co2_per_mile": 10.1,
+        "estimated_fuel_consumed_gallons": 1147.19,
+        "flight_time_hours": 3.3,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 21:30:06 UTC",
+          "latitude": 26.678959,
+          "longitude": -80.103193,
+          "timestamp": 73806.16
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 18:12:18 UTC",
+          "latitude": 40.846237,
+          "longitude": -74.067296,
+          "timestamp": 61938.7
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2025/04/16/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2025-04-14",
+      "distance": {
+        "num_points": 1175,
+        "total_km": 1916.09,
+        "total_miles": 1190.6
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 62547.04,
+        "co2_emissions_tons": 62.547,
+        "co2_per_km": 32.64,
+        "co2_per_mile": 52.53,
+        "estimated_fuel_consumed_gallons": 6535.74,
+        "flight_time_hours": 18.78,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 20:04:13 UTC",
+          "latitude": 40.846882,
+          "longitude": -74.06636,
+          "timestamp": 68653.9
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 01:17:22 UTC",
+          "latitude": 27.175713,
+          "longitude": -80.218152,
+          "timestamp": 1042.79
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2025/04/14/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2025-04-13",
+      "distance": {
+        "num_points": 1443,
+        "total_km": 2299.51,
+        "total_miles": 1428.85
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 34005.85,
+        "co2_emissions_tons": 34.006,
+        "co2_per_km": 14.79,
+        "co2_per_mile": 23.8,
+        "estimated_fuel_consumed_gallons": 3553.38,
+        "flight_time_hours": 10.21,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-02 00:55:46 UTC",
+          "latitude": 27.176056,
+          "longitude": -80.216908,
+          "timestamp": 86146.15
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 14:43:07 UTC",
+          "latitude": 26.679634,
+          "longitude": -80.094439,
+          "timestamp": 49387.04
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2025/04/13/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2025-04-07",
+      "distance": {
+        "num_points": 651,
+        "total_km": 482.62,
+        "total_miles": 299.88
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 5215.33,
+        "co2_emissions_tons": 5.215,
+        "co2_per_km": 10.81,
+        "co2_per_mile": 17.39,
+        "estimated_fuel_consumed_gallons": 544.97,
+        "flight_time_hours": 1.57,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 02:34:14 UTC",
+          "latitude": 26.678925,
+          "longitude": -80.103061,
+          "timestamp": 5654.56
+        },
+        "start": {
+          "altitude": 32000,
+          "formatted_time": "1970-01-01 01:00:16 UTC",
+          "latitude": 30.550139,
+          "longitude": -81.133539,
+          "timestamp": 16.98
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2025/04/07/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2025-04-06",
+      "distance": {
+        "num_points": 692,
+        "total_km": 1467.59,
+        "total_miles": 911.92
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 25183.39,
+        "co2_emissions_tons": 25.183,
+        "co2_per_km": 17.16,
+        "co2_per_mile": 27.62,
+        "estimated_fuel_consumed_gallons": 2631.49,
+        "flight_time_hours": 7.56,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": 32000,
+          "formatted_time": "1970-01-02 00:59:57 UTC",
+          "latitude": 30.594736,
+          "longitude": -81.134308,
+          "timestamp": 86397.35
+        },
+        "start": {
+          "altitude": -100,
+          "formatted_time": "1970-01-01 17:26:15 UTC",
+          "latitude": 27.178894,
+          "longitude": -80.221702,
+          "timestamp": 59175.01
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2025/04/06/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2025-04-04",
+      "distance": {
+        "num_points": 1130,
+        "total_km": 1965.49,
+        "total_miles": 1221.3
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 36291.27,
+        "co2_emissions_tons": 36.291,
+        "co2_per_km": 18.46,
+        "co2_per_mile": 29.72,
+        "estimated_fuel_consumed_gallons": 3792.19,
+        "flight_time_hours": 10.9,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 23:20:50 UTC",
+          "latitude": 27.177555,
+          "longitude": -80.220406,
+          "timestamp": 80450.46
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 12:27:00 UTC",
+          "latitude": 27.176219,
+          "longitude": -80.219435,
+          "timestamp": 41220.9
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2025/04/04/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2025-04-03",
+      "distance": {
+        "num_points": 243,
+        "total_km": 83.12,
+        "total_miles": 51.65
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 1194.65,
+        "co2_emissions_tons": 1.195,
+        "co2_per_km": 14.37,
+        "co2_per_mile": 23.13,
+        "estimated_fuel_consumed_gallons": 124.83,
+        "flight_time_hours": 0.36,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 21:09:11 UTC",
+          "latitude": 27.176126,
+          "longitude": -80.217348,
+          "timestamp": 72551.02
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 20:47:39 UTC",
+          "latitude": 26.679737,
+          "longitude": -80.102977,
+          "timestamp": 71259.65
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2025/04/03/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2025-03-30",
+      "distance": {
+        "num_points": 1460,
+        "total_km": 2903.73,
+        "total_miles": 1804.29
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 34137.65,
+        "co2_emissions_tons": 34.138,
+        "co2_per_km": 11.76,
+        "co2_per_mile": 18.92,
+        "estimated_fuel_consumed_gallons": 3567.15,
+        "flight_time_hours": 10.25,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 23:56:39 UTC",
+          "latitude": 26.678948,
+          "longitude": -80.103048,
+          "timestamp": 82599.88
+        },
+        "start": {
+          "altitude": 7625,
+          "formatted_time": "1970-01-01 13:41:38 UTC",
+          "latitude": 13.721784,
+          "longitude": -60.821469,
+          "timestamp": 45698.3
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2025/03/30/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2025-03-21",
+      "distance": {
+        "num_points": 834,
+        "total_km": 2447.98,
+        "total_miles": 1521.1
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 13911.56,
+        "co2_emissions_tons": 13.912,
+        "co2_per_km": 5.68,
+        "co2_per_mile": 9.15,
+        "estimated_fuel_consumed_gallons": 1453.66,
+        "flight_time_hours": 4.18,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": 7550,
+          "formatted_time": "1970-01-01 21:12:05 UTC",
+          "latitude": 13.972049,
+          "longitude": -61.447641,
+          "timestamp": 72725.23
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 17:01:27 UTC",
+          "latitude": 26.679192,
+          "longitude": -80.102454,
+          "timestamp": 57687.33
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2025/03/21/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2025-03-10",
+      "distance": {
+        "num_points": 786,
+        "total_km": 669.29,
+        "total_miles": 415.88
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 39116.23,
+        "co2_emissions_tons": 39.116,
+        "co2_per_km": 58.44,
+        "co2_per_mile": 94.06,
+        "estimated_fuel_consumed_gallons": 4087.38,
+        "flight_time_hours": 11.75,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-02 00:23:20 UTC",
+          "latitude": 26.679204,
+          "longitude": -80.103458,
+          "timestamp": 84200.14
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 12:38:36 UTC",
+          "latitude": 26.678993,
+          "longitude": -80.103249,
+          "timestamp": 41916.89
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2025/03/10/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2025-03-03",
+      "distance": {
+        "num_points": 6,
+        "total_km": 0.01,
+        "total_miles": 0.01
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 333.04,
+        "co2_emissions_tons": 0.333,
+        "co2_per_km": 333.04,
+        "co2_per_mile": 333.04,
+        "estimated_fuel_consumed_gallons": 34.8,
+        "flight_time_hours": 0.1,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 01:08:42 UTC",
+          "latitude": 26.678947,
+          "longitude": -80.103119,
+          "timestamp": 522.48
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 01:07:11 UTC",
+          "latitude": 26.678925,
+          "longitude": -80.103132,
+          "timestamp": 431.28
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2025/03/03/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2025-03-02",
+      "distance": {
+        "num_points": 1257,
+        "total_km": 2298.27,
+        "total_miles": 1428.08
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 33998.6,
+        "co2_emissions_tons": 33.999,
+        "co2_per_km": 14.79,
+        "co2_per_mile": 23.81,
+        "estimated_fuel_consumed_gallons": 3552.62,
+        "flight_time_hours": 10.21,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-02 00:50:40 UTC",
+          "latitude": 26.678971,
+          "longitude": -80.088576,
+          "timestamp": 85840.11
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 14:38:08 UTC",
+          "latitude": 9.995103,
+          "longitude": -84.213354,
+          "timestamp": 49088.84
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2025/03/02/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2025-02-26",
+      "distance": {
+        "num_points": 219,
+        "total_km": 192.17,
+        "total_miles": 119.41
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 5736.06,
+        "co2_emissions_tons": 5.736,
+        "co2_per_km": 29.85,
+        "co2_per_mile": 48.04,
+        "estimated_fuel_consumed_gallons": 599.38,
+        "flight_time_hours": 1.72,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": 3025,
+          "formatted_time": "1970-01-01 17:17:19 UTC",
+          "latitude": 9.995371,
+          "longitude": -84.213046,
+          "timestamp": 58639.85
+        },
+        "start": {
+          "altitude": 5325,
+          "formatted_time": "1970-01-01 15:33:59 UTC",
+          "latitude": 10.565961,
+          "longitude": -85.622141,
+          "timestamp": 52439.37
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2025/02/26/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2025-02-25",
+      "distance": {
+        "num_points": 1192,
+        "total_km": 2281.04,
+        "total_miles": 1417.37
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 13577.37,
+        "co2_emissions_tons": 13.577,
+        "co2_per_km": 5.95,
+        "co2_per_mile": 9.58,
+        "estimated_fuel_consumed_gallons": 1418.74,
+        "flight_time_hours": 4.08,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": 3275,
+          "formatted_time": "1970-01-01 17:18:02 UTC",
+          "latitude": 10.531932,
+          "longitude": -85.716055,
+          "timestamp": 58682.16
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 13:13:25 UTC",
+          "latitude": 27.176137,
+          "longitude": -80.219157,
+          "timestamp": 44005.51
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2025/02/25/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2025-02-24",
+      "distance": {
+        "num_points": 327,
+        "total_km": 118.64,
+        "total_miles": 73.72
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 2616.66,
+        "co2_emissions_tons": 2.617,
+        "co2_per_km": 22.05,
+        "co2_per_mile": 35.49,
+        "estimated_fuel_consumed_gallons": 273.42,
+        "flight_time_hours": 0.79,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 22:34:58 UTC",
+          "latitude": 27.17637,
+          "longitude": -80.219065,
+          "timestamp": 77698.46
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 21:47:49 UTC",
+          "latitude": 26.679227,
+          "longitude": -80.10322,
+          "timestamp": 74869.94
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2025/02/24/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2025-02-23",
+      "distance": {
+        "num_points": 971,
+        "total_km": 801.02,
+        "total_miles": 497.73
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 12412.61,
+        "co2_emissions_tons": 12.413,
+        "co2_per_km": 15.5,
+        "co2_per_mile": 24.94,
+        "estimated_fuel_consumed_gallons": 1297.03,
+        "flight_time_hours": 3.73,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 17:37:35 UTC",
+          "latitude": 26.678959,
+          "longitude": -80.103158,
+          "timestamp": 59855.12
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 13:53:57 UTC",
+          "latitude": 26.679018,
+          "longitude": -80.102929,
+          "timestamp": 46437.53
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2025/02/23/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2025-02-21",
+      "distance": {
+        "num_points": 982,
+        "total_km": 873.33,
+        "total_miles": 542.66
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 9988.62,
+        "co2_emissions_tons": 9.989,
+        "co2_per_km": 11.44,
+        "co2_per_mile": 18.41,
+        "estimated_fuel_consumed_gallons": 1043.74,
+        "flight_time_hours": 3,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 18:07:36 UTC",
+          "latitude": 26.678925,
+          "longitude": -80.103106,
+          "timestamp": 61656.87
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 15:07:39 UTC",
+          "latitude": 26.679382,
+          "longitude": -80.102769,
+          "timestamp": 50859.53
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2025/02/21/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2025-02-19",
+      "distance": {
+        "num_points": 423,
+        "total_km": 160.77,
+        "total_miles": 99.9
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 3632.29,
+        "co2_emissions_tons": 3.632,
+        "co2_per_km": 22.59,
+        "co2_per_mile": 36.36,
+        "estimated_fuel_consumed_gallons": 379.55,
+        "flight_time_hours": 1.09,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 20:27:36 UTC",
+          "latitude": 26.678947,
+          "longitude": -80.103262,
+          "timestamp": 70056.51
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 19:22:10 UTC",
+          "latitude": 27.176033,
+          "longitude": -80.218825,
+          "timestamp": 66130.13
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2025/02/19/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2025-02-17",
+      "distance": {
+        "num_points": 354,
+        "total_km": 295.83,
+        "total_miles": 183.82
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 1941.45,
+        "co2_emissions_tons": 1.941,
+        "co2_per_km": 6.56,
+        "co2_per_mile": 10.56,
+        "estimated_fuel_consumed_gallons": 202.87,
+        "flight_time_hours": 0.58,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": -75,
+          "formatted_time": "1970-01-01 04:39:35 UTC",
+          "latitude": 27.178299,
+          "longitude": -80.21994,
+          "timestamp": 13175.34
+        },
+        "start": {
+          "altitude": 50,
+          "formatted_time": "1970-01-01 04:04:36 UTC",
+          "latitude": 29.179222,
+          "longitude": -81.061222,
+          "timestamp": 11076.7
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2025/02/17/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2025-02-14",
+      "distance": {
+        "num_points": 417,
+        "total_km": 314.29,
+        "total_miles": 195.29
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 7031.16,
+        "co2_emissions_tons": 7.031,
+        "co2_per_km": 22.37,
+        "co2_per_mile": 36,
+        "estimated_fuel_consumed_gallons": 734.71,
+        "flight_time_hours": 2.11,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": -225,
+          "formatted_time": "1970-01-01 22:14:24 UTC",
+          "latitude": 29.171722,
+          "longitude": -81.079841,
+          "timestamp": 76464.88
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 20:07:44 UTC",
+          "latitude": 27.176463,
+          "longitude": -80.219435,
+          "timestamp": 68864.45
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2025/02/14/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2025-02-13",
+      "distance": {
+        "num_points": 343,
+        "total_km": 263.98,
+        "total_miles": 164.03
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 1694.58,
+        "co2_emissions_tons": 1.695,
+        "co2_per_km": 6.42,
+        "co2_per_mile": 10.33,
+        "estimated_fuel_consumed_gallons": 177.07,
+        "flight_time_hours": 0.51,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 01:42:30 UTC",
+          "latitude": 27.176319,
+          "longitude": -80.216791,
+          "timestamp": 2550.75
+        },
+        "start": {
+          "altitude": 125,
+          "formatted_time": "1970-01-01 01:11:58 UTC",
+          "latitude": 29.178314,
+          "longitude": -81.063784,
+          "timestamp": 718.97
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2025/02/13/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2025-02-12",
+      "distance": {
+        "num_points": 508,
+        "total_km": 367.44,
+        "total_miles": 228.32
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 8880.58,
+        "co2_emissions_tons": 8.881,
+        "co2_per_km": 24.17,
+        "co2_per_mile": 38.9,
+        "estimated_fuel_consumed_gallons": 927.96,
+        "flight_time_hours": 2.67,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": 50,
+          "formatted_time": "1970-01-02 00:36:19 UTC",
+          "latitude": 29.172729,
+          "longitude": -81.077359,
+          "timestamp": 84979.13
+        },
+        "start": {
+          "altitude": -75,
+          "formatted_time": "1970-01-01 21:56:19 UTC",
+          "latitude": 26.678948,
+          "longitude": -80.103325,
+          "timestamp": 75379.54
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2025/02/12/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2025-01-26",
+      "distance": {
+        "num_points": 1073,
+        "total_km": 2094.56,
+        "total_miles": 1301.5
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 12530.16,
+        "co2_emissions_tons": 12.53,
+        "co2_per_km": 5.98,
+        "co2_per_mile": 9.63,
+        "estimated_fuel_consumed_gallons": 1309.32,
+        "flight_time_hours": 3.76,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 18:40:28 UTC",
+          "latitude": 26.678936,
+          "longitude": -80.103022,
+          "timestamp": 63628.72
+        },
+        "start": {
+          "altitude": 2850,
+          "formatted_time": "1970-01-01 14:54:44 UTC",
+          "latitude": 9.99472,
+          "longitude": -84.211509,
+          "timestamp": 50084.06
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2025/01/26/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2025-01-23",
+      "distance": {
+        "num_points": 963,
+        "total_km": 2017.51,
+        "total_miles": 1253.63
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 11517.79,
+        "co2_emissions_tons": 11.518,
+        "co2_per_km": 5.71,
+        "co2_per_mile": 9.19,
+        "estimated_fuel_consumed_gallons": 1203.53,
+        "flight_time_hours": 3.46,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 15:57:31 UTC",
+          "latitude": 9.995556,
+          "longitude": -84.210252,
+          "timestamp": 53851.42
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 12:30:01 UTC",
+          "latitude": 26.679018,
+          "longitude": -80.102401,
+          "timestamp": 41401.1
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2025/01/23/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2025-01-21",
+      "distance": {
+        "num_points": 1754,
+        "total_km": 4033.4,
+        "total_miles": 2506.24
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 21480.29,
+        "co2_emissions_tons": 21.48,
+        "co2_per_km": 5.33,
+        "co2_per_mile": 8.57,
+        "estimated_fuel_consumed_gallons": 2244.54,
+        "flight_time_hours": 6.45,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 19:25:05 UTC",
+          "latitude": 26.67897,
+          "longitude": -80.103028,
+          "timestamp": 66305.91
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 12:58:06 UTC",
+          "latitude": 26.678983,
+          "longitude": -80.103246,
+          "timestamp": 43086.48
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2025/01/21/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2025-01-12",
+      "distance": {
+        "num_points": 938,
+        "total_km": 2123.55,
+        "total_miles": 1319.51
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 13975.53,
+        "co2_emissions_tons": 13.976,
+        "co2_per_km": 6.58,
+        "co2_per_mile": 10.59,
+        "estimated_fuel_consumed_gallons": 1460.35,
+        "flight_time_hours": 4.2,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 19:44:33 UTC",
+          "latitude": 26.678959,
+          "longitude": -80.103119,
+          "timestamp": 67473.37
+        },
+        "start": {
+          "altitude": 2875,
+          "formatted_time": "1970-01-01 15:32:46 UTC",
+          "latitude": 9.995316,
+          "longitude": -84.212859,
+          "timestamp": 52366.32
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2025/01/12/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2025-01-06",
+      "distance": {
+        "num_points": 936,
+        "total_km": 2167.7,
+        "total_miles": 1346.94
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 14877.7,
+        "co2_emissions_tons": 14.878,
+        "co2_per_km": 6.86,
+        "co2_per_mile": 11.05,
+        "estimated_fuel_consumed_gallons": 1554.62,
+        "flight_time_hours": 4.47,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 16:56:02 UTC",
+          "latitude": 9.994972,
+          "longitude": -84.213976,
+          "timestamp": 57362.62
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 12:28:00 UTC",
+          "latitude": 26.679216,
+          "longitude": -80.10355,
+          "timestamp": 41280.36
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2025/01/06/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2025-01-04",
+      "distance": {
+        "num_points": 1648,
+        "total_km": 3747.19,
+        "total_miles": 2328.4
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 24020.34,
+        "co2_emissions_tons": 24.02,
+        "co2_per_km": 6.41,
+        "co2_per_mile": 10.32,
+        "estimated_fuel_consumed_gallons": 2509.96,
+        "flight_time_hours": 7.21,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 19:42:14 UTC",
+          "latitude": 26.678936,
+          "longitude": -80.102982,
+          "timestamp": 67334.95
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 12:29:29 UTC",
+          "latitude": 26.679134,
+          "longitude": -80.102533,
+          "timestamp": 41369.82
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2025/01/04/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2024-12-27",
+      "distance": {
+        "num_points": 61,
+        "total_km": 0.65,
+        "total_miles": 0.4
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 333.04,
+        "co2_emissions_tons": 0.333,
+        "co2_per_km": 333.04,
+        "co2_per_mile": 333.04,
+        "estimated_fuel_consumed_gallons": 34.8,
+        "flight_time_hours": 0.1,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 01:09:39 UTC",
+          "latitude": 26.679016,
+          "longitude": -80.103119,
+          "timestamp": 579.08
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 01:06:38 UTC",
+          "latitude": 26.682003,
+          "longitude": -80.105866,
+          "timestamp": 398.05
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2024/12/27/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2024-12-26",
+      "distance": {
+        "num_points": 1667,
+        "total_km": 4450.76,
+        "total_miles": 2765.57
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 26330.85,
+        "co2_emissions_tons": 26.331,
+        "co2_per_km": 5.92,
+        "co2_per_mile": 9.52,
+        "estimated_fuel_consumed_gallons": 2751.4,
+        "flight_time_hours": 7.91,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-02 00:58:26 UTC",
+          "latitude": 26.681997,
+          "longitude": -80.105702,
+          "timestamp": 86306.82
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 17:04:04 UTC",
+          "latitude": 26.679131,
+          "longitude": -80.102458,
+          "timestamp": 57844.11
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2024/12/26/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2024-12-04",
+      "distance": {
+        "num_points": 1105,
+        "total_km": 896.03,
+        "total_miles": 556.77
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 15201.6,
+        "co2_emissions_tons": 15.202,
+        "co2_per_km": 16.97,
+        "co2_per_mile": 27.3,
+        "estimated_fuel_consumed_gallons": 1588.46,
+        "flight_time_hours": 4.56,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 20:37:14 UTC",
+          "latitude": 26.678983,
+          "longitude": -80.103127,
+          "timestamp": 70634.82
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 16:03:22 UTC",
+          "latitude": 26.678948,
+          "longitude": -80.102533,
+          "timestamp": 54202.43
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2024/12/04/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2024-12-01",
+      "distance": {
+        "num_points": 1005,
+        "total_km": 830.96,
+        "total_miles": 516.33
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 8766.62,
+        "co2_emissions_tons": 8.767,
+        "co2_per_km": 10.55,
+        "co2_per_mile": 16.98,
+        "estimated_fuel_consumed_gallons": 916.05,
+        "flight_time_hours": 2.63,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 18:54:44 UTC",
+          "latitude": 26.680333,
+          "longitude": -80.093356,
+          "timestamp": 64484.18
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 16:16:47 UTC",
+          "latitude": 26.679146,
+          "longitude": -80.102573,
+          "timestamp": 55007.78
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2024/12/01/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2024-11-29",
+      "distance": {
+        "num_points": 699,
+        "total_km": 1066.3,
+        "total_miles": 662.57
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 5845.75,
+        "co2_emissions_tons": 5.846,
+        "co2_per_km": 5.48,
+        "co2_per_mile": 8.82,
+        "estimated_fuel_consumed_gallons": 610.84,
+        "flight_time_hours": 1.76,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 17:48:07 UTC",
+          "latitude": 26.681566,
+          "longitude": -80.095852,
+          "timestamp": 60487.47
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 16:02:48 UTC",
+          "latitude": 35.204372,
+          "longitude": -80.932566,
+          "timestamp": 54168.42
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2024/11/29/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2024-11-27",
+      "distance": {
+        "num_points": 901,
+        "total_km": 3303.94,
+        "total_miles": 2052.98
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 10722.29,
+        "co2_emissions_tons": 10.722,
+        "co2_per_km": 3.25,
+        "co2_per_mile": 5.22,
+        "estimated_fuel_consumed_gallons": 1120.41,
+        "flight_time_hours": 3.22,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 22:06:59 UTC",
+          "latitude": 35.210425,
+          "longitude": -80.932689,
+          "timestamp": 76019.55
+        },
+        "start": {
+          "altitude": 125,
+          "formatted_time": "1970-01-01 18:53:49 UTC",
+          "latitude": 33.631302,
+          "longitude": -116.156261,
+          "timestamp": 64429.14
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2024/11/27/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2024-11-24",
+      "distance": {
+        "num_points": 400,
+        "total_km": 208.72,
+        "total_miles": 129.69
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 1770.35,
+        "co2_emissions_tons": 1.77,
+        "co2_per_km": 8.48,
+        "co2_per_mile": 13.65,
+        "estimated_fuel_consumed_gallons": 184.99,
+        "flight_time_hours": 0.53,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": -150,
+          "formatted_time": "1970-01-02 00:40:24 UTC",
+          "latitude": 33.625122,
+          "longitude": -116.156429,
+          "timestamp": 85224.41
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-02 00:08:30 UTC",
+          "latitude": 32.733613,
+          "longitude": -117.179601,
+          "timestamp": 83310.73
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2024/11/24/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2024-11-22",
+      "distance": {
+        "num_points": 1349,
+        "total_km": 3662.17,
+        "total_miles": 2275.56
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 24716.34,
+        "co2_emissions_tons": 24.716,
+        "co2_per_km": 6.75,
+        "co2_per_mile": 10.86,
+        "estimated_fuel_consumed_gallons": 2582.69,
+        "flight_time_hours": 7.42,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 23:18:01 UTC",
+          "latitude": 32.733582,
+          "longitude": -117.17905,
+          "timestamp": 80281.27
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 15:52:43 UTC",
+          "latitude": 26.679188,
+          "longitude": -80.103106,
+          "timestamp": 53563.79
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2024/11/22/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2024-11-11",
+      "distance": {
+        "num_points": 1152,
+        "total_km": 3304.5,
+        "total_miles": 2053.32
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 15797.07,
+        "co2_emissions_tons": 15.797,
+        "co2_per_km": 4.78,
+        "co2_per_mile": 7.69,
+        "estimated_fuel_consumed_gallons": 1650.69,
+        "flight_time_hours": 4.74,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 20:48:10 UTC",
+          "latitude": 26.681328,
+          "longitude": -80.09019,
+          "timestamp": 71290.19
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 16:03:34 UTC",
+          "latitude": 33.620538,
+          "longitude": -111.916008,
+          "timestamp": 54214.12
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2024/11/11/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2024-11-07",
+      "distance": {
+        "num_points": 1201,
+        "total_km": 3242.68,
+        "total_miles": 2014.91
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 17730.49,
+        "co2_emissions_tons": 17.73,
+        "co2_per_km": 5.47,
+        "co2_per_mile": 8.8,
+        "estimated_fuel_consumed_gallons": 1852.72,
+        "flight_time_hours": 5.32,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 20:20:45 UTC",
+          "latitude": 33.622948,
+          "longitude": -111.911615,
+          "timestamp": 69645.91
+        },
+        "start": {
+          "altitude": -75,
+          "formatted_time": "1970-01-01 15:01:19 UTC",
+          "latitude": 26.678879,
+          "longitude": -80.10251,
+          "timestamp": 50479.88
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2024/11/07/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2024-11-05",
+      "distance": {
+        "num_points": 6,
+        "total_km": 0.01,
+        "total_miles": 0.01
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 333.04,
+        "co2_emissions_tons": 0.333,
+        "co2_per_km": 333.04,
+        "co2_per_mile": 333.04,
+        "estimated_fuel_consumed_gallons": 34.8,
+        "flight_time_hours": 0.1,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 01:05:54 UTC",
+          "latitude": 26.679029,
+          "longitude": -80.102903,
+          "timestamp": 354.73
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 01:04:24 UTC",
+          "latitude": 26.679016,
+          "longitude": -80.102925,
+          "timestamp": 264.98
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2024/11/05/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2024-11-04",
+      "distance": {
+        "num_points": 1369,
+        "total_km": 2102.07,
+        "total_miles": 1306.17
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 31060.52,
+        "co2_emissions_tons": 31.061,
+        "co2_per_km": 14.78,
+        "co2_per_mile": 23.78,
+        "estimated_fuel_consumed_gallons": 3245.61,
+        "flight_time_hours": 9.33,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-02 00:25:30 UTC",
+          "latitude": 26.679028,
+          "longitude": -80.102912,
+          "timestamp": 84330.75
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 15:05:55 UTC",
+          "latitude": 26.678993,
+          "longitude": -80.103028,
+          "timestamp": 50755.44
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2024/11/04/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2024-10-23",
+      "distance": {
+        "num_points": 1392,
+        "total_km": 4489.36,
+        "total_miles": 2789.56
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 18140.76,
+        "co2_emissions_tons": 18.141,
+        "co2_per_km": 4.04,
+        "co2_per_mile": 6.5,
+        "estimated_fuel_consumed_gallons": 1895.59,
+        "flight_time_hours": 5.45,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 21:32:39 UTC",
+          "latitude": 26.681915,
+          "longitude": -80.088852,
+          "timestamp": 73959.59
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 16:05:50 UTC",
+          "latitude": 45.585581,
+          "longitude": -122.579407,
+          "timestamp": 54350.08
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2024/10/23/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2024-10-22",
+      "distance": {
+        "num_points": 1078,
+        "total_km": 1458.65,
+        "total_miles": 906.36
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 13838.97,
+        "co2_emissions_tons": 13.839,
+        "co2_per_km": 9.49,
+        "co2_per_mile": 15.27,
+        "estimated_fuel_consumed_gallons": 1446.08,
+        "flight_time_hours": 4.16,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 19:49:59 UTC",
+          "latitude": 45.585604,
+          "longitude": -122.579441,
+          "timestamp": 67799.7
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 15:40:40 UTC",
+          "latitude": 36.097513,
+          "longitude": -115.160737,
+          "timestamp": 52840.27
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2024/10/22/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2024-10-19",
+      "distance": {
+        "num_points": 1257,
+        "total_km": 3533.81,
+        "total_miles": 2195.81
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 14621.12,
+        "co2_emissions_tons": 14.621,
+        "co2_per_km": 4.14,
+        "co2_per_mile": 6.66,
+        "estimated_fuel_consumed_gallons": 1527.81,
+        "flight_time_hours": 4.39,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 20:36:31 UTC",
+          "latitude": 36.099398,
+          "longitude": -115.159743,
+          "timestamp": 70591.76
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 16:13:06 UTC",
+          "latitude": 26.679188,
+          "longitude": -80.102601,
+          "timestamp": 54786.85
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2024/10/19/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2024-10-13",
+      "distance": {
+        "num_points": 1233,
+        "total_km": 2112.63,
+        "total_miles": 1312.73
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 28377.48,
+        "co2_emissions_tons": 28.377,
+        "co2_per_km": 13.43,
+        "co2_per_mile": 21.62,
+        "estimated_fuel_consumed_gallons": 2965.25,
+        "flight_time_hours": 8.52,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-02 00:52:47 UTC",
+          "latitude": 26.681625,
+          "longitude": -80.09708,
+          "timestamp": 85967.88
+        },
+        "start": {
+          "altitude": 250,
+          "formatted_time": "1970-01-01 16:21:32 UTC",
+          "latitude": 41.335556,
+          "longitude": -72.038818,
+          "timestamp": 55292.84
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2024/10/13/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2024-10-12",
+      "distance": {
+        "num_points": 729,
+        "total_km": 1842.3,
+        "total_miles": 1144.75
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 7223.09,
+        "co2_emissions_tons": 7.223,
+        "co2_per_km": 3.92,
+        "co2_per_mile": 6.31,
+        "estimated_fuel_consumed_gallons": 754.76,
+        "flight_time_hours": 2.17,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": 25,
+          "formatted_time": "1970-01-01 22:38:08 UTC",
+          "latitude": 41.327308,
+          "longitude": -72.04603,
+          "timestamp": 77888.83
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 20:28:00 UTC",
+          "latitude": 26.679087,
+          "longitude": -80.103114,
+          "timestamp": 70080.93
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2024/10/12/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2024-10-07",
+      "distance": {
+        "num_points": 365,
+        "total_km": 120.7,
+        "total_miles": 75
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 62276.54,
+        "co2_emissions_tons": 62.277,
+        "co2_per_km": 515.96,
+        "co2_per_mile": 830.36,
+        "estimated_fuel_consumed_gallons": 6507.48,
+        "flight_time_hours": 18.7,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 19:41:58 UTC",
+          "latitude": 26.679211,
+          "longitude": -80.103443,
+          "timestamp": 67318.98
+        },
+        "start": {
+          "altitude": 9700,
+          "formatted_time": "1970-01-01 01:00:00 UTC",
+          "latitude": 26.793885,
+          "longitude": -80.80962,
+          "timestamp": 0.27
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2024/10/07/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2024-10-06",
+      "distance": {
+        "num_points": 1039,
+        "total_km": 2009.94,
+        "total_miles": 1248.92
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 31548.52,
+        "co2_emissions_tons": 31.549,
+        "co2_per_km": 15.7,
+        "co2_per_mile": 25.26,
+        "estimated_fuel_consumed_gallons": 3296.61,
+        "flight_time_hours": 9.47,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": 9850,
+          "formatted_time": "1970-01-02 00:59:53 UTC",
+          "latitude": 26.792023,
+          "longitude": -80.819444,
+          "timestamp": 86393.89
+        },
+        "start": {
+          "altitude": 25,
+          "formatted_time": "1970-01-01 15:31:31 UTC",
+          "latitude": 26.679199,
+          "longitude": -80.102458,
+          "timestamp": 52291.07
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2024/10/06/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2024-10-03",
+      "distance": {
+        "num_points": 1777,
+        "total_km": 1971.62,
+        "total_miles": 1225.11
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G650",
+        "aircraft_type": "GLF6",
+        "co2_emissions_kg": 27535.25,
+        "co2_emissions_tons": 27.535,
+        "co2_per_km": 13.97,
+        "co2_per_mile": 22.48,
+        "estimated_fuel_consumed_gallons": 2877.25,
+        "flight_time_hours": 8.27,
+        "fuel_consumption_gph": 348
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 23:07:08 UTC",
+          "latitude": 26.678994,
+          "longitude": -80.103167,
+          "timestamp": 79628.92
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 14:51:04 UTC",
+          "latitude": 39.099152,
+          "longitude": -84.425439,
+          "timestamp": 49864.3
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2024/10/03/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2024-09-28",
+      "distance": {
+        "num_points": 683,
+        "total_km": 1118.95,
+        "total_miles": 695.28
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 4898.41,
+        "co2_emissions_tons": 4.898,
+        "co2_per_km": 4.38,
+        "co2_per_mile": 7.05,
+        "estimated_fuel_consumed_gallons": 511.85,
+        "flight_time_hours": 1.62,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 17:07:17 UTC",
+          "latitude": 39.104939,
+          "longitude": -84.422241,
+          "timestamp": 58037.33
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 15:30:06 UTC",
+          "latitude": 42.147045,
+          "longitude": -72.718537,
+          "timestamp": 52206.12
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2024/09/28/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2024-09-26",
+      "distance": {
+        "num_points": 614,
+        "total_km": 1356.79,
+        "total_miles": 843.07
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 6488.57,
+        "co2_emissions_tons": 6.489,
+        "co2_per_km": 4.78,
+        "co2_per_mile": 7.7,
+        "estimated_fuel_consumed_gallons": 678.01,
+        "flight_time_hours": 2.15,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": 475,
+          "formatted_time": "1970-01-01 21:00:43 UTC",
+          "latitude": 42.18251,
+          "longitude": -72.709892,
+          "timestamp": 72043.35
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 18:51:59 UTC",
+          "latitude": 44.264731,
+          "longitude": -88.510314,
+          "timestamp": 64319.17
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2024/09/26/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2024-01-02",
+      "distance": {
+        "num_points": 1938,
+        "total_km": 4691.59,
+        "total_miles": 2915.22
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 30036.74,
+        "co2_emissions_tons": 30.037,
+        "co2_per_km": 6.4,
+        "co2_per_mile": 10.3,
+        "estimated_fuel_consumed_gallons": 3138.64,
+        "flight_time_hours": 9.93,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": 800,
+          "formatted_time": "1970-01-01 22:11:14 UTC",
+          "latitude": 31.238833,
+          "longitude": -81.516687,
+          "timestamp": 76274.45
+        },
+        "start": {
+          "altitude": -200,
+          "formatted_time": "1970-01-01 12:15:17 UTC",
+          "latitude": 26.68202,
+          "longitude": -80.080402,
+          "timestamp": 40517.84
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2024/01/02/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-12-26",
+      "distance": {
+        "num_points": 1541,
+        "total_km": 4143.29,
+        "total_miles": 2574.52
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 19894.44,
+        "co2_emissions_tons": 19.894,
+        "co2_per_km": 4.8,
+        "co2_per_mile": 7.73,
+        "estimated_fuel_consumed_gallons": 2078.83,
+        "flight_time_hours": 6.58,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 20:27:19 UTC",
+          "latitude": 26.678055,
+          "longitude": -80.091589,
+          "timestamp": 70039.38
+        },
+        "start": {
+          "altitude": 50,
+          "formatted_time": "1970-01-01 13:52:36 UTC",
+          "latitude": 26.682486,
+          "longitude": -80.091705,
+          "timestamp": 46356.46
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/12/26/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-12-11",
+      "distance": {
+        "num_points": 866,
+        "total_km": 1767.81,
+        "total_miles": 1098.46
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 8054.61,
+        "co2_emissions_tons": 8.055,
+        "co2_per_km": 4.56,
+        "co2_per_mile": 7.33,
+        "estimated_fuel_consumed_gallons": 841.65,
+        "flight_time_hours": 2.66,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 18:42:44 UTC",
+          "latitude": 26.682602,
+          "longitude": -80.094571,
+          "timestamp": 63764.62
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 16:02:56 UTC",
+          "latitude": 40.847454,
+          "longitude": -74.067062,
+          "timestamp": 54176.18
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/12/11/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-12-10",
+      "distance": {
+        "num_points": 766,
+        "total_km": 1789.5,
+        "total_miles": 1111.94
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 6825.68,
+        "co2_emissions_tons": 6.826,
+        "co2_per_km": 3.81,
+        "co2_per_mile": 6.14,
+        "estimated_fuel_consumed_gallons": 713.24,
+        "flight_time_hours": 2.26,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 18:17:01 UTC",
+          "latitude": 40.847008,
+          "longitude": -74.065948,
+          "timestamp": 62221.31
+        },
+        "start": {
+          "altitude": 75,
+          "formatted_time": "1970-01-01 16:01:35 UTC",
+          "latitude": 26.682678,
+          "longitude": -80.09313,
+          "timestamp": 54095.82
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/12/10/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-11-29",
+      "distance": {
+        "num_points": 1076,
+        "total_km": 3559.91,
+        "total_miles": 2212.03
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 11977.69,
+        "co2_emissions_tons": 11.978,
+        "co2_per_km": 3.36,
+        "co2_per_mile": 5.41,
+        "estimated_fuel_consumed_gallons": 1251.59,
+        "flight_time_hours": 3.96,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 23:02:54 UTC",
+          "latitude": 26.680799,
+          "longitude": -80.106102,
+          "timestamp": 79374.55
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 19:05:15 UTC",
+          "latitude": 36.098339,
+          "longitude": -115.159807,
+          "timestamp": 65115.96
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/11/29/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-11-25",
+      "distance": {
+        "num_points": 1314,
+        "total_km": 3522.27,
+        "total_miles": 2188.64
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 15665.67,
+        "co2_emissions_tons": 15.666,
+        "co2_per_km": 4.45,
+        "co2_per_mile": 7.16,
+        "estimated_fuel_consumed_gallons": 1636.96,
+        "flight_time_hours": 5.18,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 21:26:50 UTC",
+          "latitude": 36.09785,
+          "longitude": -115.160561,
+          "timestamp": 73610.13
+        },
+        "start": {
+          "altitude": -125,
+          "formatted_time": "1970-01-01 16:16:01 UTC",
+          "latitude": 26.682449,
+          "longitude": -80.092146,
+          "timestamp": 54961.26
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/11/25/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-11-24",
+      "distance": {
+        "num_points": 1249,
+        "total_km": 2110.9,
+        "total_miles": 1311.65
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 14743.22,
+        "co2_emissions_tons": 14.743,
+        "co2_per_km": 6.98,
+        "co2_per_mile": 11.24,
+        "estimated_fuel_consumed_gallons": 1540.57,
+        "flight_time_hours": 4.88,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 18:00:39 UTC",
+          "latitude": 26.681403,
+          "longitude": -80.092009,
+          "timestamp": 61239.36
+        },
+        "start": {
+          "altitude": -100,
+          "formatted_time": "1970-01-01 13:08:08 UTC",
+          "latitude": 26.682672,
+          "longitude": -80.095984,
+          "timestamp": 43688.61
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/11/24/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-11-23",
+      "distance": {
+        "num_points": 311,
+        "total_km": 429.04,
+        "total_miles": 266.6
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 2003.6,
+        "co2_emissions_tons": 2.004,
+        "co2_per_km": 4.67,
+        "co2_per_mile": 7.52,
+        "estimated_fuel_consumed_gallons": 209.36,
+        "flight_time_hours": 0.66,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 01:39:45 UTC",
+          "latitude": 26.682598,
+          "longitude": -80.094543,
+          "timestamp": 2385.48
+        },
+        "start": {
+          "altitude": 45000,
+          "formatted_time": "1970-01-01 01:00:00 UTC",
+          "latitude": 30.171158,
+          "longitude": -80.935795,
+          "timestamp": 0.34
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/11/23/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-11-22",
+      "distance": {
+        "num_points": 1337,
+        "total_km": 3910.5,
+        "total_miles": 2429.87
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 16439.44,
+        "co2_emissions_tons": 16.439,
+        "co2_per_km": 4.2,
+        "co2_per_mile": 6.77,
+        "estimated_fuel_consumed_gallons": 1717.81,
+        "flight_time_hours": 5.44,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": 45000,
+          "formatted_time": "1970-01-02 00:59:40 UTC",
+          "latitude": 30.212494,
+          "longitude": -80.938218,
+          "timestamp": 86380.72
+        },
+        "start": {
+          "altitude": -50,
+          "formatted_time": "1970-01-01 19:33:30 UTC",
+          "latitude": 33.632595,
+          "longitude": -116.156502,
+          "timestamp": 66810.74
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/11/22/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-11-17",
+      "distance": {
+        "num_points": 1178,
+        "total_km": 3563.03,
+        "total_miles": 2213.96
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 15262.12,
+        "co2_emissions_tons": 15.262,
+        "co2_per_km": 4.28,
+        "co2_per_mile": 6.89,
+        "estimated_fuel_consumed_gallons": 1594.79,
+        "flight_time_hours": 5.05,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": 125,
+          "formatted_time": "1970-01-01 22:40:03 UTC",
+          "latitude": 33.648283,
+          "longitude": -116.156387,
+          "timestamp": 78003.95
+        },
+        "start": {
+          "altitude": 4025,
+          "formatted_time": "1970-01-01 17:37:15 UTC",
+          "latitude": 26.685196,
+          "longitude": -80.162158,
+          "timestamp": 59835.48
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/11/17/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-10-28",
+      "distance": {
+        "num_points": 766,
+        "total_km": 3140.68,
+        "total_miles": 1951.53
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 11320.19,
+        "co2_emissions_tons": 11.32,
+        "co2_per_km": 3.6,
+        "co2_per_mile": 5.8,
+        "estimated_fuel_consumed_gallons": 1182.88,
+        "flight_time_hours": 3.74,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 21:36:57 UTC",
+          "latitude": 26.681566,
+          "longitude": -80.089157,
+          "timestamp": 74217.97
+        },
+        "start": {
+          "altitude": 11475,
+          "formatted_time": "1970-01-01 17:52:22 UTC",
+          "latitude": 22.857422,
+          "longitude": -110.059038,
+          "timestamp": 60742.09
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/10/28/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-10-23",
+      "distance": {
+        "num_points": 834,
+        "total_km": 2839.1,
+        "total_miles": 1764.14
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 10686.96,
+        "co2_emissions_tons": 10.687,
+        "co2_per_km": 3.76,
+        "co2_per_mile": 6.06,
+        "estimated_fuel_consumed_gallons": 1116.72,
+        "flight_time_hours": 3.53,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": 47000,
+          "formatted_time": "1970-01-02 00:43:58 UTC",
+          "latitude": 23.444183,
+          "longitude": -106.565338,
+          "timestamp": 85438.21
+        },
+        "start": {
+          "altitude": -75,
+          "formatted_time": "1970-01-01 21:11:56 UTC",
+          "latitude": 26.683044,
+          "longitude": -80.10479,
+          "timestamp": 72716.14
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/10/23/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-10-17",
+      "distance": {
+        "num_points": 1325,
+        "total_km": 4416.13,
+        "total_miles": 2744.06
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 15174.93,
+        "co2_emissions_tons": 15.175,
+        "co2_per_km": 3.44,
+        "co2_per_mile": 5.53,
+        "estimated_fuel_consumed_gallons": 1585.68,
+        "flight_time_hours": 5.02,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 10:12:05 UTC",
+          "latitude": 26.679739,
+          "longitude": -80.102295,
+          "timestamp": 33125.63
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 05:11:00 UTC",
+          "latitude": 45.58588,
+          "longitude": -122.5788,
+          "timestamp": 15060.95
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/10/17/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-10-16",
+      "distance": {
+        "num_points": 356,
+        "total_km": 572.83,
+        "total_miles": 355.94
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 2485.22,
+        "co2_emissions_tons": 2.485,
+        "co2_per_km": 4.34,
+        "co2_per_mile": 6.98,
+        "estimated_fuel_consumed_gallons": 259.69,
+        "flight_time_hours": 0.82,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 01:49:34 UTC",
+          "latitude": 45.585825,
+          "longitude": -122.579081,
+          "timestamp": 2974.52
+        },
+        "start": {
+          "altitude": 43000,
+          "formatted_time": "1970-01-01 01:00:16 UTC",
+          "latitude": 41.201058,
+          "longitude": -120.252165,
+          "timestamp": 16.04
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/10/16/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-10-15",
+      "distance": {
+        "num_points": 425,
+        "total_km": 792.49,
+        "total_miles": 492.43
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 3664.48,
+        "co2_emissions_tons": 3.664,
+        "co2_per_km": 4.62,
+        "co2_per_mile": 7.44,
+        "estimated_fuel_consumed_gallons": 382.91,
+        "flight_time_hours": 1.21,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": 43000,
+          "formatted_time": "1970-01-02 00:59:56 UTC",
+          "latitude": 41.165539,
+          "longitude": -120.223763,
+          "timestamp": 86396.46
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 23:47:14 UTC",
+          "latitude": 36.097641,
+          "longitude": -115.160465,
+          "timestamp": 82034.16
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/10/15/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-10-13",
+      "distance": {
+        "num_points": 1320,
+        "total_km": 3516.27,
+        "total_miles": 2184.91
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 14920.67,
+        "co2_emissions_tons": 14.921,
+        "co2_per_km": 4.24,
+        "co2_per_mile": 6.83,
+        "estimated_fuel_consumed_gallons": 1559.11,
+        "flight_time_hours": 4.93,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 19:29:16 UTC",
+          "latitude": 36.098682,
+          "longitude": -115.16005,
+          "timestamp": 66556.49
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 14:33:14 UTC",
+          "latitude": 26.681923,
+          "longitude": -80.078167,
+          "timestamp": 48794.49
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/10/13/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-10-12",
+      "distance": {
+        "num_points": 1135,
+        "total_km": 1650.09,
+        "total_miles": 1025.32
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 24938.73,
+        "co2_emissions_tons": 24.939,
+        "co2_per_km": 15.11,
+        "co2_per_mile": 24.32,
+        "estimated_fuel_consumed_gallons": 2605.93,
+        "flight_time_hours": 8.25,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 22:22:12 UTC",
+          "latitude": 26.682591,
+          "longitude": -80.094227,
+          "timestamp": 76932.35
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 14:07:24 UTC",
+          "latitude": 26.681969,
+          "longitude": -80.080019,
+          "timestamp": 47244.56
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/10/12/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-10-09",
+      "distance": {
+        "num_points": 125,
+        "total_km": 60.93,
+        "total_miles": 37.86
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 565.54,
+        "co2_emissions_tons": 0.566,
+        "co2_per_km": 9.28,
+        "co2_per_mile": 14.94,
+        "estimated_fuel_consumed_gallons": 59.1,
+        "flight_time_hours": 0.19,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 01:11:16 UTC",
+          "latitude": 26.681345,
+          "longitude": -80.090689,
+          "timestamp": 676.39
+        },
+        "start": {
+          "altitude": 7000,
+          "formatted_time": "1970-01-01 01:00:03 UTC",
+          "latitude": 27.080694,
+          "longitude": -80.10285,
+          "timestamp": 3.15
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/10/09/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-10-08",
+      "distance": {
+        "num_points": 469,
+        "total_km": 978.33,
+        "total_miles": 607.91
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 3877.41,
+        "co2_emissions_tons": 3.877,
+        "co2_per_km": 3.96,
+        "co2_per_mile": 6.38,
+        "estimated_fuel_consumed_gallons": 405.16,
+        "flight_time_hours": 1.28,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": 7100,
+          "formatted_time": "1970-01-02 00:59:59 UTC",
+          "latitude": 27.085442,
+          "longitude": -80.101266,
+          "timestamp": 86399.02
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 23:43:03 UTC",
+          "latitude": 35.203791,
+          "longitude": -80.932388,
+          "timestamp": 81783.24
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/10/08/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-10-06",
+      "distance": {
+        "num_points": 605,
+        "total_km": 1058.66,
+        "total_miles": 657.82
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 4430.13,
+        "co2_emissions_tons": 4.43,
+        "co2_per_km": 4.18,
+        "co2_per_mile": 6.73,
+        "estimated_fuel_consumed_gallons": 462.92,
+        "flight_time_hours": 1.46,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 23:56:25 UTC",
+          "latitude": 35.21124,
+          "longitude": -80.933146,
+          "timestamp": 82585.07
+        },
+        "start": {
+          "altitude": 150,
+          "formatted_time": "1970-01-01 22:28:31 UTC",
+          "latitude": 26.682532,
+          "longitude": -80.093396,
+          "timestamp": 77311.32
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/10/06/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-10-01",
+      "distance": {
+        "num_points": 1150,
+        "total_km": 2123.95,
+        "total_miles": 1319.76
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 25411.63,
+        "co2_emissions_tons": 25.412,
+        "co2_per_km": 11.96,
+        "co2_per_mile": 19.25,
+        "estimated_fuel_consumed_gallons": 2655.34,
+        "flight_time_hours": 8.4,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-02 00:41:15 UTC",
+          "latitude": 26.68138,
+          "longitude": -80.09152,
+          "timestamp": 85275.91
+        },
+        "start": {
+          "altitude": 25,
+          "formatted_time": "1970-01-01 16:17:05 UTC",
+          "latitude": 26.682532,
+          "longitude": -80.092867,
+          "timestamp": 55025.17
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/10/01/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-09-17",
+      "distance": {
+        "num_points": 626,
+        "total_km": 1131.74,
+        "total_miles": 703.23
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 4779.76,
+        "co2_emissions_tons": 4.78,
+        "co2_per_km": 4.22,
+        "co2_per_mile": 6.8,
+        "estimated_fuel_consumed_gallons": 499.45,
+        "flight_time_hours": 1.58,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 05:26:57 UTC",
+          "latitude": 26.681508,
+          "longitude": -80.094399,
+          "timestamp": 16017.47
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 03:52:07 UTC",
+          "latitude": 36.477135,
+          "longitude": -82.410376,
+          "timestamp": 10327.5
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/09/17/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-09-16",
+      "distance": {
+        "num_points": 629,
+        "total_km": 1201.45,
+        "total_miles": 746.55
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 4825.06,
+        "co2_emissions_tons": 4.825,
+        "co2_per_km": 4.02,
+        "co2_per_mile": 6.46,
+        "estimated_fuel_consumed_gallons": 504.19,
+        "flight_time_hours": 1.6,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 22:10:02 UTC",
+          "latitude": 36.471439,
+          "longitude": -82.41364,
+          "timestamp": 76202.52
+        },
+        "start": {
+          "altitude": 50,
+          "formatted_time": "1970-01-01 20:34:18 UTC",
+          "latitude": 26.682541,
+          "longitude": -80.093079,
+          "timestamp": 70458.63
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/09/16/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-09-04",
+      "distance": {
+        "num_points": 259,
+        "total_km": 318.79,
+        "total_miles": 198.09
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 1684.62,
+        "co2_emissions_tons": 1.685,
+        "co2_per_km": 5.28,
+        "co2_per_mile": 8.5,
+        "estimated_fuel_consumed_gallons": 176.03,
+        "flight_time_hours": 0.56,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 17:49:16 UTC",
+          "latitude": 26.681136,
+          "longitude": -80.089645,
+          "timestamp": 60556.88
+        },
+        "start": {
+          "altitude": 16975,
+          "formatted_time": "1970-01-01 17:15:51 UTC",
+          "latitude": 26.459839,
+          "longitude": -77.407906,
+          "timestamp": 58551.46
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/09/04/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-09-01",
+      "distance": {
+        "num_points": 191,
+        "total_km": 238.21,
+        "total_miles": 148.02
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 1083.9,
+        "co2_emissions_tons": 1.084,
+        "co2_per_km": 4.55,
+        "co2_per_mile": 7.32,
+        "estimated_fuel_consumed_gallons": 113.26,
+        "flight_time_hours": 0.36,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": 9600,
+          "formatted_time": "1970-01-01 19:23:19 UTC",
+          "latitude": 26.611084,
+          "longitude": -77.701065,
+          "timestamp": 66199.16
+        },
+        "start": {
+          "altitude": 25,
+          "formatted_time": "1970-01-01 19:01:48 UTC",
+          "latitude": 26.682449,
+          "longitude": -80.092405,
+          "timestamp": 64908.85
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/09/01/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-08-27",
+      "distance": {
+        "num_points": 397,
+        "total_km": 319.84,
+        "total_miles": 198.74
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 2213.19,
+        "co2_emissions_tons": 2.213,
+        "co2_per_km": 6.92,
+        "co2_per_mile": 11.14,
+        "estimated_fuel_consumed_gallons": 231.26,
+        "flight_time_hours": 0.73,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 05:02:23 UTC",
+          "latitude": 26.67996,
+          "longitude": -80.105659,
+          "timestamp": 14543.64
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 04:18:29 UTC",
+          "latitude": 29.186497,
+          "longitude": -81.055663,
+          "timestamp": 11909
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/08/27/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-08-26",
+      "distance": {
+        "num_points": 352,
+        "total_km": 343.42,
+        "total_miles": 213.39
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 1784.31,
+        "co2_emissions_tons": 1.784,
+        "co2_per_km": 5.2,
+        "co2_per_mile": 8.36,
+        "estimated_fuel_consumed_gallons": 186.45,
+        "flight_time_hours": 0.59,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 23:12:59 UTC",
+          "latitude": 29.18232,
+          "longitude": -81.053867,
+          "timestamp": 79979.68
+        },
+        "start": {
+          "altitude": 200,
+          "formatted_time": "1970-01-01 22:37:35 UTC",
+          "latitude": 26.682587,
+          "longitude": -80.093338,
+          "timestamp": 77855.58
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/08/26/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-08-12",
+      "distance": {
+        "num_points": 648,
+        "total_km": 1398.98,
+        "total_miles": 869.29
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 5444.35,
+        "co2_emissions_tons": 5.444,
+        "co2_per_km": 3.89,
+        "co2_per_mile": 6.26,
+        "estimated_fuel_consumed_gallons": 568.9,
+        "flight_time_hours": 1.8,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 16:47:16 UTC",
+          "latitude": 26.681403,
+          "longitude": -80.092088,
+          "timestamp": 56836.28
+        },
+        "start": {
+          "altitude": 2075,
+          "formatted_time": "1970-01-01 14:59:15 UTC",
+          "latitude": 38.299393,
+          "longitude": -75.478529,
+          "timestamp": 50355.17
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/08/12/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-08-06",
+      "distance": {
+        "num_points": 667,
+        "total_km": 1546.18,
+        "total_miles": 960.75
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 6042.02,
+        "co2_emissions_tons": 6.042,
+        "co2_per_km": 3.91,
+        "co2_per_mile": 6.29,
+        "estimated_fuel_consumed_gallons": 631.35,
+        "flight_time_hours": 2,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": 100,
+          "formatted_time": "1970-01-01 17:08:22 UTC",
+          "latitude": 38.349518,
+          "longitude": -75.522649,
+          "timestamp": 58102.44
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 15:08:29 UTC",
+          "latitude": 26.681213,
+          "longitude": -80.087624,
+          "timestamp": 50909.84
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/08/06/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-07-30",
+      "distance": {
+        "num_points": 979,
+        "total_km": 8052.2,
+        "total_miles": 5003.41
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 29425.14,
+        "co2_emissions_tons": 29.425,
+        "co2_per_km": 3.65,
+        "co2_per_mile": 5.88,
+        "estimated_fuel_consumed_gallons": 3074.73,
+        "flight_time_hours": 9.73,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 20:18:54 UTC",
+          "latitude": 26.680694,
+          "longitude": -80.090134,
+          "timestamp": 69534.44
+        },
+        "start": {
+          "altitude": 725,
+          "formatted_time": "1970-01-01 10:35:05 UTC",
+          "latitude": 43.665115,
+          "longitude": 7.228046,
+          "timestamp": 34505.9
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/07/30/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-07-29",
+      "distance": {
+        "num_points": 305,
+        "total_km": 234.02,
+        "total_miles": 145.41
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 1631.35,
+        "co2_emissions_tons": 1.631,
+        "co2_per_km": 6.97,
+        "co2_per_mile": 11.22,
+        "estimated_fuel_consumed_gallons": 170.47,
+        "flight_time_hours": 0.54,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": 950,
+          "formatted_time": "1970-01-01 10:32:16 UTC",
+          "latitude": 43.624614,
+          "longitude": 7.166159,
+          "timestamp": 34336.54
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 09:59:54 UTC",
+          "latitude": 44.412289,
+          "longitude": 8.852822,
+          "timestamp": 32394.53
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/07/29/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-07-03",
+      "distance": {
+        "num_points": 1262,
+        "total_km": 2749.03,
+        "total_miles": 1708.17
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 15378.78,
+        "co2_emissions_tons": 15.379,
+        "co2_per_km": 5.59,
+        "co2_per_mile": 9,
+        "estimated_fuel_consumed_gallons": 1606.98,
+        "flight_time_hours": 5.09,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": 225,
+          "formatted_time": "1970-01-01 15:15:27 UTC",
+          "latitude": 44.40683,
+          "longitude": 8.868386,
+          "timestamp": 51327.26
+        },
+        "start": {
+          "altitude": 625,
+          "formatted_time": "1970-01-01 10:10:19 UTC",
+          "latitude": 48.966902,
+          "longitude": 2.431737,
+          "timestamp": 33019.92
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/07/03/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-06-30",
+      "distance": {
+        "num_points": 711,
+        "total_km": 5283.44,
+        "total_miles": 3282.97
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 19037.84,
+        "co2_emissions_tons": 19.038,
+        "co2_per_km": 3.6,
+        "co2_per_mile": 5.8,
+        "estimated_fuel_consumed_gallons": 1989.33,
+        "flight_time_hours": 6.3,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": 575,
+          "formatted_time": "1970-01-01 08:17:40 UTC",
+          "latitude": 48.967089,
+          "longitude": 2.482115,
+          "timestamp": 26260.25
+        },
+        "start": {
+          "altitude": 43000,
+          "formatted_time": "1970-01-01 01:59:57 UTC",
+          "latitude": 40.466171,
+          "longitude": -64.068054,
+          "timestamp": 3597.05
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/06/30/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-06-29",
+      "distance": {
+        "num_points": 229,
+        "total_km": 487.16,
+        "total_miles": 302.71
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 1903.83,
+        "co2_emissions_tons": 1.904,
+        "co2_per_km": 3.91,
+        "co2_per_mile": 6.29,
+        "estimated_fuel_consumed_gallons": 198.94,
+        "flight_time_hours": 0.63,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": 41000,
+          "formatted_time": "1970-01-02 00:06:22 UTC",
+          "latitude": 29.038634,
+          "longitude": -76.113981,
+          "timestamp": 83182.06
+        },
+        "start": {
+          "altitude": 0,
+          "formatted_time": "1970-01-01 23:28:35 UTC",
+          "latitude": 26.682632,
+          "longitude": -80.094841,
+          "timestamp": 80915.69
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/06/29/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-06-25",
+      "distance": {
+        "num_points": 694,
+        "total_km": 1385.07,
+        "total_miles": 860.64
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 5694.06,
+        "co2_emissions_tons": 5.694,
+        "co2_per_km": 4.11,
+        "co2_per_mile": 6.62,
+        "estimated_fuel_consumed_gallons": 594.99,
+        "flight_time_hours": 1.88,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 23:39:00 UTC",
+          "latitude": 26.679844,
+          "longitude": -80.104554,
+          "timestamp": 81540.89
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 21:46:02 UTC",
+          "latitude": 36.122209,
+          "longitude": -86.673378,
+          "timestamp": 74762.52
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/06/25/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-06-23",
+      "distance": {
+        "num_points": 1245,
+        "total_km": 1723.98,
+        "total_miles": 1071.23
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 9964.88,
+        "co2_emissions_tons": 9.965,
+        "co2_per_km": 5.78,
+        "co2_per_mile": 9.3,
+        "estimated_fuel_consumed_gallons": 1041.26,
+        "flight_time_hours": 3.3,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 18:51:45 UTC",
+          "latitude": 36.12117,
+          "longitude": -86.672001,
+          "timestamp": 64305.37
+        },
+        "start": {
+          "altitude": -25,
+          "formatted_time": "1970-01-01 15:34:02 UTC",
+          "latitude": 26.682625,
+          "longitude": -80.094663,
+          "timestamp": 52442.89
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/06/23/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-06-19",
+      "distance": {
+        "num_points": 1242,
+        "total_km": 2046.36,
+        "total_miles": 1271.55
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 11955.75,
+        "co2_emissions_tons": 11.956,
+        "co2_per_km": 5.84,
+        "co2_per_mile": 9.4,
+        "estimated_fuel_consumed_gallons": 1249.29,
+        "flight_time_hours": 3.95,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 18:56:34 UTC",
+          "latitude": 26.681601,
+          "longitude": -80.096617,
+          "timestamp": 64594.87
+        },
+        "start": {
+          "altitude": 1400,
+          "formatted_time": "1970-01-01 14:59:22 UTC",
+          "latitude": 26.706665,
+          "longitude": -80.12013,
+          "timestamp": 50362.4
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/06/19/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-06-14",
+      "distance": {
+        "num_points": 416,
+        "total_km": 648.68,
+        "total_miles": 403.07
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 8384.47,
+        "co2_emissions_tons": 8.384,
+        "co2_per_km": 12.93,
+        "co2_per_mile": 20.8,
+        "estimated_fuel_consumed_gallons": 876.12,
+        "flight_time_hours": 2.77,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 16:55:51 UTC",
+          "latitude": 26.682621,
+          "longitude": -80.094581,
+          "timestamp": 57351.47
+        },
+        "start": {
+          "altitude": -75,
+          "formatted_time": "1970-01-01 14:09:30 UTC",
+          "latitude": 26.68634,
+          "longitude": -80.09795,
+          "timestamp": 47370.36
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/06/14/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-06-10",
+      "distance": {
+        "num_points": 469,
+        "total_km": 670.08,
+        "total_miles": 416.37
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 6535.7,
+        "co2_emissions_tons": 6.536,
+        "co2_per_km": 9.75,
+        "co2_per_mile": 15.7,
+        "estimated_fuel_consumed_gallons": 682.94,
+        "flight_time_hours": 2.16,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 17:49:09 UTC",
+          "latitude": 26.68152,
+          "longitude": -80.089196,
+          "timestamp": 60549.8
+        },
+        "start": {
+          "altitude": 100,
+          "formatted_time": "1970-01-01 15:39:29 UTC",
+          "latitude": 26.682495,
+          "longitude": -80.092405,
+          "timestamp": 52769.51
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/06/10/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-05-30",
+      "distance": {
+        "num_points": 690,
+        "total_km": 1051.8,
+        "total_miles": 653.56
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 5557.06,
+        "co2_emissions_tons": 5.557,
+        "co2_per_km": 5.28,
+        "co2_per_mile": 8.5,
+        "estimated_fuel_consumed_gallons": 580.68,
+        "flight_time_hours": 1.84,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 18:27:23 UTC",
+          "latitude": 26.681179,
+          "longitude": -80.089607,
+          "timestamp": 62843.62
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 16:37:08 UTC",
+          "latitude": 21.774628,
+          "longitude": -72.25703,
+          "timestamp": 56228.33
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/05/30/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-05-25",
+      "distance": {
+        "num_points": 520,
+        "total_km": 1007.77,
+        "total_miles": 626.2
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 4329.86,
+        "co2_emissions_tons": 4.33,
+        "co2_per_km": 4.3,
+        "co2_per_mile": 6.91,
+        "estimated_fuel_consumed_gallons": 452.44,
+        "flight_time_hours": 1.43,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 18:00:49 UTC",
+          "latitude": 21.773506,
+          "longitude": -72.26326,
+          "timestamp": 61249.47
+        },
+        "start": {
+          "altitude": 250,
+          "formatted_time": "1970-01-01 16:34:55 UTC",
+          "latitude": 26.682532,
+          "longitude": -80.092022,
+          "timestamp": 56095.08
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/05/25/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-05-22",
+      "distance": {
+        "num_points": 621,
+        "total_km": 326.27,
+        "total_miles": 202.74
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 4440.76,
+        "co2_emissions_tons": 4.441,
+        "co2_per_km": 13.61,
+        "co2_per_mile": 21.9,
+        "estimated_fuel_consumed_gallons": 464.03,
+        "flight_time_hours": 1.47,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 17:22:17 UTC",
+          "latitude": 26.681403,
+          "longitude": -80.091877,
+          "timestamp": 58937.74
+        },
+        "start": {
+          "altitude": 100,
+          "formatted_time": "1970-01-01 15:54:11 UTC",
+          "latitude": 26.682625,
+          "longitude": -80.094558,
+          "timestamp": 53651.33
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/05/22/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-05-04",
+      "distance": {
+        "num_points": 1230,
+        "total_km": 7463.78,
+        "total_miles": 4637.77
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 33461.5,
+        "co2_emissions_tons": 33.462,
+        "co2_per_km": 4.48,
+        "co2_per_mile": 7.21,
+        "estimated_fuel_consumed_gallons": 3496.5,
+        "flight_time_hours": 11.06,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 19:22:47 UTC",
+          "latitude": 26.680573,
+          "longitude": -80.090293,
+          "timestamp": 66167.34
+        },
+        "start": {
+          "altitude": 3050,
+          "formatted_time": "1970-01-01 08:18:53 UTC",
+          "latitude": 37.188441,
+          "longitude": -3.810226,
+          "timestamp": 26333.8
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/05/04/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-05-01",
+      "distance": {
+        "num_points": 549,
+        "total_km": 820.19,
+        "total_miles": 509.64
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 7621.7,
+        "co2_emissions_tons": 7.622,
+        "co2_per_km": 9.29,
+        "co2_per_mile": 14.95,
+        "estimated_fuel_consumed_gallons": 796.42,
+        "flight_time_hours": 2.52,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": 4325,
+          "formatted_time": "1970-01-01 13:28:56 UTC",
+          "latitude": 37.185883,
+          "longitude": -3.911483,
+          "timestamp": 44936.86
+        },
+        "start": {
+          "altitude": 9200,
+          "formatted_time": "1970-01-01 10:57:43 UTC",
+          "latitude": 31.643555,
+          "longitude": -7.892061,
+          "timestamp": 35863.77
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/05/01/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-04-26",
+      "distance": {
+        "num_points": 252,
+        "total_km": 6135.44,
+        "total_miles": 3812.38
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 18966.95,
+        "co2_emissions_tons": 18.967,
+        "co2_per_km": 3.09,
+        "co2_per_mile": 4.98,
+        "estimated_fuel_consumed_gallons": 1981.92,
+        "flight_time_hours": 6.27,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": 45000,
+          "formatted_time": "1970-01-01 10:45:27 UTC",
+          "latitude": 33.488892,
+          "longitude": -16.13205,
+          "timestamp": 35127.95
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 04:29:09 UTC",
+          "latitude": 26.681438,
+          "longitude": -80.092735,
+          "timestamp": 12549.14
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/04/26/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-04-24",
+      "distance": {
+        "num_points": 282,
+        "total_km": 566.46,
+        "total_miles": 351.98
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 2285.42,
+        "co2_emissions_tons": 2.285,
+        "co2_per_km": 4.03,
+        "co2_per_mile": 6.49,
+        "estimated_fuel_consumed_gallons": 238.81,
+        "flight_time_hours": 0.76,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 01:45:39 UTC",
+          "latitude": 26.681497,
+          "longitude": -80.094333,
+          "timestamp": 2739.16
+        },
+        "start": {
+          "altitude": 40000,
+          "formatted_time": "1970-01-01 01:00:18 UTC",
+          "latitude": 30.943268,
+          "longitude": -82.678689,
+          "timestamp": 18.53
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/04/24/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-04-23",
+      "distance": {
+        "num_points": 800,
+        "total_km": 1494.19,
+        "total_miles": 928.45
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 23022.42,
+        "co2_emissions_tons": 23.022,
+        "co2_per_km": 15.41,
+        "co2_per_mile": 24.8,
+        "estimated_fuel_consumed_gallons": 2405.69,
+        "flight_time_hours": 7.61,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": 40000,
+          "formatted_time": "1970-01-02 00:59:58 UTC",
+          "latitude": 30.979706,
+          "longitude": -82.720965,
+          "timestamp": 86398.99
+        },
+        "start": {
+          "altitude": 0,
+          "formatted_time": "1970-01-01 17:23:12 UTC",
+          "latitude": 26.683044,
+          "longitude": -80.104382,
+          "timestamp": 58992.44
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/04/23/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-04-22",
+      "distance": {
+        "num_points": 228,
+        "total_km": 282.29,
+        "total_miles": 175.4
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 1519.12,
+        "co2_emissions_tons": 1.519,
+        "co2_per_km": 5.38,
+        "co2_per_mile": 8.66,
+        "estimated_fuel_consumed_gallons": 158.74,
+        "flight_time_hours": 0.5,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": 175,
+          "formatted_time": "1970-01-01 23:37:35 UTC",
+          "latitude": 26.692017,
+          "longitude": -80.104169,
+          "timestamp": 81455.2
+        },
+        "start": {
+          "altitude": 16900,
+          "formatted_time": "1970-01-01 23:07:26 UTC",
+          "latitude": 26.615479,
+          "longitude": -77.416353,
+          "timestamp": 79646.79
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/04/22/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-04-19",
+      "distance": {
+        "num_points": 203,
+        "total_km": 228.76,
+        "total_miles": 142.15
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 1089.71,
+        "co2_emissions_tons": 1.09,
+        "co2_per_km": 4.76,
+        "co2_per_mile": 7.67,
+        "estimated_fuel_consumed_gallons": 113.87,
+        "flight_time_hours": 0.36,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": 7500,
+          "formatted_time": "1970-01-01 22:42:00 UTC",
+          "latitude": 26.538986,
+          "longitude": -77.810358,
+          "timestamp": 78120.18
+        },
+        "start": {
+          "altitude": -125,
+          "formatted_time": "1970-01-01 22:20:22 UTC",
+          "latitude": 26.682953,
+          "longitude": -80.102355,
+          "timestamp": 76822.96
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/04/19/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-04-17",
+      "distance": {
+        "num_points": 898,
+        "total_km": 1831.4,
+        "total_miles": 1137.98
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 8206.94,
+        "co2_emissions_tons": 8.207,
+        "co2_per_km": 4.48,
+        "co2_per_mile": 7.21,
+        "estimated_fuel_consumed_gallons": 857.57,
+        "flight_time_hours": 2.71,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 05:12:10 UTC",
+          "latitude": 26.679211,
+          "longitude": -80.102808,
+          "timestamp": 15130.45
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 02:29:20 UTC",
+          "latitude": 40.705616,
+          "longitude": -74.169327,
+          "timestamp": 5360.67
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/04/17/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-04-16",
+      "distance": {
+        "num_points": 1897,
+        "total_km": 4491.46,
+        "total_miles": 2790.86
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 20958.69,
+        "co2_emissions_tons": 20.959,
+        "co2_per_km": 4.67,
+        "co2_per_mile": 7.51,
+        "estimated_fuel_consumed_gallons": 2190.04,
+        "flight_time_hours": 6.93,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-02 00:39:21 UTC",
+          "latitude": 40.705894,
+          "longitude": -74.169809,
+          "timestamp": 85161.88
+        },
+        "start": {
+          "altitude": 75,
+          "formatted_time": "1970-01-01 17:43:32 UTC",
+          "latitude": 26.682579,
+          "longitude": -80.093184,
+          "timestamp": 60212.05
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/04/16/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-04-03",
+      "distance": {
+        "num_points": 474,
+        "total_km": 1161.2,
+        "total_miles": 721.53
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 4628.93,
+        "co2_emissions_tons": 4.629,
+        "co2_per_km": 3.99,
+        "co2_per_mile": 6.42,
+        "estimated_fuel_consumed_gallons": 483.69,
+        "flight_time_hours": 1.53,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 02:31:58 UTC",
+          "latitude": 26.68138,
+          "longitude": -80.091428,
+          "timestamp": 5518.9
+        },
+        "start": {
+          "altitude": 28525,
+          "formatted_time": "1970-01-01 01:00:08 UTC",
+          "latitude": 36.538101,
+          "longitude": -77.246304,
+          "timestamp": 8.49
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/04/03/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-04-02",
+      "distance": {
+        "num_points": 786,
+        "total_km": 1443.77,
+        "total_miles": 897.12
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 22812.16,
+        "co2_emissions_tons": 22.812,
+        "co2_per_km": 15.8,
+        "co2_per_mile": 25.43,
+        "estimated_fuel_consumed_gallons": 2383.72,
+        "flight_time_hours": 7.54,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": 28150,
+          "formatted_time": "1970-01-02 00:59:57 UTC",
+          "latitude": 36.561584,
+          "longitude": -77.240524,
+          "timestamp": 86397.25
+        },
+        "start": {
+          "altitude": -100,
+          "formatted_time": "1970-01-01 17:27:21 UTC",
+          "latitude": 26.682393,
+          "longitude": -80.090174,
+          "timestamp": 59241
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/04/02/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-03-25",
+      "distance": {
+        "num_points": 537,
+        "total_km": 1124.43,
+        "total_miles": 698.69
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 5466.51,
+        "co2_emissions_tons": 5.467,
+        "co2_per_km": 4.86,
+        "co2_per_mile": 7.82,
+        "estimated_fuel_consumed_gallons": 571.21,
+        "flight_time_hours": 1.81,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 20:20:46 UTC",
+          "latitude": 26.679119,
+          "longitude": -80.092858,
+          "timestamp": 69646.12
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 18:32:18 UTC",
+          "latitude": 21.03297,
+          "longitude": -86.864489,
+          "timestamp": 63138.63
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/03/25/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-03-18",
+      "distance": {
+        "num_points": 386,
+        "total_km": 750.95,
+        "total_miles": 466.62
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 3308.96,
+        "co2_emissions_tons": 3.309,
+        "co2_per_km": 4.41,
+        "co2_per_mile": 7.09,
+        "estimated_fuel_consumed_gallons": 345.76,
+        "flight_time_hours": 1.09,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": 42200,
+          "formatted_time": "1970-01-01 16:48:09 UTC",
+          "latitude": 22.899558,
+          "longitude": -84.64564,
+          "timestamp": 56889.38
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 15:42:30 UTC",
+          "latitude": 26.681788,
+          "longitude": -80.100751,
+          "timestamp": 52950.3
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/03/18/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-03-16",
+      "distance": {
+        "num_points": 1784,
+        "total_km": 4133.03,
+        "total_miles": 2568.14
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 24627.66,
+        "co2_emissions_tons": 24.628,
+        "co2_per_km": 5.96,
+        "co2_per_mile": 9.59,
+        "estimated_fuel_consumed_gallons": 2573.42,
+        "flight_time_hours": 8.14,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 22:18:02 UTC",
+          "latitude": 26.68145,
+          "longitude": -80.089276,
+          "timestamp": 76682.02
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 14:09:24 UTC",
+          "latitude": 26.681591,
+          "longitude": -80.10619,
+          "timestamp": 47364.54
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/03/16/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-03-04",
+      "distance": {
+        "num_points": 585,
+        "total_km": 985.3,
+        "total_miles": 612.24
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 4551.16,
+        "co2_emissions_tons": 4.551,
+        "co2_per_km": 4.62,
+        "co2_per_mile": 7.43,
+        "estimated_fuel_consumed_gallons": 475.57,
+        "flight_time_hours": 1.5,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 05:28:34 UTC",
+          "latitude": 26.681614,
+          "longitude": -80.106177,
+          "timestamp": 16114.91
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 03:58:17 UTC",
+          "latitude": 35.212006,
+          "longitude": -80.933729,
+          "timestamp": 10697.08
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/03/04/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-03-03",
+      "distance": {
+        "num_points": 628,
+        "total_km": 1154.43,
+        "total_miles": 717.33
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 4913.09,
+        "co2_emissions_tons": 4.913,
+        "co2_per_km": 4.26,
+        "co2_per_mile": 6.85,
+        "estimated_fuel_consumed_gallons": 513.38,
+        "flight_time_hours": 1.62,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 18:04:39 UTC",
+          "latitude": 35.211251,
+          "longitude": -80.933218,
+          "timestamp": 61479.37
+        },
+        "start": {
+          "altitude": 150,
+          "formatted_time": "1970-01-01 16:27:10 UTC",
+          "latitude": 26.682765,
+          "longitude": -80.09667,
+          "timestamp": 55630.69
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/03/03/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-02-20",
+      "distance": {
+        "num_points": 1655,
+        "total_km": 2467.86,
+        "total_miles": 1533.46
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 65681.05,
+        "co2_emissions_tons": 65.681,
+        "co2_per_km": 26.61,
+        "co2_per_mile": 42.83,
+        "estimated_fuel_consumed_gallons": 6863.22,
+        "flight_time_hours": 21.72,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 23:18:18 UTC",
+          "latitude": 26.681316,
+          "longitude": -80.089853,
+          "timestamp": 80298.68
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 01:35:10 UTC",
+          "latitude": 29.182858,
+          "longitude": -81.056112,
+          "timestamp": 2110.06
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/02/20/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-02-18",
+      "distance": {
+        "num_points": 427,
+        "total_km": 389.15,
+        "total_miles": 241.81
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 2331.29,
+        "co2_emissions_tons": 2.331,
+        "co2_per_km": 5.99,
+        "co2_per_mile": 9.64,
+        "estimated_fuel_consumed_gallons": 243.6,
+        "flight_time_hours": 0.77,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 19:14:19 UTC",
+          "latitude": 29.188672,
+          "longitude": -81.057869,
+          "timestamp": 65659.59
+        },
+        "start": {
+          "altitude": -200,
+          "formatted_time": "1970-01-01 18:28:04 UTC",
+          "latitude": 26.682486,
+          "longitude": -80.092022,
+          "timestamp": 62884.36
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/02/18/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-02-10",
+      "distance": {
+        "num_points": 622,
+        "total_km": 265.84,
+        "total_miles": 165.18
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 3253.37,
+        "co2_emissions_tons": 3.253,
+        "co2_per_km": 12.24,
+        "co2_per_mile": 19.7,
+        "estimated_fuel_consumed_gallons": 339.96,
+        "flight_time_hours": 1.08,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 02:10:19 UTC",
+          "latitude": 26.681334,
+          "longitude": -80.090332,
+          "timestamp": 4219.58
+        },
+        "start": {
+          "altitude": -200,
+          "formatted_time": "1970-01-01 01:05:46 UTC",
+          "latitude": 26.682765,
+          "longitude": -80.09704,
+          "timestamp": 346.67
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/02/10/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-01-18",
+      "distance": {
+        "num_points": 432,
+        "total_km": 554.61,
+        "total_miles": 344.62
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 2464.78,
+        "co2_emissions_tons": 2.465,
+        "co2_per_km": 4.44,
+        "co2_per_mile": 7.15,
+        "estimated_fuel_consumed_gallons": 257.55,
+        "flight_time_hours": 0.82,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": -100,
+          "formatted_time": "1970-01-01 22:22:57 UTC",
+          "latitude": 26.689329,
+          "longitude": -80.101213,
+          "timestamp": 76977.24
+        },
+        "start": {
+          "altitude": 1375,
+          "formatted_time": "1970-01-01 21:34:03 UTC",
+          "latitude": 31.262342,
+          "longitude": -81.441541,
+          "timestamp": 74043.09
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/01/18/traces/e6/trace_full_a21fe6.json"
+    },
+    {
+      "date": "2023-01-04",
+      "distance": {
+        "num_points": 988,
+        "total_km": 1419.12,
+        "total_miles": 881.8
+      },
+      "emissions": {
+        "aircraft_category": "business_jet",
+        "aircraft_name": "Gulfstream G550",
+        "aircraft_type": "GLF5",
+        "co2_emissions_kg": 23050.89,
+        "co2_emissions_tons": 23.051,
+        "co2_per_km": 16.24,
+        "co2_per_mile": 26.14,
+        "estimated_fuel_consumed_gallons": 2408.66,
+        "flight_time_hours": 7.62,
+        "fuel_consumption_gph": 316
+      },
+      "positions": {
+        "end": {
+          "altitude": 725,
+          "formatted_time": "1970-01-01 23:38:43 UTC",
+          "latitude": 31.280731,
+          "longitude": -81.411492,
+          "timestamp": 81523.44
+        },
+        "start": {
+          "altitude": "ground",
+          "formatted_time": "1970-01-01 16:01:22 UTC",
+          "latitude": 26.688377,
+          "longitude": -80.101914,
+          "timestamp": 54082.99
+        }
+      },
+      "url": "https://globe.adsbexchange.com/globe_history/2023/01/04/traces/e6/trace_full_a21fe6.json"
+    }
+  ],
+  "summary": {
+    "average_co2_per_flight_kg": 13829.91,
+    "co2_intensity_kg_per_km": 7.48,
+    "processed_limit": "all",
+    "successful_flights": 124,
+    "total_co2_emissions_kg": 1714908.67,
+    "total_co2_emissions_tons": 1714.909,
+    "total_distance_km": 229321.66,
+    "total_distance_miles": 142493.9,
+    "total_flights": 124,
+    "total_fuel_consumed_gallons": 179196.33
+  }
+}
