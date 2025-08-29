@@ -1,8 +1,12 @@
-import { S3Client, ListObjectsV2Command } from "@aws-sdk/client-s3";
+import {
+  BlobServiceClient,
+  BlobItem,
+  StorageSharedKeyCredential,
+  generateBlobSASQueryParameters,
+  BlobSASPermissions,
+} from "@azure/storage-blob";
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-
-const S3_BUCKET_URL = "https://revival-records.s3.amazonaws.com"; //url for s3 bucket
 
 // CORS headers
 const corsHeaders = {
@@ -20,20 +24,18 @@ export async function OPTIONS() {
 
 export async function GET(req: NextRequest) {
   try {
-    const awsRegion = process.env.AWS_REGION;
-    const accessKeyId = process.env.AWS_ACCESS_KEY_ID;
-    const secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY;
-    const bucketName = process.env.S3_BUCKET_NAME;
+    const storageAccountName = process.env.AZURE_STORAGE_ACCOUNT_NAME;
+    const storageAccountKey = process.env.AZURE_STORAGE_ACCOUNT_KEY;
+    const containerName = process.env.AZURE_CONTAINER_NAME;
 
-    if (!awsRegion || !accessKeyId || !secretAccessKey || !bucketName) {
-      console.error("Missing AWS configuration:", {
-        hasRegion: !!awsRegion,
-        hasAccessKey: !!accessKeyId,
-        hasSecretKey: !!secretAccessKey,
-        hasBucket: !!bucketName,
+    if (!storageAccountName || !storageAccountKey || !containerName) {
+      console.error("Missing Azure configuration:", {
+        hasAccountName: !!storageAccountName,
+        hasAccountKey: !!storageAccountKey,
+        hasContainer: !!containerName,
       });
       return NextResponse.json(
-        { message: "Missing AWS credentials" },
+        { message: "Missing Azure Storage credentials" },
         {
           status: 500,
           headers: corsHeaders,
@@ -41,35 +43,57 @@ export async function GET(req: NextRequest) {
       );
     }
 
-    const s3Client = new S3Client({
-      region: awsRegion,
-      credentials: {
-        accessKeyId,
-        secretAccessKey,
-      },
-    });
+    // Create credential + blob service client
+    const credential = new StorageSharedKeyCredential(
+      storageAccountName,
+      storageAccountKey
+    );
 
-    const params = {
-      Bucket: bucketName,
-      MaxKeys: 1000,
-    };
+    const blobServiceClient = new BlobServiceClient(
+      `https://${storageAccountName}.blob.core.windows.net`,
+      credential
+    );
 
-    const command = new ListObjectsV2Command(params);
-    const data = await s3Client.send(command);
+    const containerClient = blobServiceClient.getContainerClient(containerName);
 
-    const audioFiles = (data.Contents || [])
-      .map((item) => item.Key)
-      .filter((key) => key && /\.(mp3|wav|ogg|flac|m4a)$/i.test(key))
-      .map((key) => ({
-        title: key!,
-        url: `${S3_BUCKET_URL}/${encodeURIComponent(key!)}`,
-      }))
+    // List all blobs in the container
+    const blobs: BlobItem[] = [];
+    for await (const blob of containerClient.listBlobsFlat()) {
+      blobs.push(blob);
+    }
+
+    // Filter audio files and generate SAS URLs
+    const audioFiles = blobs
+      .filter(
+        (blob) =>
+          blob.name && /\.(mp3|wav|ogg|flac|m4a)$/i.test(blob.name)
+      )
+      .map((blob) => {
+        const blobClient = containerClient.getBlobClient(blob.name);
+
+        const sas = generateBlobSASQueryParameters(
+          {
+            containerName,
+            blobName: blob.name,
+            permissions: BlobSASPermissions.parse("r"), // read
+            expiresOn: new Date(Date.now() + 24 * 60 * 60 * 1000), // 24h
+          },
+          credential
+        ).toString();
+
+        return {
+          title: blob.name,
+          url: `${blobClient.url}?${sas}`,
+          size: blob.properties?.contentLength,
+          lastModified: blob.properties?.lastModified,
+        };
+      })
       .sort((a, b) => a.title.localeCompare(b.title));
 
     return NextResponse.json(
       {
         songs: audioFiles,
-        totalFiles: data.Contents?.length || 0,
+        totalFiles: blobs.length,
         audioFilesCount: audioFiles.length,
       },
       {
@@ -78,10 +102,10 @@ export async function GET(req: NextRequest) {
       }
     );
   } catch (error) {
-    console.error("Error fetching songs from S3:", error);
+    console.error("Error fetching songs from Azure Blob Storage:", error);
     return NextResponse.json(
       {
-        message: "Error fetching songs from S3",
+        message: "Error fetching songs from Azure Blob Storage",
         error: (error as Error).message,
       },
       {

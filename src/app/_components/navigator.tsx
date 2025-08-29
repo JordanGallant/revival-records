@@ -7,7 +7,6 @@ import { FaStepForward } from "react-icons/fa";
 import {
   Navbar,
   NavbarBrand,
-  NavbarMenuToggle,
   NavbarMenuItem,
   NavbarMenu,
   NavbarContent,
@@ -29,9 +28,6 @@ interface NavBarProps {
   onNextSong?: (songIndex: number) => void;
   onToggleShuffle?: () => void;
 }
-
-// Store bucket URL in environment variable
-const S3_BUCKET_URL = process.env.NEXT_PUBLIC_S3_BUCKET_URL || "https://revival-records.s3.amazonaws.com";
 
 // Interface for song metadata
 interface SongInfo {
@@ -70,9 +66,6 @@ const Navigator = forwardRef<HTMLAudioElement, NavBarProps>((props, ref) => { //
   const [songsList, setSongsList] = useState<SongInfo[]>([]);
   const [isPlaylistLoaded, setIsPlaylistLoaded] = useState(false);
   const [fetchError, setFetchError] = useState<string | null>(null);
-
-  // Track list modal state
-  const { isOpen, onOpen, onClose } = useDisclosure();
 
   // Load the song list on component mount
   useEffect(() => {
