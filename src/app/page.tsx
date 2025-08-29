@@ -6,7 +6,6 @@ import LogRocket from "logrocket";
 import Navigator from "./_components/navigator";
 import exampleSketch from "./sketches/exampleSketch";
 import Globe from "./_components/globe";
-import Spotify from "./_components/spotify";
 
 const P5Wrapper = dynamic(() => import("../app/_components/P5Wrapper"), {
   ssr: false,
@@ -36,7 +35,7 @@ export default function Home() {
         
         {/* Spotify component on top with relative positioning */}
         <div className="relative z-10">
-          <Spotify />
+          
         </div>
       </div>
     </>
