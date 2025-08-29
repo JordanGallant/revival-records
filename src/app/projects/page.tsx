@@ -72,6 +72,12 @@ const projects = [
     url: '/flash',
   },
   {
+    title: 'Graffiti Translator',
+    image: 'https://i.ibb.co/4Rg57wkz/Screenshot-2025-05-22-at-09-11-52.png',
+    description: 'Canvas API, Google Vision ',
+    url: '/graffiti',
+  },
+  {
     title: 'Sling Shot Music Game',
     image: 'https://i.ibb.co/7BSBSMp/Screenshot-2025-05-22-at-21-34-58.png',
     description: 'Matter.js, Tone.js',

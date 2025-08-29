@@ -38,8 +38,7 @@ const Graffiti = () => {
         }
     };
 
-
-    //draw letters on canvas
+    //draw letters on canvas (Azure Vision response)
     function drawDetectedLetters(canvas: HTMLCanvasElement, visionData: any) {
         const ctx = canvas.getContext("2d");
         if (!ctx) return;
@@ -49,32 +48,30 @@ const Graffiti = () => {
         ctx.strokeStyle = "black";
         ctx.lineWidth = 1;
 
-        const annotations = visionData?.responses?.[0]?.textAnnotations || [];
+        const readResults = visionData?.analyzeResult?.readResults || [];
 
-        // Skip the first entry since it's the full block of text
-        for (let i = 1; i < annotations.length; i++) {
-            const annotation = annotations[i];
-            const wordText = annotation.description;
-            const vertices = annotation.boundingPoly?.vertices || [];
+        for (const page of readResults) {
+            for (const line of page.lines) {
+                const { text, boundingBox } = line;
+                if (boundingBox?.length === 8) {
+                    const [x1, y1, x2, y2, x3, y3, x4, y4] = boundingBox;
 
-            if (vertices.length === 4 && vertices.every(v => v?.x != null && v?.y != null)) {
-                const x = vertices[0].x;
-                const y = vertices[0].y;
+                    // Draw text at top-left corner
+                    ctx.fillText(text, x1, y1);
 
-                // Draw the text at top-left corner of bounding box
-                ctx.fillText(wordText, x, y);
-
-                // Draw bounding box
-                ctx.beginPath();
-                ctx.moveTo(vertices[0].x, vertices[0].y);
-                for (let j = 1; j < vertices.length; j++) {
-                    ctx.lineTo(vertices[j].x, vertices[j].y);
+                    // Draw bounding box
+                    ctx.beginPath();
+                    ctx.moveTo(x1, y1);
+                    ctx.lineTo(x2, y2);
+                    ctx.lineTo(x3, y3);
+                    ctx.lineTo(x4, y4);
+                    ctx.closePath();
+                    ctx.stroke();
                 }
-                ctx.closePath();
-                ctx.stroke();
             }
         }
     }
+
     // take a photo
     const capturePhoto = () => {
         if (videoRef.current && canvasRef.current && processedCanvasRef.current) {
@@ -91,7 +88,7 @@ const Graffiti = () => {
             const processedContext = processedCanvas.getContext("2d");
 
             if (context && processedContext) {
-                // draw og img to both canvases
+                // draw original image to both canvases
                 context.drawImage(video, 0, 0, canvas.width, canvas.height);
                 processedContext.drawImage(video, 0, 0, processedCanvas.width, processedCanvas.height);
 
@@ -99,10 +96,9 @@ const Graffiti = () => {
                 const originalImageUrl = canvas.toDataURL("image/png");
                 setCapturedImage(originalImageUrl);
 
-                // process second img
-                let imageData = processedContext.getImageData(0, 0, 800, 800);
+                // process second img (binarize)
+                let imageData = processedContext.getImageData(0, 0, processedCanvas.width, processedCanvas.height);
                 const pixels = imageData.data;
-                //threshold and greyscale
                 const threshold = 128;
                 for (let i = 0; i < pixels.length; i += 4) {
                     const red = pixels[i];
@@ -114,51 +110,44 @@ const Graffiti = () => {
                 }
                 processedContext.putImageData(imageData, 0, 0);
 
-                // 
                 const processedImageUrl = processedCanvas.toDataURL("image/png");
 
                 // Remove Base64 prefix
                 const base64Data = processedImageUrl.replace(/^data:image\/png;base64,/, "");
 
-                // Send to API route
+                // Send to API route (Azure Vision)
                 fetch("/api/vision", {
                     method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
+                    headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ image: base64Data }),
                 })
                     .then((res) => {
-                        if (!res.ok) {
-                            throw new Error(`HTTP error! status: ${res.status}`);
-                        }
+                        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
                         return res.json();
                     })
                     .then((data) => {
-                        console.log("Full Vision API response:", data);
+                        console.log("Full Azure Vision response:", data);
 
                         if (canvasRef.current) {
                             // draw on original (unprocessed) canvas
                             drawDetectedLetters(canvasRef.current, data.data);
-                            const originalImageUrl = canvasRef.current.toDataURL("image/png");
-                            setCapturedImage(originalImageUrl);
+                            const updatedUrl = canvasRef.current.toDataURL("image/png");
+                            setCapturedImage(updatedUrl);
                         }
 
-
-                        const detectedText =
-                            data?.data?.responses?.[0]?.fullTextAnnotation?.text || "No text found";
-
+                        // Extract all detected text
+                        const detectedText = data?.data?.analyzeResult?.readResults
+                            ?.map((page: any) => page.lines.map((line: any) => line.text).join(" "))
+                            .join("\n") || "No text found";
 
                         console.log("Detected Text:", detectedText);
                     })
                     .catch((error) => {
-                        console.error("Error sending to vision API:", error);
+                        console.error("Error sending to Azure Vision API:", error);
                     });
 
-                // Continue processing image & stop camera
                 setProcessedImage(processedImageUrl);
                 stopCamera();
-
             }
         }
     };
@@ -170,7 +159,7 @@ const Graffiti = () => {
         startCamera();
     };
 
-    //will send to google vision api
+    // download image
     const downloadImage = () => {
         if (capturedImage) {
             const link = document.createElement("a");
