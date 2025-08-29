@@ -24,6 +24,12 @@ const projects = [
     url: '/voice-sampler',
   },
   {
+    title: 'DSP in the browser',
+    image: 'https://i.ibb.co/wNynww0f/Screenshot-2025-05-18-at-17-57-49.png',
+    description: 'Faust (WebAssembly)',
+    url: '/effect/reverb',
+  },
+  {
     title: 'World Wide FM radio',
     image: 'https://i.ibb.co/fY0MQ49h/Screenshot-2025-05-19-at-09-48-28.png',
     description: 'Radio Garden, Howler.js',
