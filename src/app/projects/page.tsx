@@ -120,10 +120,10 @@ const projects = [
     url: 'https://eye-track-orcin.vercel.app/',
   },
    {
-    title: 'Phone Gyroscope Color picker',
+    title: 'Self Hosted Phone Gyroscope Color picker',
     image: '/gyro.png',
     description: 'Gyroscope, Vanilla js',
-    url: '/gyro',
+    url: 'https://github.com/JordanGallant/mobile-gyro-data',
   }, 
   {
     title: 'Zoom blur effects',
@@ -132,16 +132,16 @@ const projects = [
     url: 'https://pulse-alpha-snowy.vercel.app/',
   },
   {
-    title: 'Audio Seperator',
+    title: 'Self hosted Audio Seperator',
     image: '/spleeter.png',
     description: 'spleeter, Flask',
-    url: '/spleeter',
+    url: 'https://github.com/JordanGallant/spleeter-api',
   },
   {
-    title: 'Mulitplayer fairy chess',
+    title: 'Self hosted Mulitplayer fairy chess',
     image: '/chess.png',
     description: 'Colyseus.js, Phaser.js',
-    url: 'https://chess-client-zeta.vercel.app/',
+    url: 'https://github.com/JordanGallant/chess-server',
   },
    {
     title: 'Traffic cam viewer',
