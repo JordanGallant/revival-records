@@ -120,10 +120,10 @@ const projects = [
     url: 'https://eye-track-orcin.vercel.app/',
   },
    {
-    title: 'Self Hosted Phone Gyroscope Color picker',
+    title: 'Phone Gyroscope Controller',
     image: '/gyro.png',
     description: 'Gyroscope, Vanilla js',
-    url: 'https://github.com/JordanGallant/mobile-gyro-data',
+    url: '/gyro',
   }, 
   {
     title: 'Zoom blur effects',
