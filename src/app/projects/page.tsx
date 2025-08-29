@@ -84,10 +84,10 @@ const projects = [
     url: '/sling-shot',
   },
   {
-    title: 'Hallucinate Images',
+    title: 'Selfh Hosted Image Hallucinator',
     image: 'https://i.ibb.co/v6yvn534/dreamified-1747917536.jpg',
     description: 'Pytorch, Flask',
-    url: '/hallucinate',
+    url: 'https://github.com/JordanGallant/deep-dream',
   },
   {
     title: 'Celebrity Jet Viewer',
