@@ -155,6 +155,12 @@ const projects = [
     description: 'Javascript, WebAssembly',
     url: '/snes',
   },
+  {
+    title: 'Artist Analytics Tool',
+    image: '/artists.png',
+    description: 'GraphQL, Javascript',
+    url: '/https://artist-insights.vercel.app/',
+  },
 ];
 
 export default function ProjectsGrid() {
