@@ -7,31 +7,10 @@ export default function Strudel() {
 
     
       // Your custom Strudel code with Hydra visuals
-      const customStrudelCode = `
-    await initHydra()
-    osc(10, 0.9, 300)
-    .color(0.9, 0.7, 0.8)
-    .diff(
-    osc(45, 0.3, 100)
-    .color(0.9, 0.9, 0.9)
-    .rotate(0.18)
-    .pixelate(12)
-    .kaleid()
-    )
-    .scrollX(10)
-    .colorama()
-    .luma()
-    .repeatX(4)
-    .repeatY(4)
-    .modulate(
-    osc(1, -0.9, 300)
-    )
-    .scale(2)
-    .out()
-    
-    note("[a,c,e,<a4 ab4 g4 gb4>,b4]/2")
-    .s("sawtooth").vib(2)
-    .lpf(600).lpa(2).lpenv(6)`;
+      const customStrudelCode = `await initHydra()
+let pattern = "3 4 5 [6 7]*2"
+shape(H(pattern)).out(o0)
+n(pattern).scale("A:minor").piano().room(1)`;
     
       // Encode the custom code for URL parameter
       const encodedCode = encodeURIComponent(customStrudelCode);
@@ -95,7 +74,6 @@ export default function Strudel() {
                   Hide Strudel
                 </button>
               </div>
-
               {/* Strudel iframe with custom code pre-loaded */}
               <iframe
                 ref={iframeRef}
