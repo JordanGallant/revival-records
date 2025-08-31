@@ -159,7 +159,7 @@ const projects = [
     title: 'Artist Analytics Tool',
     image: '/artists.png',
     description: 'GraphQL, Javascript',
-    url: '/https://artist-insights.vercel.app/',
+    url: 'https://artist-insights.vercel.app/',
   },
 ];
 
