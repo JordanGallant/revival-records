@@ -163,7 +163,7 @@ const projects = [
   },
 
     {
-    title: 'Artist Analytics Tool',
+    title: 'Damn Vulnerable Defi Labs',
     image: '/labs.png',
     description: 'Next.js Linux VM, Flask API, LXD containers, OpenVPN',
     url: 'https://prove-frontend.vercel.app/',
