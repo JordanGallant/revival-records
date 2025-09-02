@@ -161,6 +161,15 @@ const projects = [
     description: 'GraphQL, Javascript',
     url: 'https://artist-insights.vercel.app/',
   },
+
+    {
+    title: 'Artist Analytics Tool',
+    image: '/labs.png',
+    description: 'Next.js Linux VM, Flask API, LXD containers, OpenVPN',
+    url: 'https://prove-frontend.vercel.app/',
+  },
+
+
 ];
 
 export default function ProjectsGrid() {
