@@ -4,7 +4,7 @@ import { useState, useCallback } from 'react';
 import { FiUpload, FiMusic, FiDownload, FiLoader, FiAlertCircle, FiCheckCircle } from 'react-icons/fi';
 import Navigator from '../_components/navigator';
 
-const API_BASE_URL = 'https://spleeter-api-hmk1.onrender.com';
+const API_BASE_URL = '52.149.64.209:8000';
 
 interface UploadState {
   file: File | null;
@@ -99,7 +99,7 @@ export default function SpleeterApp() {
         }));
       }, 500);
 
-      const response = await fetch(`${API_BASE_URL}/separate`, {
+      const response = await fetch(`http://${API_BASE_URL}/separate`, {
         method: 'POST',
         body: formData,
       });

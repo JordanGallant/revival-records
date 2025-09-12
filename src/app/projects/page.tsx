@@ -135,7 +135,7 @@ const projects = [
     title: 'Self hosted Audio Seperator',
     image: '/spleeter.png',
     description: 'spleeter, Flask',
-    url: 'https://github.com/JordanGallant/spleeter-api',
+    url: '/spleeter',
   },
   {
     title: 'Self hosted Mulitplayer fairy chess',
