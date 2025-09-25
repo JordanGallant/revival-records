@@ -161,12 +161,17 @@ const projects = [
     description: 'GraphQL, Javascript',
     url: 'https://artist-insights.vercel.app/',
   },
-
     {
     title: 'Damn Vulnerable Defi Labs',
     image: '/labs.png',
     description: 'Next.js Linux VM, Flask API, LXD containers, OpenVPN',
     url: 'https://prove-frontend.vercel.app/',
+  },
+  {
+    title: 'Tree Hugger',
+    image: '/trees.png',
+    description: 'Next.js Leaflet.js, PostgresDB',
+    url: 'https://geojson-indol.vercel.app/',
   },
 
 
